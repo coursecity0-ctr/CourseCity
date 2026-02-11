@@ -10,42 +10,20 @@
       "use": "@vercel/python"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/recommend",
-      "dest": "backend/api/recommend.py"
+      "source": "/api/recommend",
+      "destination": "backend/api/recommend.py"
     },
     {
-      "src": "/api/(.*)",
-      "dest": "backend/server.js"
+      "source": "/api/(.*)",
+      "destination": "backend/server.js"
     },
     {
-      "src": "/uploads/(.*)",
-      "dest": "backend/uploads/$1"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "src/assets/$1"
-    },
-    {
-      "src": "/styles/(.*)",
-      "dest": "src/styles/$1"
-    },
-    {
-      "src": "/scripts/(.*)",
-      "dest": "src/scripts/$1"
-    },
-    {
-      "src": "/auth/(.*)",
-      "dest": "src/auth/$1"
-    },
-    {
-      "src": "/",
-      "dest": "src/pages/index.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "src/pages/$1"
+      "source": "/uploads/(.*)",
+      "destination": "backend/uploads/$1"
     }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
