@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Verify your CourseCity email address">
+  <title>Verify Email - CourseCity</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon_io/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="../assets/favicon_io/site.webmanifest">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <div class="auth-page-wrapper">
+    <!-- Left Side - Hero -->
+    <div class="auth-hero">
+      <div class="auth-hero-content">
+        <a href="../pages/index.html" class="auth-logo">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Course<span class="logo-highlight">City</span></span>
+        </a>
+        <div class="auth-hero-text">
+          <h1>Verify Your Email</h1>
+          <p>We've sent a verification link to your email address. Click the link to activate your account.</p>
+        </div>
+        <div class="auth-hero-icon">
+          <i class="fas fa-envelope-open-text"></i>
+        </div>
+        <div class="auth-hero-features">
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Check Your Inbox</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Click Verification Link</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Start Learning</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side - Verification Content -->
+    <div class="auth-form-side">
+      <div class="auth-form-container">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle auth-theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-sun" id="sun-icon"></i>
+          <i class="fas fa-moon" id="moon-icon" style="display: none;"></i>
+        </button>
+
+        <div class="auth-form-header">
+          <div class="auth-icon-large success">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h2>Check Your Email</h2>
+          <p id="verification-email-text">We've sent a verification link to your email address</p>
+        </div>
+
+        <div class="verification-content">
+          <div class="verification-steps">
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-text">
+                <h4>Check your inbox</h4>
+                <p>Look for an email from CourseCity</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-text">
+                <h4>Click the verification link</h4>
+                <p>This will activate your account</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-text">
+                <h4>Start learning</h4>
+                <p>Access thousands of courses</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="verification-actions">
+            <p class="text-center">Didn't receive the email?</p>
+            <button class="btn-secondary-action" id="resend-verification-btn">
+              <i class="fas fa-redo"></i>
+              Resend Verification Email
+            </button>
+            <p class="helper-text">Check your spam folder or try a different email address</p>
+          </div>
+        </div>
+
+        <div class="auth-footer">
+          <p>Need help? <a href="Contact/Contact.html">Contact Support</a></p>
+        </div>
+
+        <div class="auth-links">
+          <a href="../pages/index.html"><i class="fas fa-home"></i> Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="../scripts/script.js"></script>
+  <script src="../scripts/auth.js"></script>
+</body>
+</html>
+

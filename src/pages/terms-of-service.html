@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CourseCity Terms of Service - Read our terms and conditions for using our online learning platform.">
+  <title>Terms of Service - CourseCity</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon_io/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="../assets/favicon_io/site.webmanifest">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">   
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../styles/style.css">
+  <style>
+    .policy-page {
+      padding: 100px 0 60px;
+      background: var(--bg-secondary);
+    }
+    .policy-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px;
+      background: var(--bg-primary);
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .policy-header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    .policy-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--text-primary);
+    }
+    .policy-header p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+    .last-updated {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+    .policy-section {
+      margin-bottom: 40px;
+    }
+    .policy-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .policy-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      margin-top: 20px;
+      color: var(--text-primary);
+    }
+    .policy-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+    .policy-section ul, .policy-section ol {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-left: 30px;
+      margin-bottom: 15px;
+    }
+    .policy-section li {
+      margin-bottom: 10px;
+    }
+    .contact-box {
+      background: var(--accent-light);
+      padding: 25px;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent-color);
+      margin-top: 30px;
+    }
+    .contact-box h3 {
+      color: var(--accent-color);
+      margin-bottom: 15px;
+    }
+    .highlight-box {
+      background: var(--bg-secondary);
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent-color);
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-wrapper">
+        <div class="logo">
+          <a href="index.html">
+            <i class="fas fa-graduation-cap"></i>
+            Course<span>City</span>
+          </a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav id="nav-menu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="All_Courses/Courses.html">All Courses</a></li>
+            <li><a href="Explore/explore.html">Explore</a></li>
+            <li><a href="Blog/blog.html">Blog</a></li>
+            <li><a href="Contact/Contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Right Actions -->
+        <div class="header-right" role="toolbar" aria-label="Header actions">
+          <!-- Wishlist -->
+          <a href="wishlist.html" class="icon-btn" id="wishlist-btn" aria-label="View Wishlist" title="View Wishlist" style="display: none;">
+            <i class="far fa-heart"></i>
+            <span class="badge" id="wishlist-count">0</span>
+          </a>
+
+          <!-- Notifications (Always visible) -->
+          <div class="notification-container">
+            <button class="icon-btn" id="notification-bell-btn" aria-haspopup="dialog" aria-expanded="false" aria-label="Notifications">
+              <i class="far fa-bell" id="notification-bell-icon"></i>
+              <span class="badge" id="notification-count" style="display: none;">0</span>
+            </button>
+
+            <div id="notification-dropdown" class="notification-dropdown" role="dialog" aria-label="Notifications">
+              <div class="notification-dropdown-header">
+                <h3>Notifications</h3>
+                <div class="notification-header-actions">
+                  <button class="btn-icon-small" id="mark-all-read-btn" title="Mark all as read">
+                    <i class="fas fa-check-double"></i>
+                  </button>
+                  <button class="btn-icon-small" id="clear-all-notif-btn" title="Clear all">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="notification-dropdown-body" id="notification-dropdown-list">
+                <!-- Notifications will be rendered here -->
+              </div>
+              <div class="notification-dropdown-footer">
+                <a href="notifications.html" class="btn-view-all-notifications">
+                  View All Notifications
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart -->
+          <div class="cart-container" aria-live="polite">
+            <button class="icon-btn" id="cart-btn" aria-haspopup="dialog" aria-expanded="false" title="Open cart">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+              <span class="badge" id="cart-count" aria-hidden="true">0</span>
+            </button>
+
+            <div id="cart-dropdown" role="dialog" aria-label="Cart" aria-modal="false">
+              <h3>Shopping Cart</h3>
+              <ul id="cart-items-preview" aria-live="polite"></ul>
+              <div id="cart-total-preview">Total: GH₵0.00</div>
+              <div class="cart-dropdown-actions">
+                <a href="cart.html" class="btn-view-cart">View Full Cart</a>
+                <button id="quick-checkout-btn" class="btn-quick-checkout">Quick Checkout</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dark/Light Mode Toggle -->
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-sun" id="sun-icon"></i>
+            <i class="fas fa-moon" id="moon-icon" style="display: none;"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Terms of Service Content -->
+  <div class="policy-page">
+    <div class="container">
+      <div class="policy-container">
+        <div class="policy-header">
+          <h1><i class="fas fa-file-contract"></i> Terms of Service</h1>
+          <p>Please read these terms carefully before using CourseCity</p>
+          <p class="last-updated">Last Updated: January 2025</p>
+        </div>
+
+        <div class="highlight-box">
+          <h3><i class="fas fa-exclamation-circle"></i> Acceptance of Terms</h3>
+          <p>By accessing or using CourseCity ("the Platform"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our services. These Terms apply to all users, including students, instructors, and visitors.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2><i class="fas fa-user-circle"></i> 1. Account Registration and Responsibilities</h2>
+          
+          <h3>1.1 Account Creation</h3>
+          <p>To access certain features of the Platform, you must create an account by providing accurate, current, and complete information. You are responsible for:</p>
+          <ul>
+            <li>Maintaining the confidentiality of your account credentials</li>
+            <li>All activities that occur under your account</li>
+            <li>Notifying us immediately of any unauthorized access</li>
+            <li>Ensuring you are at least 13 years of age (or age of majority in your jurisdiction)</li>
+          </ul>
+
+          <h3>1.2 Account Accuracy</h3>
+          <p>You must provide accurate and truthful information when creating and using your account. Providing false information may result in account termination.</p>
+
+          <h3>1.3 Multiple Accounts</h3>
+          <p>You may not create multiple accounts for the same person, or use another person's account without authorization.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2><i class="fas fa-cart"></i> 2. Course Enrollment and Payments</h2>
+          
+          <h3>2.1 Course Purchase</h3>
+          <p>When you purchase a course on CourseCity, you obtain:</p>
+          <ul>
+            <li>A personal, non-exclusive, non-transferable license to access the course</li>
+            <li>Access to course materials for your personal educational purposes</li>
+            <li>Community access and instructor support (where provided)</li>
+          </ul>
+
+          <h3>2.2 Pricing</h3>
+          <p>All prices are displayed in Ghana Cedis (GH₵) and are subject to change without notice. Prices include applicable taxes where required by law.</p>
+
+          <h3>2.3 Payment Processing</h3>
+          <p>We use secure third-party payment processors (Paystack, Mobile Money). By making a purchase, you agree to their terms and conditions.</p>
+
+          <h3>2.4 Refund Policy</h3>
+          <div class="highlight-box">
+            <p><strong>30-Day Money-Back Guarantee:</strong> If you are not satisfied with a course within 30 days of purchase, you may request a full refund. Refunds will be processed within 7-10 business days.</p>
+            <p><strong>Refund Restrictions:</strong> Refunds are not available if you have completed more than 50% of the course or downloaded course materials after 30 days.</p>
+          </div>
+
+          <h3>2.5 Promotional Codes</h3>
+          <p>Promotional codes, discounts, and special offers are subject to terms and conditions specified at the time of issuance. We reserve the right to modify or cancel promotions at any time.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2><i class="fas fa-chalkboard-teacher"></i> 3. User Conduct and Responsibilities</h2>
+          
+          <h3>3.1 Acceptable Use</h3>
+          <p>You agree to use the Platform only for lawful purposes and in accordance with these Terms. You agree NOT to:</p>
+          <ul>
+            <li>Share, distribute, or resell course content without authorization</li>
+            <li>Reproduce, modify, or create derivative works from course materials</li>
+            <li>Use automated systems (bots, scrapers) to access the Platform</li>
+            <li>Interfere with or disrupt the Platform's functionality</li>
+            <li>Upload viruses, malware, or harmful code</li>
+            <li>Impersonate others or provide false information</li>
+            <li>Harass, threaten, or harm other users</li>
+            <li>Violate any applicable laws or regulations</li>
+          </ul>
+
+          <h3>3.2 Intellectual Property Rights</h3>
+          <p>All content on CourseCity, including but not limited to courses, text, graphics, logos, and software, is the property of CourseCity or its content creators and is protected by copyright and other intellectual property laws.</p>
+
+          <h3>3.3 Course Content Usage</h3>
+          <p>When you enroll in a course, you receive a limited, non-transferable license to:</p>
+          <ul>
+            <li>Access course materials for personal educational purposes</li>
+            <li>View and download materials for your own learning</li>
+            <li>Participate in course discussions and activities</li>
+          </ul>
+          <p>You may NOT:</p>
+          <ul>
+            <li>Redistribute, sell, or share course materials</li>
+            <li>Create derivative works or translations without permission</li>
+            <li>Use content for commercial purposes</li>
+            <li>Screen record or publicly share entire course lessons</li>
+          </ul>
+
+          <h3>3.4 User-Generated Content</h3>
+          <p>When you submit content (comments, reviews, forum posts), you grant CourseCity a non-exclusive, royalty-free license to use, display, and distribute that content on the Platform.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2><i class="fas fa-certificate"></i> 4. Certificates and Completion</h2>
+          
+          <h3>4.1 Certificate Issuance</h3>
+          <p>Certificates of completion may be provided upon successful completion of course requirements. Certificates are digital documents and should not be considered formal academic credentials unless otherwise stated.</p>
+
+          <h3>4.2 Completion Requirements</h3>
+          <p>To receive a certificate, you must:</p>
+          <ul>
+            <li>Complete all required course materials and assessments</li>
+            <li>Achieve the minimum passing score (where applicable)</li>
+            <li>Adhere to course policies and academic integrity standards</li>
+          </ul>
+
+          <h3>4.3 Certificate Verification</h3>
+          <p>Certificates issued by CourseCity can be verified through our platform. We reserve the right to revoke certificates if academic dishonesty is discovered.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2><i class="fas fa-ban"></i> 5. Prohibited Activities</h2>
+          <p>The following activities are strictly prohibited on CourseCity:</p>
+          <ul>
+            <li>Piracy: Sharing or distributing course materials without authorization</li>
+            <li>Fraud: Using stolen payment methods or attempting chargeback fraud</li>
+            <li>Academic Dishonesty: Cheating, plagiarism, or dishonesty in assessments</li>
+            <li>Spam: Sending unsolicited messages or engaging in unwanted marketing</li>
+            <li>Abuse: Harassing, threatening, or discriminating against other users</li>
+            <li>Illegal Content: Uploading or sharing illegal, harmful, or objectionable content</li>
+            <li>System Manipulation: Attempting to hack, breach, or compromise the Platform</li>
+          </ul>
+          <p>Violation of these prohibitions may result in immediate account termination without refund.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2><i class="fas fa-gavel"></i> 6. Termination and Suspension</h2>
+          
+          <h3>6.1 Termination by You</h3>
+          <p>You may terminate your account at any time by contacting us or using account deletion features. Upon termination:</p>
+          <ul>
+            <li>Your access to the Platform will be revoked</li>
+            <li>Your course enrollments will be cancelled</li>
+            <li>Personal data will be deleted in accordance with our Privacy Policy</li>
+            <li>No refunds will be provided unless covered by our refund policy</li>
+          </ul>
+
+          <h3>6.2 Termination by Us</h3>
+          <p>We reserve the right to suspend or terminate your account if you:</p>
+          <ul>
+            <li>Violate these Terms or our policies</li>
+            <li>Engage in prohibited activities</li>
+            <li>Provide false information</li>
+            <li>Fail to pay required fees</li>
+            <li>Misuse the Platform or its services</li>
+          </ul>
+
+          <h3>6.3 Effect of Termination</h3>
+          <p>Upon termination, you lose all rights to access courses, materials, and Platform features. Course certificates remain valid unless revoked for cause.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2><i class="fas fa-balance-scale"></i> 7. Disclaimers and Limitations of Liability</h2>
+          
+          <h3>7.1 Educational Disclaimer</h3>
+          <p>While we strive to provide high-quality educational content, we make no guarantees regarding:</p>
+          <ul>
+            <li>The accuracy, completeness, or applicability of course content</li>
+            <li>Employment outcomes or career advancement</li>
+            <li>Certification acceptance by third parties</li>
+            <li>The success of any specific learning outcome</li>
+          </ul>
+
+          <h3>7.2 Platform Availability</h3>
+          <p>We do not guarantee uninterrupted or error-free access to the Platform. The service is provided "as is" and "as available" without warranties of any kind.</p>
+
+          <h3>7.3 Limitation of Liability</h3>
+          <p>To the maximum extent permitted by law, CourseCity and its affiliates shall not be liable for:</p>
+          <ul>
+            <li>Indirect, incidental, or consequential damages</li>
+            <li>Loss of data, profits, or business opportunities</li>
+            <li>Damages arising from Platform use or inability to use</li>
+            <li>Third-party conduct or content</li>
+          </ul>
+          <p>Our total liability shall not exceed the amount you paid for courses in the 12 months preceding the claim.</p>
+
+          <h3>7.4 Third-Party Services</h3>
+          <p>The Platform may contain links to third-party websites or services. We are not responsible for the content, privacy practices, or terms of third-party services.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2><i class="fas fa-shield-alt"></i> 8. Indemnification</h2>
+          <p>You agree to indemnify, defend, and hold harmless CourseCity, its affiliates, officers, directors, employees, and agents from any claims, liabilities, damages, losses, or expenses (including legal fees) arising from:</p>
+          <ul>
+            <li>Your use of the Platform</li>
+            <li>Your violation of these Terms</li>
+            <li>Your violation of any third-party rights</li>
+            <li>Content you submit or transmit through the Platform</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2><i class="fas fa-exchange-alt"></i> 9. Modifications to Terms</h2>
+          <p>We reserve the right to modify these Terms at any time. We will notify you of material changes by:</p>
+          <ul>
+            <li>Posting updated Terms on this page</li>
+            <li>Updating the "Last Updated" date</li>
+            <li>Sending email notifications (for significant changes)</li>
+          </ul>
+          <p>Your continued use of the Platform after changes constitutes acceptance of the modified Terms.</p>
+        </div>
+
+        <div class="policy-section">
+          <h2><i class="fas fa-gavel"></i> 10. Governing Law and Disputes</h2>
+          
+          <h3>10.1 Governing Law</h3>
+          <p>These Terms are governed by and construed in accordance with the laws of Ghana, without regard to conflict of law principles.</p>
+
+          <h3>10.2 Dispute Resolution</h3>
+          <p>Any disputes arising from these Terms or your use of the Platform will be resolved through:</p>
+          <ol>
+            <li><strong>Informal Negotiation:</strong> Parties will attempt to resolve disputes through good-faith negotiation</li>
+            <li><strong>Mediation:</strong> If negotiation fails, disputes will be referred to mediation</li>
+            <li><strong>Arbitration or Courts:</strong> As a last resort, disputes will be settled in the courts of Ghana</li>
+          </ol>
+        </div>
+
+        <div class="policy-section">
+          <h2><i class="fas fa-info-circle"></i> 11. General Provisions</h2>
+          
+          <h3>11.1 Entire Agreement</h3>
+          <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and CourseCity regarding the Platform.</p>
+
+          <h3>11.2 Severability</h3>
+          <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions will remain in full force and effect.</p>
+
+          <h3>11.3 Waiver</h3>
+          <p>Our failure to enforce any provision of these Terms does not constitute a waiver of that provision or any other provision.</p>
+
+          <h3>11.4 Assignment</h3>
+          <p>You may not assign or transfer these Terms or your account. We may assign or transfer these Terms without restriction.</p>
+
+          <h3>11.5 Force Majeure</h3>
+          <p>We are not liable for any failure to perform our obligations due to circumstances beyond our reasonable control, including natural disasters, war, terrorism, or internet outages.</p>
+
+          <h3>11.6 Contact Information</h3>
+          <p>For questions about these Terms, please contact us at the information provided below.</p>
+        </div>
+
+        <div class="contact-box">
+          <h3><i class="fas fa-envelope"></i> Contact Us</h3>
+          <p>If you have questions about these Terms of Service, please contact us:</p>
+          <ul style="list-style: none; margin-left: 0;">
+            <li><i class="fas fa-envelope"></i> Email: <a href="mailto:legal@coursecity.gh" style="color: var(--accent-color);">legal@coursecity.gh</a></li>
+            <li><i class="fas fa-phone"></i> Phone: +233 XX XXX XXXX</li>
+            <li><i class="fas fa-map-marker-alt"></i> Address: Accra, Ghana</li>
+          </ul>
+          <p style="margin-top: 15px; font-size: 0.95rem;">We will respond to your inquiry within 5-7 business days.</p>
+        </div>
+
+        <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid var(--border-color); text-align: center;">
+          <p style="color: var(--text-secondary);">By using CourseCity, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
+          <a href="privacy-policy.html" style="color: var(--accent-color); margin-top: 15px; display: inline-block;">View Privacy Policy →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="margin-top: 60px;">
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <div class="footer-logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Course<span class="logo-accent">City</span></span>
+          </div>
+          <p>Ghana's leading online learning platform. Find great courses on everything from data analytics to web development, Excel to graphic design.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/coursecitygh" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@coursecitygh" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/233241234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="About/About.html">About Us</a></li>
+            <li><a href="All_Courses/Courses.html">All Courses</a></li>
+            <li><a href="Contact/Contact.html">Contact</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> support@coursecity.gh</p>
+            <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+            <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 CourseCity Ghana. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="../scripts/api.js"></script>
+  <script src="../scripts/script.js"></script>
+</body>
+</html>
+

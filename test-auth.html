@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Authentication Flow</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+    button { padding: 10px 15px; margin: 5px; cursor: pointer; }
+    .success { color: green; }
+    .error { color: red; }
+    .info { color: blue; }
+  </style>
+</head>
+<body>
+  <h1>Authentication Flow Test</h1>
+  
+  <div class="test-section">
+    <h2>Cart Modal Buttons Test</h2>
+    <p>These buttons should redirect to login if not authenticated:</p>
+    
+    <!-- Simulate cart modal buttons -->
+    <a href="src/pages/cart.html" class="btn-view-cart" style="display: inline-block; padding: 10px; background: #007cba; color: white; text-decoration: none;">View Full Cart</a>
+    <button id="quick-checkout-btn" style="padding: 10px; background: #28a745; color: white; border: none;">Quick Checkout</button>
+  </div>
+
+  <div class="test-section">
+    <h2>Authentication Status</h2>
+    <button onclick="testAuthStatus()">Check Auth Status</button>
+    <div id="auth-result"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Manual Tests</h2>
+    <button onclick="testRequireAuth('cart.html')">Test Cart Access</button>
+    <button onclick="testRequireAuth('checkout.html')">Test Checkout Access</button>
+    <div id="test-result"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="src/scripts/api.js"></script>
+  <script src="src/scripts/auth-utils.js"></script>
+  <script src="src/scripts/script.js"></script>
+
+  <script>
+    // Test functions
+    async function testAuthStatus() {
+      const resultDiv = document.getElementById('auth-result');
+      resultDiv.innerHTML = '<p class="info">Checking authentication status...</p>';
+      
+      try {
+        const authStatus = await AuthUtils.checkAuthStatus();
+        resultDiv.innerHTML = `
+          <p class="success">Auth Status Check Complete:</p>
+          <pre>${JSON.stringify(authStatus, null, 2)}</pre>
+        `;
+      } catch (error) {
+        resultDiv.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+      }
+    }
+
+    async function testRequireAuth(page) {
+      const resultDiv = document.getElementById('test-result');
+      resultDiv.innerHTML = `<p class="info">Testing access to ${page}...</p>`;
+      
+      try {
+        const isAuthenticated = await AuthUtils.requireAuth(page, (user) => {
+          resultDiv.innerHTML = `<p class="success">Access granted! User: ${user?.email || 'Unknown'}</p>`;
+        });
+        
+        if (!isAuthenticated) {
+          resultDiv.innerHTML = `<p class="info">Not authenticated - should redirect to login</p>`;
+        }
+      } catch (error) {
+        resultDiv.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+      }
+    }
+
+    // Initialize protected navigation when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('Test page loaded, initializing protected navigation...');
+      
+      // Initialize the same handlers as in the main script
+      if (typeof initializeProtectedNavigation === 'function') {
+        initializeProtectedNavigation();
+      } else {
+        // Manually initialize for testing
+        const viewCartBtn = document.querySelector('.btn-view-cart');
+        if (viewCartBtn) {
+          viewCartBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            console.log('View Cart clicked - testing auth...');
+            
+            const isAuthenticated = await AuthUtils.requireAuth('src/pages/cart.html', () => {
+              console.log('Authenticated - would go to cart');
+              window.location.href = 'src/pages/cart.html';
+            });
+            
+            if (!isAuthenticated) {
+              console.log('Not authenticated - should redirect to login');
+            }
+          });
+        }
+
+        const quickCheckoutBtn = document.getElementById('quick-checkout-btn');
+        if (quickCheckoutBtn) {
+          quickCheckoutBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            console.log('Quick Checkout clicked - testing auth...');
+            
+            const isAuthenticated = await AuthUtils.requireAuth('src/pages/checkout.html', () => {
+              console.log('Authenticated - would go to checkout');
+              window.location.href = 'src/pages/checkout.html';
+            });
+            
+            if (!isAuthenticated) {
+              console.log('Not authenticated - should redirect to login');
+            }
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel Mastery: From Basics to Advanced Data Analysis - CourseCity</title>
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../../assets/favicon_io/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../assets/favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/favicon_io/site.webmanifest">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../styles/style.css">
+  <link rel="stylesheet" href="../../styles/All_Courses/courses.css">
+</head>
+<body>
+  <!-- Top Banner -->
+  <div class="top-banner">
+    <div class="container">
+      <div class="banner-content">
+        <div class="banner-left">
+          <span>🎉 Special Offer for All African Learners! Get up to 50% off on all courses - Limited time only!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-wrapper">
+        <div class="logo">
+          <a href="../index.html">
+            <i class="fas fa-graduation-cap"></i>
+            Course<span>City</span>
+          </a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav id="nav-menu">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="Courses.html" class="active">All Courses</a></li>
+            <li><a href="../Explore/explore.html">Explore</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/Contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Right Actions -->
+        <div class="header-right" role="toolbar" aria-label="Header actions">
+          <!-- Wishlist -->
+          <a href="../wishlist.html" class="icon-btn" id="wishlist-btn" aria-label="View Wishlist" title="View Wishlist" style="display: none;">
+            <i class="far fa-heart"></i>
+            <span class="badge" id="wishlist-count">0</span>
+          </a>
+
+          <!-- Notifications (Always visible) -->
+          <div class="notification-container">
+            <button class="icon-btn" id="notification-bell-btn" aria-haspopup="dialog" aria-expanded="false" aria-label="Notifications">
+              <i class="far fa-bell" id="notification-bell-icon"></i>
+              <span class="badge" id="notification-count" style="display: none;">0</span>
+            </button>
+
+            <div id="notification-dropdown" class="notification-dropdown" role="dialog" aria-label="Notifications">
+              <div class="notification-dropdown-header">
+                <h3>Notifications</h3>
+                <div class="notification-header-actions">
+                  <button class="btn-icon-small" id="mark-all-read-btn" title="Mark all as read">
+                    <i class="fas fa-check-double"></i>
+                  </button>
+                  <button class="btn-icon-small" id="clear-all-notif-btn" title="Clear all">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="notification-dropdown-body" id="notification-dropdown-list">
+                <!-- Notifications will be rendered here -->
+              </div>
+              <div class="notification-dropdown-footer">
+                <a href="../notifications.html" class="btn-view-all-notifications">
+                  View All Notifications
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart -->
+          <div class="cart-container" aria-live="polite">
+            <button class="icon-btn" id="cart-btn" aria-haspopup="dialog" aria-expanded="false" title="Open cart">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+              <span class="badge" id="cart-count" aria-hidden="true">0</span>
+            </button>
+
+            <div id="cart-dropdown" role="dialog" aria-label="Cart" aria-modal="false">
+              <h3>Shopping Cart</h3>
+              <ul id="cart-items-preview" aria-live="polite"></ul>
+              <div id="cart-total-preview">Total: GH₵0.00</div>
+              <div class="cart-dropdown-actions">
+                <a href="../cart.html" class="btn-view-cart">View Full Cart</a>
+                <button id="quick-checkout-btn" class="btn-quick-checkout">Quick Checkout</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Profile (Hidden by default, shown when logged in) -->
+          <div class="user-profile" id="user-profile" style="display: none;">
+            <button class="user-avatar-btn" id="user-avatar-btn" aria-label="User menu">
+              <div class="user-avatar" id="user-avatar">U</div>
+            </button>
+
+            <div class="user-dropdown" id="user-dropdown">
+              <a href="../profile.html" class="user-dropdown-item">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="../my-courses.html" class="user-dropdown-item">
+                <i class="fas fa-book"></i>
+                <span>My Courses</span>
+              </a>
+              <div class="user-dropdown-divider"></div>
+              <a href="#" class="user-dropdown-item" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Dark/Light Mode Toggle -->
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-sun" id="sun-icon"></i>
+            <i class="fas fa-moon" id="moon-icon" style="display: none;"></i>
+          </button>
+
+          <!-- Auth Buttons (Shown when not logged in) -->
+          <a href="../../auth/login.html" class="btn-login-link">
+            Login
+          </a>
+          <a href="../../auth/signup.html" class="btn-login" title="Sign Up">
+            <i class="fas fa-user"></i>
+            Sign Up
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Course Detail Section -->
+  <section class="course-detail-hero">
+    <div class="container">
+      <div class="course-breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <a href="Courses.html">All Courses</a>
+        <span>/</span>
+        <span>Excel Mastery</span>
+      </div>
+
+      <div class="course-detail-grid">
+        <!-- Course Image -->
+        <div class="course-image-section">
+          <img src="../../assets/image/Excel.png" alt="Excel Mastery Course" class="course-hero-image">
+        </div>
+
+        <!-- Course Info -->
+        <div class="course-info-section">
+          <h1 class="course-title">Excel Mastery: From Basics to Advanced Data Analysis and Automation</h1>
+          
+          <div class="course-meta">
+            <div class="course-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-text">(4.8/5 - 2,156 reviews)</span>
+            </div>
+            <div class="course-students">
+              <i class="fas fa-users"></i>
+              <span>8,432 students enrolled</span>
+            </div>
+          </div>
+
+          <div class="course-price-section">
+            <div class="price-container">
+              <span class="current-price">GH₵20.00</span>
+              <span class="original-price">GH₵100.00</span>
+              <span class="discount-badge">80% OFF</span>
+            </div>
+            <div class="price-note">Special launch price!</div>
+          </div>
+
+          <div class="course-actions">
+            <button class="btn-primary btn-add-to-cart" data-course="Excel Mastery: From Basics to Advanced Data Analysis and Automation" data-price="20.00">
+              <i class="fas fa-shopping-cart"></i>
+              Add to Cart
+            </button>
+            <button class="btn-secondary btn-add-to-wishlist" data-course="Excel Mastery: From Basics to Advanced Data Analysis and Automation">
+              <i class="far fa-heart"></i>
+              Add to Wishlist
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Content Section -->
+  <section class="course-content-section">
+    <div class="container">
+      <div class="course-tabs">
+        <button class="tab-btn active" data-tab="description">Description</button>
+        <button class="tab-btn" data-tab="curriculum">Curriculum</button>
+        <button class="tab-btn" data-tab="reviews">Reviews</button>
+      </div>
+
+      <div class="tab-content active" id="description">
+        <div class="course-description">
+          <h2>📊 Master Excel – From Beginner to Expert! 🚀</h2>
+          
+          <p>Transform your career with <strong>Microsoft Excel mastery</strong>! Whether you're a student, professional, or entrepreneur, this comprehensive Excel course will take you from basic spreadsheets to advanced data analysis and automation – no prior experience required!</p>
+
+          <h3>📘 What You'll Learn</h3>
+          <ul class="feature-list">
+            <li><i class="fas fa-check"></i> <strong>Excel Fundamentals</strong> – Navigate Excel interface, create and format spreadsheets</li>
+            <li><i class="fas fa-check"></i> <strong>Advanced Formulas & Functions</strong> – VLOOKUP, INDEX/MATCH, IF statements, and more</li>
+            <li><i class="fas fa-check"></i> <strong>Data Analysis Tools</strong> – Pivot Tables, Charts, and Data Visualization</li>
+            <li><i class="fas fa-check"></i> <strong>Automation with Macros</strong> – Record and create VBA macros to automate tasks</li>
+            <li><i class="fas fa-check"></i> <strong>Data Cleaning & Preparation</strong> – Clean messy data and prepare for analysis</li>
+            <li><i class="fas fa-check"></i> <strong>Business Applications</strong> – Financial modeling, budgeting, and reporting</li>
+          </ul>
+
+          <h3>✅ What's Inside</h3>
+          <ul class="feature-list">
+            <li><i class="fas fa-video"></i> <strong>40+ video lessons</strong> (from basics to advanced Excel)</li>
+            <li><i class="fas fa-file-excel"></i> <strong>Practice workbooks</strong> with real business scenarios</li>
+            <li><i class="fas fa-download"></i> <strong>Excel templates</strong> for budgets, dashboards, and reports</li>
+            <li><i class="fas fa-infinity"></i> <strong>Lifetime access</strong> + future updates</li>
+          </ul>
+
+          <h3>👥 Perfect For:</h3>
+          <ul class="feature-list">
+            <li><i class="fas fa-graduation-cap"></i> Students who want to excel in their studies</li>
+            <li><i class="fas fa-briefcase"></i> Professionals looking to boost productivity</li>
+            <li><i class="fas fa-chart-line"></i> Analysts and data professionals</li>
+            <li><i class="fas fa-star"></i> Anyone who works with data and numbers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tab-content" id="curriculum">
+        <div class="curriculum-content">
+          <h3>Course Curriculum</h3>
+          <div class="curriculum-section">
+            <h4><i class="fas fa-play-circle"></i> Module 1: Excel Basics</h4>
+            <ul>
+              <li>Getting Started with Excel Interface</li>
+              <li>Creating and Formatting Spreadsheets</li>
+              <li>Basic Formulas and Cell References</li>
+            </ul>
+          </div>
+          <div class="curriculum-section">
+            <h4><i class="fas fa-play-circle"></i> Module 2: Advanced Functions</h4>
+            <ul>
+              <li>VLOOKUP and HLOOKUP Functions</li>
+              <li>INDEX and MATCH Functions</li>
+              <li>IF, AND, OR Logical Functions</li>
+            </ul>
+          </div>
+          <div class="curriculum-section">
+            <h4><i class="fas fa-play-circle"></i> Module 3: Data Analysis</h4>
+            <ul>
+              <li>Creating and Customizing Pivot Tables</li>
+              <li>Data Visualization with Charts</li>
+              <li>Conditional Formatting</li>
+            </ul>
+          </div>
+          <div class="curriculum-section">
+            <h4><i class="fas fa-play-circle"></i> Module 4: Automation</h4>
+            <ul>
+              <li>Recording Macros</li>
+              <li>Introduction to VBA</li>
+              <li>Automating Repetitive Tasks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="reviews">
+        <div class="reviews-content">
+          <h3>Student Reviews</h3>
+          <div class="reviews-summary">
+            <div class="rating-overview">
+              <span class="big-rating">4.8</span>
+              <div class="stars-large">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span>Based on 2,156 reviews</span>
+            </div>
+          </div>
+          
+          <div class="review-item">
+            <div class="reviewer-info">
+              <strong>Michael A.</strong>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p>"This Excel course transformed my productivity at work! I went from basic spreadsheets to creating automated reports and dashboards. The instructor explains everything clearly."</p>
+          </div>
+          
+          <div class="review-item">
+            <div class="reviewer-info">
+              <strong>Grace K.</strong>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p>"Perfect for beginners! I had zero Excel experience and now I'm confident using advanced functions and pivot tables. Great value for money."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- CourseCity Brand -->
+        <div class="footer-column footer-brand">
+          <div class="footer-logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Course<span class="logo-accent">City</span></span>
+          </div>
+          <p>Ghana's leading online learning platform. Find great courses on everything from data analytics to web development, Excel to graphic design.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/coursecitygh" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/company/coursecitygh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.tiktok.com/@coursecitygh" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/233241234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Popular Categories -->
+        <div class="footer-column">
+          <h3>Popular Categories</h3>
+          <ul class="footer-links">
+            <li><a href="Courses.html">Data Analytics</a></li>
+            <li><a href="Courses.html">Full-Stack Development</a></li>
+            <li><a href="Courses.html">Cybersecurity</a></li>
+            <li><a href="Courses.html">Graphic Design</a></li>
+            <li><a href="Courses.html">Video Editing</a></li>
+            <li><a href="Courses.html">Excel & Power BI</a></li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="../About/About.html">About Us</a></li>
+            <li><a href="../Contact/Contact.html">Contact Us</a></li>
+            <li><a href="Courses.html">All Courses</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../terms-of-service.html">Terms of Service</a></li>
+            <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="footer-column footer-contact">
+          <h3>Contact Us</h3>
+          <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+            <p><i class="fas fa-phone"></i> +233 160 4275</p>
+            <p><i class="fas fa-envelope"></i> support@coursecity.gh</p>
+          </div>
+          <div class="app-download">
+            <h4>Download Our App</h4>
+            <a href="#" class="app-btn app-store">
+              <i class="fab fa-apple"></i>
+              <div>
+                <span class="small-text">Download on the</span>
+                <span class="large-text">App Store</span>
+              </div>
+            </a>
+            <a href="#" class="app-btn google-play">
+              <i class="fab fa-google-play"></i>
+              <div>
+                <span class="small-text">GET IT ON</span>
+                <span class="large-text">Google Play</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 CourseCity Ghana. All rights reserved.</p>
+        <div class="payment-methods">
+          <span>We Accept:</span>
+          <span class="payment-badge">MTN</span>
+          <span class="payment-badge">Vodafone</span>
+          <span class="payment-badge">AirtelTigo</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="../../scripts/security-utils.js"></script>
+  <script src="../../scripts/api.js"></script>
+  <script src="../../scripts/auth-utils.js"></script>
+  <script src="../../scripts/migrate-data.js"></script>
+  <script src="../../scripts/notifications-data.js"></script>
+  <script src="../../scripts/notifications.js"></script>
+  <script src="../../scripts/script.js"></script>
+  <script src="../../scripts/courses-page.js"></script>
+
+  <!-- Course-specific JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tab functionality
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tabId = btn.getAttribute('data-tab');
+          
+          // Remove active class from all tabs and contents
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          
+          // Add active class to clicked tab and corresponding content
+          btn.classList.add('active');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+
+      // Add to cart functionality
+      const addToCartBtn = document.querySelector('.btn-add-to-cart');
+      if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', function() {
+          const course = this.getAttribute('data-course');
+          const price = parseFloat(this.getAttribute('data-price'));
+          const image = '../../assets/image/Excel.png';
+          
+          if (typeof Cart !== 'undefined') {
+            Cart.addToCart(course, price, image);
+          }
+        });
+      }
+
+      // Add to wishlist functionality
+      const addToWishlistBtn = document.querySelector('.btn-add-to-wishlist');
+      if (addToWishlistBtn) {
+        addToWishlistBtn.addEventListener('click', function() {
+          const course = this.getAttribute('data-course');
+          
+          if (typeof Wishlist !== 'undefined') {
+            Wishlist.addToWishlist(course);
+          } else {
+            Toast.info('Please login to add items to your wishlist');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

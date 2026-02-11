@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CourseCity Admin - Settings">
+  <title>Settings - CourseCity Admin</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../../assets/favicon_io/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../assets/favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/favicon_io/site.webmanifest">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../styles/admin/admin.css">
+  <link rel="stylesheet" href="../../styles/admin/settings.css">
+</head>
+<body class="admin-page">
+  <div class="admin-layout">
+    <!-- Sidebar Overlay (for mobile) -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <a href="../../pages/index.html" class="sidebar-logo-text">CourseCity</a>
+        <button class="sidebar-menu-toggle" id="sidebar-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" data-tooltip="Dashboard">
+          <i class="fas fa-th-large"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="courses.html" data-tooltip="Courses">
+          <i class="fas fa-book"></i>
+          <span>Courses</span>
+        </a>
+        <a href="users.html" data-tooltip="Users">
+          <i class="fas fa-users"></i>
+          <span>Users</span>
+        </a>
+        <a href="orders.html" data-tooltip="Orders">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Orders</span>
+        </a>
+        <a href="analytics.html" data-tooltip="Analytics">
+          <i class="fas fa-chart-bar"></i>
+          <span>Analytics</span>
+        </a>
+        <a href="settings.html" class="active" data-tooltip="Settings">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
+        <a href="profile.html" data-tooltip="Profile">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-user">
+        <div class="sidebar-logout-divider"></div>
+        <a href="#" id="admin-logout-btn" class="sidebar-nav sidebar-logout-item" data-tooltip="Logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Top Header -->
+    <header class="admin-top-header">
+      <h1 class="header-title">Settings</h1>
+      
+      <div class="header-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="admin-header-search" placeholder="What do you want to find?">
+      </div>
+
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <button class="header-icon-btn theme-toggle-btn" id="theme-toggle-btn" title="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        
+        <!-- Notifications Dropdown -->
+        <div class="header-dropdown-container">
+          <button class="header-icon-btn" id="admin-notifications-btn">
+            <i class="fas fa-bell"></i>
+            <span class="header-icon-badge" id="admin-notifications-badge">0</span>
+          </button>
+          <div class="header-dropdown" id="admin-notifications-dropdown">
+            <div class="header-dropdown-header">
+              <h3>Notifications</h3>
+              <button class="header-dropdown-action" id="mark-all-notifications-read" title="Mark all as read">
+                <i class="fas fa-check-double"></i>
+              </button>
+            </div>
+            <div class="header-dropdown-body" id="admin-notifications-list">
+              <div class="dropdown-empty">No new notifications</div>
+            </div>
+            <div class="header-dropdown-footer">
+              <a href="#" class="dropdown-view-all">View All Notifications</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Messages Dropdown -->
+        <div class="header-dropdown-container">
+          <button class="header-icon-btn" id="admin-messages-btn">
+            <i class="fas fa-comment"></i>
+            <span class="header-icon-badge" id="admin-messages-badge">0</span>
+          </button>
+          <div class="header-dropdown" id="admin-messages-dropdown">
+            <div class="header-dropdown-header">
+              <h3>Messages</h3>
+              <button class="header-dropdown-action" id="mark-all-messages-read" title="Mark all as read">
+                <i class="fas fa-check-double"></i>
+              </button>
+            </div>
+            <div class="header-dropdown-body" id="admin-messages-list">
+              <div class="dropdown-empty">No new messages</div>
+            </div>
+            <div class="header-dropdown-footer">
+              <a href="messages.html" class="dropdown-view-all">View All Messages</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- User Dropdown -->
+        <div class="header-dropdown-container">
+          <div class="header-user-dropdown" id="admin-user-dropdown">
+            <div class="header-user-avatar" id="header-user-avatar">AU</div>
+            <div class="header-user-info">
+              <span class="header-user-name" id="header-user-name">Admin User</span>
+              <span class="header-user-role" id="header-user-role">Super Admin</span>
+            </div>
+            <i class="fas fa-chevron-down header-user-arrow"></i>
+          </div>
+          <div class="header-dropdown user-menu" id="admin-user-menu">
+            <div class="header-dropdown-body">
+              <a href="dashboard.html" class="dropdown-menu-item">
+                <i class="fas fa-th-large"></i>
+                <span>Dashboard</span>
+              </a>
+              <a href="profile.html" class="dropdown-menu-item" id="admin-profile-link">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+              </a>
+              <div class="dropdown-menu-divider"></div>
+              <a href="#" class="dropdown-menu-item" id="admin-header-logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <div class="admin-page-title">Settings</div>
+
+      <!-- Settings Navigation Tabs -->
+      <div class="settings-tabs" id="settings-tabs">
+        <button class="settings-tab active" data-tab="general">
+          <i class="fas fa-cog"></i>
+          <span>General</span>
+        </button>
+        <button class="settings-tab" data-tab="appearance">
+          <i class="fas fa-palette"></i>
+          <span>Appearance</span>
+        </button>
+        <button class="settings-tab" data-tab="notifications">
+          <i class="fas fa-bell"></i>
+          <span>Notifications</span>
+        </button>
+        <button class="settings-tab" data-tab="security">
+          <i class="fas fa-shield-alt"></i>
+          <span>Security</span>
+        </button>
+        <button class="settings-tab" data-tab="system">
+          <i class="fas fa-server"></i>
+          <span>System</span>
+        </button>
+      </div>
+
+      <!-- General Settings -->
+      <div class="settings-section active" id="settings-general">
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h2>General Settings</h2>
+          </div>
+          <div class="card-body">
+            <form class="admin-form" id="general-form">
+              <div class="form-group">
+                <label for="platform-name">Platform Name</label>
+                <input type="text" id="platform-name" placeholder="Enter platform name" value="CourseCity">
+              </div>
+
+              <div class="form-group">
+                <label for="platform-email">Platform Email</label>
+                <input type="email" id="platform-email" placeholder="Enter platform email" value="info@coursecity.com">
+              </div>
+
+              <div class="form-group">
+                <label for="platform-phone">Platform Phone</label>
+                <input type="tel" id="platform-phone" placeholder="Enter platform phone" value="+233 XX XXX XXXX">
+              </div>
+
+              <div class="form-group">
+                <label for="platform-address">Platform Address</label>
+                <textarea id="platform-address" rows="3" placeholder="Enter platform address"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="currency">Default Currency</label>
+                <select id="currency">
+                  <option value="GHS" selected>Ghanaian Cedis (₵)</option>
+                  <option value="USD">US Dollar ($)</option>
+                  <option value="EUR">Euro (€)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="timezone">Timezone</label>
+                <select id="timezone">
+                  <option value="Africa/Accra" selected>Africa/Accra (GMT)</option>
+                  <option value="UTC">UTC</option>
+                  <option value="America/New_York">America/New_York (EST)</option>
+                </select>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save"></i>
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Appearance Settings -->
+      <div class="settings-section" id="settings-appearance">
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h2>Appearance Settings</h2>
+          </div>
+          <div class="card-body">
+            <form class="admin-form" id="appearance-form">
+              <div class="form-group">
+                <label>Theme Preference</label>
+                <div class="theme-options">
+                  <label class="theme-option">
+                    <input type="radio" name="theme" value="light" id="theme-light">
+                    <div class="theme-option-preview light">
+                      <i class="fas fa-sun"></i>
+                      <span>Light</span>
+                    </div>
+                  </label>
+                  <label class="theme-option">
+                    <input type="radio" name="theme" value="dark" id="theme-dark">
+                    <div class="theme-option-preview dark">
+                      <i class="fas fa-moon"></i>
+                      <span>Dark</span>
+                    </div>
+                  </label>
+                  <label class="theme-option">
+                    <input type="radio" name="theme" value="auto" id="theme-auto" checked>
+                    <div class="theme-option-preview auto">
+                      <i class="fas fa-adjust"></i>
+                      <span>Auto</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="sidebar-collapse">Sidebar Behavior</label>
+                <select id="sidebar-collapse">
+                  <option value="remember">Remember Last State</option>
+                  <option value="expanded">Always Expanded</option>
+                  <option value="collapsed">Always Collapsed</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="language">Language</label>
+                <select id="language">
+                  <option value="en" selected>English</option>
+                  <option value="fr">Français</option>
+                  <option value="es">Español</option>
+                </select>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save"></i>
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notification Settings -->
+      <div class="settings-section" id="settings-notifications">
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h2>Notification Preferences</h2>
+          </div>
+          <div class="card-body">
+            <form class="admin-form" id="notifications-form">
+              <div class="form-group">
+                <label class="switch-label">
+                  <span>
+                    <strong>Email Notifications</strong>
+                    <small>Receive notifications via email</small>
+                  </span>
+                  <label class="switch">
+                    <input type="checkbox" id="email-notifications" checked>
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label class="switch-label">
+                  <span>
+                    <strong>New Order Notifications</strong>
+                    <small>Get notified when a new order is placed</small>
+                  </span>
+                  <label class="switch">
+                    <input type="checkbox" id="order-notifications" checked>
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label class="switch-label">
+                  <span>
+                    <strong>New User Notifications</strong>
+                    <small>Get notified when a new user registers</small>
+                  </span>
+                  <label class="switch">
+                    <input type="checkbox" id="user-notifications" checked>
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label class="switch-label">
+                  <span>
+                    <strong>System Alerts</strong>
+                    <small>Receive important system alerts and updates</small>
+                  </span>
+                  <label class="switch">
+                    <input type="checkbox" id="system-alerts" checked>
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label class="switch-label">
+                  <span>
+                    <strong>Marketing Emails</strong>
+                    <small>Receive marketing and promotional emails</small>
+                  </span>
+                  <label class="switch">
+                    <input type="checkbox" id="marketing-emails">
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save"></i>
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Security Settings -->
+      <div class="settings-section" id="settings-security">
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h2>Security Settings</h2>
+          </div>
+          <div class="card-body">
+            <form class="admin-form" id="security-form">
+              <div class="form-group">
+                <label for="current-password">Current Password</label>
+                <input type="password" id="current-password" placeholder="Enter current password">
+              </div>
+
+              <div class="form-group">
+                <label for="new-password">New Password</label>
+                <input type="password" id="new-password" placeholder="Enter new password">
+                <small class="form-help">Password must be at least 8 characters long</small>
+              </div>
+
+              <div class="form-group">
+                <label for="confirm-password">Confirm New Password</label>
+                <input type="password" id="confirm-password" placeholder="Confirm new password">
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-key"></i>
+                  Change Password
+                </button>
+              </div>
+            </form>
+
+            <div class="settings-divider"></div>
+
+            <div class="form-group">
+              <label class="switch-label">
+                <span>
+                  <strong>Two-Factor Authentication (2FA)</strong>
+                  <small>Add an extra layer of security to your account</small>
+                </span>
+                <label class="switch">
+                  <input type="checkbox" id="two-factor-auth">
+                  <span class="slider"></span>
+                </label>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label class="switch-label">
+                <span>
+                  <strong>Login Notifications</strong>
+                  <small>Get notified when someone logs into your account</small>
+                </span>
+                <label class="switch">
+                  <input type="checkbox" id="login-notifications" checked>
+                  <span class="slider"></span>
+                </label>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label class="switch-label">
+                <span>
+                  <strong>Session Timeout</strong>
+                  <small>Automatically log out after 30 minutes of inactivity</small>
+                </span>
+                <label class="switch">
+                  <input type="checkbox" id="session-timeout" checked>
+                  <span class="slider"></span>
+                </label>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- System Settings -->
+      <div class="settings-section" id="settings-system">
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h2>System Information</h2>
+          </div>
+          <div class="card-body">
+            <div class="system-info-grid">
+              <div class="system-info-item">
+                <div class="system-info-label">Platform Version</div>
+                <div class="system-info-value">v1.0.0</div>
+              </div>
+              <div class="system-info-item">
+                <div class="system-info-label">Last Updated</div>
+                <div class="system-info-value">2025-01-15</div>
+              </div>
+              <div class="system-info-item">
+                <div class="system-info-label">Database Status</div>
+                <div class="system-info-value status-success">
+                  <i class="fas fa-check-circle"></i>
+                  Connected
+                </div>
+              </div>
+              <div class="system-info-item">
+                <div class="system-info-label">Server Status</div>
+                <div class="system-info-value status-success">
+                  <i class="fas fa-check-circle"></i>
+                  Online
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h2>Maintenance</h2>
+          </div>
+          <div class="card-body">
+            <form class="admin-form" id="maintenance-form">
+              <div class="form-group">
+                <label class="switch-label">
+                  <span>
+                    <strong>Maintenance Mode</strong>
+                    <small>Put the platform in maintenance mode (users won't be able to access)</small>
+                  </span>
+                  <label class="switch">
+                    <input type="checkbox" id="maintenance-mode">
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+
+              <div class="form-group" id="maintenance-message-group" style="display: none;">
+                <label for="maintenance-message">Maintenance Message</label>
+                <textarea id="maintenance-message" rows="3" placeholder="Enter maintenance message for users"></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn-primary" id="clear-cache-btn">
+                  <i class="fas fa-broom"></i>
+                  Clear Cache
+                </button>
+                <button type="button" class="btn btn-secondary" id="backup-db-btn">
+                  <i class="fas fa-download"></i>
+                  Backup Database
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Logout Confirmation Modal -->
+  <div id="logout-modal" class="logout-modal-overlay">
+    <div class="logout-modal">
+      <div class="logout-modal-icon">
+        <i class="fas fa-sign-out-alt"></i>
+      </div>
+      <h2 class="logout-modal-title">Confirm Logout</h2>
+      <p class="logout-modal-message">Are you sure you want to logout from the admin panel?</p>
+      <p class="logout-modal-warning">You will need to login again to access the admin dashboard.</p>
+      <div class="logout-modal-actions">
+        <button id="logout-cancel-btn" class="logout-btn logout-btn-cancel">
+          <i class="fas fa-times"></i>
+          Cancel
+        </button>
+        <button id="logout-confirm-btn" class="logout-btn logout-btn-confirm">
+          <i class="fas fa-sign-out-alt"></i>
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../../scripts/api.js"></script>
+  <script src="../../scripts/script.js"></script>
+  <script src="../../scripts/admin/admin-theme.js"></script>
+  <script src="../../scripts/admin/admin-auth.js"></script>
+  <script src="../../scripts/admin/admin-header.js"></script>
+  <script src="../../scripts/admin/admin-logout.js"></script>
+  <script src="../../scripts/admin/admin-sidebar.js"></script>
+  <script src="../../scripts/admin/admin-settings.js"></script>
+</body>
+</html>
+

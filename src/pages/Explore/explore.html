@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore CourseCity - Discover all the resources and information to help you make the most of your learning journey">
+  <title>Explore - CourseCity</title>
+  <link rel="stylesheet" href="../../styles/style.css">
+  <link rel="stylesheet" href="../../styles/Explore/explore.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Banner -->
+  <div class="top-banner">
+    <div class="container">
+      <div class="banner-content">
+        <div class="banner-left">
+          <span>🎉 Special Offer for All African Learners! Get up to 50% off on all courses - Limited time only!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-wrapper">
+        <div class="logo">
+          <a href="../index.html">
+            <i class="fas fa-graduation-cap"></i>
+            Course<span>City</span>
+          </a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav id="nav-menu">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../All_Courses/Courses.html">All Courses</a></li>
+            <li><a class="active" href="explore.html">Explore</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/Contact.html">Contact</a></li>
+          </ul>
+          <div class="mobile-auth-actions">
+            <a href="../../auth/login.html" class="nav-auth-link nav-auth-login">
+              Login
+            </a>
+            <a href="../../auth/signup.html" class="nav-auth-link nav-auth-signup">
+              <i class="fas fa-user"></i>
+              Sign Up
+            </a>
+          </div>
+        </nav>
+
+        <!-- Header Right Actions -->
+        <div class="header-right" role="toolbar" aria-label="Header actions">
+          <!-- Wishlist -->
+          <a href="../wishlist.html" class="icon-btn" id="wishlist-btn" aria-label="View Wishlist" title="View Wishlist" style="display: none;">
+            <i class="far fa-heart"></i>
+            <span class="badge" id="wishlist-count">0</span>
+          </a>
+
+          <!-- Notifications (Always visible) -->
+          <div class="notification-container">
+            <button class="icon-btn" id="notification-bell-btn" aria-haspopup="dialog" aria-expanded="false" aria-label="Notifications">
+              <i class="far fa-bell" id="notification-bell-icon"></i>
+              <span class="badge" id="notification-count" style="display: none;">0</span>
+            </button>
+
+            <div id="notification-dropdown" class="notification-dropdown" role="dialog" aria-label="Notifications">
+              <div class="notification-dropdown-header">
+                <h3>Notifications</h3>
+                <div class="notification-header-actions">
+                  <button class="btn-icon-small" id="mark-all-read-btn" title="Mark all as read">
+                    <i class="fas fa-check-double"></i>
+                  </button>
+                  <button class="btn-icon-small" id="clear-all-notif-btn" title="Clear all">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="notification-dropdown-body" id="notification-dropdown-list">
+                <!-- Notifications will be rendered here -->
+              </div>
+              <div class="notification-dropdown-footer">
+                <a href="../notifications.html" class="btn-view-all-notifications">
+                  View All Notifications
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart -->
+          <div class="cart-container" aria-live="polite">
+            <button class="icon-btn" id="cart-btn" aria-haspopup="dialog" aria-expanded="false" title="Open cart">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+              <span class="badge" id="cart-count" aria-hidden="true">0</span>
+            </button>
+
+            <div id="cart-dropdown" role="dialog" aria-label="Cart" aria-modal="false">
+              <h3>Shopping Cart</h3>
+              <ul id="cart-items-preview" aria-live="polite"></ul>
+              <div id="cart-total-preview">Total: GH₵0.00</div>
+              <div class="cart-dropdown-actions">
+                <a href="../cart.html" class="btn-view-cart">View Full Cart</a>
+                <button id="quick-checkout-btn" class="btn-quick-checkout">Quick Checkout</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Profile (Hidden by default, shown when logged in) -->
+          <div class="user-profile" id="user-profile" style="display: none;">
+            <button class="user-avatar-btn" id="user-avatar-btn" aria-label="User menu">
+              <div class="user-avatar" id="user-avatar">U</div>
+            </button>
+
+            <div class="user-dropdown" id="user-dropdown">
+              <a href="../profile.html" class="user-dropdown-item">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="../my-courses.html" class="user-dropdown-item">
+                <i class="fas fa-book"></i>
+                <span>My Courses</span>
+              </a>
+              <div class="user-dropdown-divider"></div>
+              <a href="#" class="user-dropdown-item" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Dark/Light Mode Toggle -->
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-sun" id="sun-icon"></i>
+            <i class="fas fa-moon" id="moon-icon" style="display: none;"></i>
+          </button>
+
+          <!-- Auth Buttons (Shown when not logged in) -->
+          <a href="../../auth/login.html" class="btn-login-link">
+            Login
+          </a>
+          <a href="../../auth/signup.html" class="btn-login" title="Sign Up">
+            <i class="fas fa-user"></i>
+            Sign Up
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="explore-page">
+    
+    <!-- Hero Section -->
+    <section class="explore-hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Explore <span class="text-orange">CourseCity</span></h1>
+          <p>Discover all the resources and information to help you make the most of your learning journey</p>
+        </div>
+
+        <!-- Quick Links Sidebar -->
+        <div class="quick-links">
+          <a href="#" class="quick-link-item">
+            <i class="fas fa-eye"></i>
+            <span>APPLY</span>
+          </a>
+          <a href="../All_Courses/Courses.html" class="quick-link-item">
+            <i class="fas fa-book"></i>
+            <span>COURSES</span>
+          </a>
+          <a href="../Contact/Contact.html" class="quick-link-item">
+            <i class="fas fa-envelope"></i>
+            <span>CONTACT</span>
+          </a>
+          <a href="https://wa.me/233241234567" class="quick-link-item" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span>WHATSAPP</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Cards Section -->
+    <section class="feature-cards">
+      <div class="container">
+        <div class="cards-grid">
+          
+          <!-- About Us Card -->
+          <a href="../About/About.html" class="feature-card-link">
+            <div class="feature-card">
+              <div class="card-icon blue">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3>About Us</h3>
+              <p>Learn about CourseCity and our mission to empower African learners</p>
+            </div>
+          </a>
+
+          <!-- Become a Seller Card -->
+          <div class="feature-card">
+            <div class="card-icon orange">
+              <i class="fas fa-award"></i>
+            </div>
+            <h3>Become a Seller</h3>
+            <p>Share your knowledge and earn by creating courses on CourseCity</p>
+          </div>
+
+          <!-- Success Stories Card -->
+          <div class="feature-card">
+            <div class="card-icon green">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Success Stories</h3>
+            <p>Inspiring stories from our students and course creators</p>
+          </div>
+
+          <!-- Course Catalog Card -->
+          <a href="../All_Courses/Courses.html" class="feature-card-link">
+            <div class="feature-card">
+              <div class="card-icon purple">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <h3>Course Catalog</h3>
+              <p>Browse our complete collection of courses across all categories</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose">
+      <div class="container">
+        <h2>Why Choose CourseCity?</h2>
+        <p class="section-subtitle">We are committed to providing quality education that is accessible, affordable, and relevant to the African context.</p>
+        
+        <div class="stats-grid">
+          
+          <!-- Stat 1 -->
+          <div class="stat-card">
+            <div class="stat-number">1,235+</div>
+            <div class="stat-label">Quality Courses</div>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="stat-card">
+            <div class="stat-number">15,000+</div>
+            <div class="stat-label">Active Learners</div>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="stat-card">
+            <div class="stat-number">4.8/5</div>
+            <div class="stat-label">Average Rating</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- CourseCity Brand -->
+        <div class="footer-column footer-brand">
+          <div class="footer-logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Course<span class="logo-accent">City</span></span>
+          </div>
+          <p>Ghana's leading online learning platform. Find great courses on everything from data analytics to web development, Excel to graphic design.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/profile.php?id=61581958352468" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="http://www.tiktok.com/@course_city" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/233541604275" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Popular Categories -->
+        <div class="footer-column">
+          <h3>Popular Categories</h3>
+          <ul class="footer-links">
+            <li><a href="../All_Courses/Courses.html">Data Analytics</a></li>
+            <li><a href="../All_Courses/Courses.html">Full-Stack Development</a></li>
+            <li><a href="../All_Courses/Courses.html">Cybersecurity</a></li>
+            <li><a href="../All_Courses/Courses.html">Graphic Design</a></li>
+            <li><a href="../All_Courses/Courses.html">Video Editing</a></li>
+            <li><a href="../All_Courses/Courses.html">Excel &amp; Power BI</a></li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="../About/About.html">About Us</a></li>
+            <li><a href="../Contact/Contact.html">Contact Us</a></li>
+            <li><a href="../All_Courses/Courses.html">All Courses</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="../terms-of-service.html">Terms of Service</a></li>
+            <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="footer-column footer-contact">
+          <h3>Contact Us</h3>
+          <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+            <p><i class="fas fa-phone"></i> +233 (0)54 160 4275</p>
+            <p><i class="fas fa-envelope"></i> support@coursecity.gh</p>
+          </div>
+          <div class="app-download">
+            <h4>Download Our App</h4>
+            <a href="#" class="app-btn app-store">
+              <i class="fab fa-apple"></i>
+              <div>
+                <span class="small-text">Download on the</span>
+                <span class="large-text">App Store</span>
+              </div>
+            </a>
+            <a href="#" class="app-btn google-play">
+              <i class="fab fa-google-play"></i>
+              <div>
+                <span class="small-text">GET IT ON</span>
+                <span class="large-text">Google Play</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 CourseCity Ghana. All rights reserved.</p>
+        <div class="payment-methods">
+          <span>We Accept:</span>
+          <span class="payment-badge">MTN</span>
+          <span class="payment-badge">Vodafone</span>
+          <span class="payment-badge">AirtelTigo</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="../../scripts/security-utils.js"></script>
+  <script src="../../scripts/api.js"></script>
+  <script src="../../scripts/auth-utils.js"></script>
+  <script src="../../scripts/migrate-data.js"></script>
+  <script src="../../scripts/notifications-data.js"></script>
+  <script src="../../scripts/notifications.js"></script>
+  <script src="../../scripts/script.js"></script>
+</body>
+</html>
+

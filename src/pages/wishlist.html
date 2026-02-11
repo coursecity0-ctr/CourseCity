@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CourseCity Wishlist - Your saved courses">
+  <title>My Wishlist - CourseCity</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon_io/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="../assets/favicon_io/site.webmanifest">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <!-- Top Banner -->
+  <div class="top-banner">
+    <div class="container">
+      <div class="banner-content">
+        <div class="banner-left">
+          <span>🎉 Special Offer for All African Learners! Get up to 50% off on all courses - Limited time only!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-wrapper">
+        <div class="logo">
+          <a href="index.html">
+            <i class="fas fa-graduation-cap"></i>
+            Course<span>City</span>
+          </a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav id="nav-menu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="All_Courses/Courses.html">All Courses</a></li>
+            <li><a href="Explore/explore.html">Explore</a></li>
+            <li><a href="Blog/blog.html">Blog</a></li>
+            <li><a href="Contact/Contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Right Actions -->
+        <div class="header-right" role="toolbar" aria-label="Header actions">
+          <!-- Wishlist -->
+          <a href="wishlist.html" class="icon-btn" id="wishlist-btn" aria-label="View Wishlist" title="View Wishlist" style="display: none;">
+            <i class="far fa-heart"></i>
+            <span class="badge" id="wishlist-count">0</span>
+          </a>
+
+          <!-- Notifications (Always visible) -->
+          <div class="notification-container">
+            <button class="icon-btn" id="notification-bell-btn" aria-haspopup="dialog" aria-expanded="false" aria-label="Notifications">
+              <i class="far fa-bell" id="notification-bell-icon"></i>
+              <span class="badge" id="notification-count" style="display: none;">0</span>
+            </button>
+
+            <div id="notification-dropdown" class="notification-dropdown" role="dialog" aria-label="Notifications">
+              <div class="notification-dropdown-header">
+                <h3>Notifications</h3>
+                <div class="notification-header-actions">
+                  <button class="btn-icon-small" id="mark-all-read-btn" title="Mark all as read">
+                    <i class="fas fa-check-double"></i>
+                  </button>
+                  <button class="btn-icon-small" id="clear-all-notif-btn" title="Clear all">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="notification-dropdown-body" id="notification-dropdown-list">
+                <!-- Notifications will be rendered here -->
+              </div>
+              <div class="notification-dropdown-footer">
+                <a href="notifications.html" class="btn-view-all-notifications">
+                  View All Notifications
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart -->
+          <div class="cart-container" aria-live="polite">
+            <button class="icon-btn" id="cart-btn" aria-haspopup="dialog" aria-expanded="false" title="Open cart">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+              <span class="badge" id="cart-count" aria-hidden="true">0</span>
+            </button>
+
+            <div id="cart-dropdown" role="dialog" aria-label="Cart" aria-modal="false">
+              <h3>Shopping Cart</h3>
+              <ul id="cart-items-preview" aria-live="polite"></ul>
+              <div id="cart-total-preview">Total: GH₵0.00</div>
+              <div class="cart-dropdown-actions">
+                <a href="cart.html" class="btn-view-cart">View Full Cart</a>
+                <button id="quick-checkout-btn" class="btn-quick-checkout">Quick Checkout</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Profile (Hidden by default, shown when logged in) -->
+          <div class="user-profile" id="user-profile" style="display: none;">
+            <button class="user-avatar-btn" id="user-avatar-btn" aria-label="User menu">
+              <div class="user-avatar" id="user-avatar">U</div>
+            </button>
+
+            <div class="user-dropdown" id="user-dropdown">
+              <a href="profile.html" class="user-dropdown-item">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="my-courses.html" class="user-dropdown-item">
+                <i class="fas fa-book"></i>
+                <span>My Courses</span>
+              </a>
+              <div class="user-dropdown-divider"></div>
+              <a href="#" class="user-dropdown-item" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Dark/Light Mode Toggle -->
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-sun" id="sun-icon"></i>
+            <i class="fas fa-moon" id="moon-icon" style="display: none;"></i>
+          </button>
+
+          <!-- Auth Buttons (Shown when not logged in) -->
+          <a href="../auth/login.html" class="btn-login-link">
+            Login
+          </a>
+          <a href="../auth/signup.html" class="btn-login" title="Sign Up">
+            <i class="fas fa-user"></i>
+            Sign Up
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <section class="breadcrumb-section">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <span class="current">My Wishlist</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Wishlist Page -->
+  <section class="wishlist-page-section">
+    <div class="container">
+      <div class="wishlist-header">
+        <div class="wishlist-title">
+          <h1><i class="fas fa-heart"></i> My Wishlist</h1>
+          <p class="wishlist-item-count"><span id="total-wishlist-count">0</span> courses saved</p>
+        </div>
+        <a href="All_Courses/Courses.html" class="btn-browse-courses">
+          <i class="fas fa-search"></i>
+          Browse More Courses
+        </a>
+      </div>
+
+      <!-- Wishlist Grid -->
+      <div id="wishlist-grid" class="wishlist-grid">
+        <!-- Wishlist items will be dynamically inserted here -->
+      </div>
+
+      <!-- Empty Wishlist State -->
+      <div id="empty-wishlist-state" class="empty-wishlist-state" style="display: none;">
+        <div class="empty-wishlist-icon">
+          <i class="fas fa-heart-broken"></i>
+        </div>
+        <h2>Your Wishlist is Empty</h2>
+        <p>Start adding courses to your wishlist to keep track of what you want to learn. Save your favorite courses and access them anytime!</p>
+        <a href="All_Courses/Courses.html" class="btn-primary">
+          <i class="fas fa-search"></i>
+          Explore Courses
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommended Courses Section -->
+  <section class="recommended-courses-section" id="wishlist-recommended-section">
+    <div class="container">
+      <h2 class="section-title">Courses You Might Like</h2>
+      <p class="section-subtitle">Based on your interests and saved courses</p>
+      
+      <div class="recommended-courses-grid" id="wishlist-recommended-grid">
+        <!-- Recommended courses will be dynamically inserted -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Locations -->
+        <div class="footer-column">
+          <h3>Locations</h3>
+          <div class="location-item">
+            <h4>Accra Campus</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Independence Avenue, Accra, Greater Accra</p>
+            <p><i class="fas fa-phone"></i> +233 (024) 567-8901</p>
+            <p><i class="fas fa-envelope"></i> accra@coursecity.edu.gh</p>
+          </div>
+          <div class="location-item">
+            <h4>Kumasi Campus</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 45 Harper Road, Near Adum, Kumasi, Ashanti</p>
+            <p><i class="fas fa-phone"></i> +233 (032) 209-4567</p>
+            <p><i class="fas fa-envelope"></i> kumasi@coursecity.edu.gh</p>
+          </div>
+          <div class="location-item">
+            <h4>Tema Campus</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 22 / 141, Plot 3d, C-188 Community 1, Tema</p>
+            <p><i class="fas fa-phone"></i> +233 (303) 211-3456</p>
+            <p><i class="fas fa-envelope"></i> tema@coursecity.edu.gh</p>
+          </div>
+        </div>
+
+        <!-- CourseCity -->
+        <div class="footer-column">
+          <h3>CourseCity</h3>
+          <p>Empowering Africans to share their world-class education with students in all corners of the globe. We leverage our cutting-edge technology platform and years of education experience to help you deliver your best.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/coursecitygh" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@coursecitygh" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/233241234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="About/About.html">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="All_Courses/Courses.html">All Courses</a></li>
+            <li><a href="Contact/Contact.html">Contact</a></li>
+            <li><a href="#">Become Instructor</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; CourseCity 2025. All rights reserved</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="#">Refund Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Authentication Modal -->
+  <div class="auth-modal" id="auth-modal">
+    <div class="auth-modal-content">
+      <button class="auth-modal-close" id="auth-modal-close" aria-label="Close">&times;</button>
+      
+      <div class="auth-modal-header">
+        <h2>Welcome Back</h2>
+        <p>Login or create an account to continue</p>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Login</button>
+        <button class="auth-tab" data-tab="signup">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form class="auth-form active" id="login-form">
+        <div class="form-group">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" required placeholder="your@email.com">
+        </div>
+        
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" required placeholder="Enter your password">
+        </div>
+
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" id="remember-me">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="forgot-password">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="auth-submit">Login</button>
+      </form>
+
+      <!-- Signup Form -->
+      <form class="auth-form" id="signup-form">
+        <div class="form-group">
+          <label for="signup-name">Full Name</label>
+          <input type="text" id="signup-name" required placeholder="John Doe">
+        </div>
+
+        <div class="form-group">
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" required placeholder="your@email.com">
+        </div>
+        
+        <div class="form-group">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" required placeholder="Create a strong password">
+          <div class="password-strength">
+            <div class="password-strength-bar" id="password-strength-bar"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="signup-confirm-password">Confirm Password</label>
+          <input type="password" id="signup-confirm-password" required placeholder="Confirm your password">
+        </div>
+
+        <div class="form-group-checkbox">
+          <label class="checkbox-label">
+            <input type="checkbox" id="terms-checkbox" required>
+            <span>I agree to the <a href="terms-of-service.html" target="_blank">Terms of Service</a> and <a href="privacy-policy.html" target="_blank">Privacy Policy</a></span>
+          </label>
+        </div>
+
+        <button type="submit" class="auth-submit">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="../scripts/api.js"></script>
+  <script src="../scripts/notifications-data.js"></script>
+  <script src="../scripts/notifications.js"></script>
+  <script src="../scripts/script.js"></script>
+  <script src="../scripts/wishlist-page.js"></script>
+</body>
+</html>
+

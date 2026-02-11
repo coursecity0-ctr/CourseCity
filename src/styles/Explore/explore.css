@@ -1,0 +1,294 @@
+/* ====================================
+   EXPLORE PAGE STYLES
+   ==================================== */
+
+/* Hero Section */
+.explore-hero {
+  background: var(--bg-primary);
+  padding: 80px 0;
+  position: relative;
+}
+
+.explore-hero .container {
+  position: relative;
+}
+
+.explore-hero .hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.explore-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.explore-hero .text-orange {
+  color: var(--primary-orange);
+}
+
+.explore-hero p {
+  font-size: 1.125rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+/* Quick Links Sidebar */
+.quick-links {
+  position: fixed;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+}
+
+.quick-link-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--bg-primary);
+  border: 2px solid var(--color-border);
+  border-radius: 50px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quick-link-item:hover {
+  background: var(--primary-orange);
+  color: var(--color-white);
+  border-color: var(--primary-orange);
+  transform: translateX(-5px);
+  box-shadow: 0 4px 12px rgba(255, 102, 54, 0.3);
+}
+
+.quick-link-item i {
+  font-size: 1.125rem;
+}
+
+/* Feature Cards Section */
+.feature-cards {
+  padding: 60px 0;
+  background: var(--bg-tertiary);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.feature-card-link {
+  text-decoration: none;
+  display: block;
+}
+
+.feature-card {
+  background: var(--bg-primary);
+  padding: 40px 30px;
+  border-radius: var(--radius-xl);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-orange);
+}
+
+.card-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.card-icon.blue {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.card-icon.orange {
+  background: rgba(255, 102, 54, 0.1);
+  color: var(--primary-orange);
+}
+
+.card-icon.green {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}
+
+.card-icon.purple {
+  background: rgba(147, 51, 234, 0.1);
+  color: #9333ea;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+
+.feature-card p {
+  font-size: 0.938rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+/* Why Choose Section */
+.why-choose {
+  padding: 80px 0;
+  background: var(--bg-cream);
+}
+
+.why-choose h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--color-text);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.125rem;
+  color: var(--color-text-light);
+  max-width: 700px;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: var(--bg-primary);
+  padding: 40px 30px;
+  border-radius: var(--radius-xl);
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-orange);
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 1.125rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Footer uses styles from main style.css */
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .quick-links {
+    right: 20px;
+  }
+
+  .quick-link-item span {
+    display: none;
+  }
+
+  .quick-link-item {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .explore-hero {
+    padding: 60px 0;
+  }
+
+  .explore-hero h1 {
+    font-size: 2rem;
+  }
+
+  .explore-hero p {
+    font-size: 1rem;
+  }
+
+  .quick-links {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-choose h2 {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .explore-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .quick-links {
+    flex-wrap: wrap;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+  }
+}
+

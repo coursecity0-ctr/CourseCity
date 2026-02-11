@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn more about CourseCity - our mission, values, and the team behind your online learning experience.">
+  <title>About CourseCity - Professional Online Learning</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../../assets/favicon_io/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../assets/favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/favicon_io/site.webmanifest">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">   
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../styles/style.css">
+  <link rel="stylesheet" href="../../styles/About/about.css">
+</head>
+<body>
+  <!-- Top Banner -->
+  <div class="top-banner">
+    <div class="container">
+      <div class="banner-content">
+        <div class="banner-left">
+          <span>🎉 Special Offer for All African Learners! Get up to 50% off on all courses - Limited time only!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-wrapper">
+        <div class="logo">
+          <a href="../index.html">
+            <i class="fas fa-graduation-cap"></i>
+            Course<span>City</span>
+          </a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav id="nav-menu">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../All_Courses/Courses.html">All Courses</a></li>
+            <li><a href="../Explore/explore.html">Explore</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/Contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Right Actions -->
+        <div class="header-right" role="toolbar" aria-label="Header actions">
+          <!-- Wishlist -->
+          <a href="../wishlist.html" class="icon-btn" id="wishlist-btn" aria-label="View Wishlist" title="View Wishlist" style="display: none;">
+            <i class="far fa-heart"></i>
+            <span class="badge" id="wishlist-count">0</span>
+          </a>
+
+          <!-- Notifications (Always visible) -->
+          <div class="notification-container">
+            <button class="icon-btn" id="notification-bell-btn" aria-haspopup="dialog" aria-expanded="false" aria-label="Notifications">
+              <i class="far fa-bell" id="notification-bell-icon"></i>
+              <span class="badge" id="notification-count" style="display: none;">0</span>
+            </button>
+
+            <div id="notification-dropdown" class="notification-dropdown" role="dialog" aria-label="Notifications">
+              <div class="notification-dropdown-header">
+                <h3>Notifications</h3>
+                <div class="notification-header-actions">
+                  <button class="btn-icon-small" id="mark-all-read-btn" title="Mark all as read">
+                    <i class="fas fa-check-double"></i>
+                  </button>
+                  <button class="btn-icon-small" id="clear-all-notif-btn" title="Clear all">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="notification-dropdown-body" id="notification-dropdown-list">
+                <!-- Notifications will be rendered here -->
+              </div>
+              <div class="notification-dropdown-footer">
+                <a href="../notifications.html" class="btn-view-all-notifications">
+                  View All Notifications
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart -->
+          <div class="cart-container" aria-live="polite">
+            <button class="icon-btn" id="cart-btn" aria-haspopup="dialog" aria-expanded="false" title="Open cart">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+              <span class="badge" id="cart-count" aria-hidden="true">0</span>
+            </button>
+
+            <div id="cart-dropdown" role="dialog" aria-label="Cart" aria-modal="false">
+              <h3>Shopping Cart</h3>
+              <ul id="cart-items-preview" aria-live="polite"></ul>
+              <div id="cart-total-preview">Total: GH₵0.00</div>
+              <div class="cart-dropdown-actions">
+                <a href="../cart.html" class="btn-view-cart">View Full Cart</a>
+                <button id="quick-checkout-btn" class="btn-quick-checkout">Quick Checkout</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Profile (Hidden by default, shown when logged in) -->
+          <div class="user-profile" id="user-profile" style="display: none;">
+            <button class="user-avatar-btn" id="user-avatar-btn" aria-label="User menu">
+              <div class="user-avatar" id="user-avatar">U</div>
+            </button>
+
+            <div class="user-dropdown" id="user-dropdown">
+              <a href="../profile.html" class="user-dropdown-item">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="../my-courses.html" class="user-dropdown-item">
+                <i class="fas fa-book"></i>
+                <span>My Courses</span>
+              </a>
+              <div class="user-dropdown-divider"></div>
+              <a href="#" class="user-dropdown-item" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Dark/Light Mode Toggle -->
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-sun" id="sun-icon"></i>
+            <i class="fas fa-moon" id="moon-icon" style="display: none;"></i>
+          </button>
+
+          <!-- Auth Buttons (Shown when not logged in) -->
+          <a href="../auth/login.html" class="btn-login-link">
+            Login
+          </a>
+          <a href="../auth/signup.html" class="btn-login" title="Sign Up">
+            <i class="fas fa-user"></i>
+            Sign Up
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="container">
+      <h1>About CourseCity</h1>
+      <p>Empowering learners worldwide with quality education and practical skills</p>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="about-content container">
+    <div class="about-section">
+      <div class="section-icon">
+        <i class="fas fa-bullseye"></i>
+      </div>
+      <h2>Our Mission</h2>
+      <p>At CourseCity, we're passionate about empowering individuals to succeed in today's fast-paced digital landscape. Our mission is to bridge the gap between learners and industry-relevant training, providing accessible, flexible, and practical education for everyone.</p>
+      <p>We believe that quality education should be available to all, regardless of location or background. That's why we've created a platform that brings expert-led courses directly to you, wherever you are.</p>
+    </div>
+
+    <div class="about-section">
+      <div class="section-icon">
+        <i class="fas fa-eye"></i>
+      </div>
+      <h2>Our Vision</h2>
+      <p>We envision a world where anyone, anywhere, can access high-quality education that transforms lives and opens doors to new opportunities. Through technology and expert instruction, we're making this vision a reality, one student at a time.</p>
+    </div>
+
+    <div class="about-section">
+      <div class="section-icon">
+        <i class="fas fa-heart"></i>
+      </div>
+      <h2>Our Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <i class="fas fa-check-circle"></i>
+          <h3>Excellence</h3>
+          <p>We strive for excellence in every course, ensuring the highest quality content and learning experience.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-users"></i>
+          <h3>Community</h3>
+          <p>We foster a supportive learning community where students and instructors connect and grow together.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Innovation</h3>
+          <p>We continuously innovate our platform and courses to stay ahead of industry trends.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-handshake"></i>
+          <h3>Integrity</h3>
+          <p>We operate with transparency and honesty, always putting our students' best interests first.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <div class="section-icon">
+        <i class="fas fa-star"></i>
+      </div>
+      <h2>Why Choose CourseCity?</h2>
+      <ul class="benefits-list">
+        <li>
+          <i class="fas fa-check"></i>
+          <strong>Expert Instructors:</strong> Learn from industry professionals with real-world experience
+        </li>
+        <li>
+          <i class="fas fa-check"></i>
+          <strong>Wide Range of Courses:</strong> Tech, business, creative skills, and more
+        </li>
+        <li>
+          <i class="fas fa-check"></i>
+          <strong>Learn Anywhere:</strong> Access courses anytime, on any device
+        </li>
+        <li>
+          <i class="fas fa-check"></i>
+          <strong>Hands-On Projects:</strong> Build real skills through practical exercises
+        </li>
+        <li>
+          <i class="fas fa-check"></i>
+          <strong>Lifetime Access:</strong> Learn at your own pace with no expiration dates
+        </li>
+        <li>
+          <i class="fas fa-check"></i>
+          <strong>Supportive Community:</strong> Connect with fellow learners and get help when you need it
+        </li>
+        <li>
+          <i class="fas fa-check"></i>
+          <strong>Affordable Pricing:</strong> Quality education that doesn't break the bank
+        </li>
+        <li>
+          <i class="fas fa-check"></i>
+          <strong>Regular Updates:</strong> Stay current with the latest industry trends and technologies
+        </li>
+      </ul>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-number">5,000+</div>
+        <div class="stat-label">Active Students</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Expert Courses</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Instructors</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">Satisfaction Rate</div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="about-cta">
+      <h2>Ready to Start Learning?</h2>
+      <p>Join thousands of students already learning on CourseCity</p>
+      <a href="../All_Courses/Courses.html" class="cta-button">
+        <i class="fas fa-graduation-cap"></i>
+        Browse Courses
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- CourseCity Brand -->
+        <div class="footer-column footer-brand">
+          <div class="footer-logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Course<span class="logo-accent">City</span></span>
+          </div>
+          <p>Ghana's leading online learning platform. Find great courses on everything from data analytics to web development, Excel to graphic design.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Popular Categories -->
+        <div class="footer-column">
+          <h3>Popular Categories</h3>
+          <ul class="footer-links">
+            <li><a href="../All_Courses/Courses.html">Data Analytics</a></li>
+            <li><a href="../All_Courses/Courses.html">Full-Stack Development</a></li>
+            <li><a href="../All_Courses/Courses.html">Cybersecurity</a></li>
+            <li><a href="../All_Courses/Courses.html">Graphic Design</a></li>
+            <li><a href="../All_Courses/Courses.html">Video Editing</a></li>
+            <li><a href="../All_Courses/Courses.html">Excel & Power BI</a></li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="../Contact/Contact.html">Contact Us</a></li>
+            <li><a href="../All_Courses/Courses.html">All Courses</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="../terms-of-service.html">Terms of Service</a></li>
+            <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="footer-column footer-contact">
+          <h3>Contact Us</h3>
+          <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+            <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+            <p><i class="fas fa-envelope"></i> support@coursecity.gh</p>
+          </div>
+          <div class="app-download">
+            <h4>Download Our App</h4>
+            <a href="#" class="app-btn app-store">
+              <i class="fab fa-apple"></i>
+              <div>
+                <span class="small-text">Download on the</span>
+                <span class="large-text">App Store</span>
+              </div>
+            </a>
+            <a href="#" class="app-btn google-play">
+              <i class="fab fa-google-play"></i>
+              <div>
+                <span class="small-text">GET IT ON</span>
+                <span class="large-text">Google Play</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 CourseCity Ghana. All rights reserved.</p>
+        <div class="payment-methods">
+          <span>We Accept:</span>
+          <span class="payment-badge">MTN</span>
+          <span class="payment-badge">Vodafone</span>
+          <span class="payment-badge">AirtelTigo</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="../../scripts/api.js"></script>
+  <script src="../../scripts/migrate-data.js"></script>
+  <script src="../../scripts/notifications-data.js"></script>
+  <script src="../../scripts/notifications.js"></script>
+  <script src="../../scripts/script.js"></script>
+  <script src="../../scripts/about-page.js"></script>
+</body>
+</html>

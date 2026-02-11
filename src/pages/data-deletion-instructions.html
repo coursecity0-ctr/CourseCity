@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Deletion Instructions - CourseCity</title>
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon_io/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="../assets/favicon_io/site.webmanifest">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../styles/style.css">
+  
+  <style>
+    .policy-page {
+      padding: 100px 0 60px;
+      background: var(--bg-secondary);
+      min-height: 100vh;
+    }
+    
+    .policy-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px;
+      background: var(--bg-primary);
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .policy-header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    
+    .policy-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--text-primary);
+    }
+    
+    .policy-section {
+      margin-bottom: 40px;
+    }
+    
+    .policy-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .policy-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      margin-top: 20px;
+      color: var(--text-primary);
+    }
+    
+    .policy-section p, .policy-section li {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+    
+    .policy-section ul, .policy-section ol {
+      margin-left: 30px;
+      margin-bottom: 20px;
+    }
+    
+    .warning-box {
+      background: #fff3cd;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #ffc107;
+      margin: 20px 0;
+    }
+    
+    .warning-box p {
+      color: #856404;
+      margin: 0;
+    }
+    
+    .info-box {
+      background: #d1ecf1;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #17a2b8;
+      margin: 20px 0;
+    }
+    
+    .delete-account-section {
+      background: #fff;
+      border: 2px solid #dc3545;
+      border-radius: 8px;
+      padding: 30px;
+      margin: 30px 0;
+      text-align: center;
+    }
+    
+    .delete-account-btn {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+    
+    .delete-account-btn:hover {
+      background: #c82333;
+    }
+    
+    .delete-account-btn:disabled {
+      background: #6c757d;
+      cursor: not-allowed;
+    }
+    
+    /* Modal Styles */
+    .delete-modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      animation: fadeIn 0.3s;
+    }
+    
+    .delete-modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .delete-modal-content {
+      background: var(--bg-primary);
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      animation: slideUp 0.3s;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    .delete-modal-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .delete-modal-header i {
+      font-size: 4rem;
+      color: #dc3545;
+      margin-bottom: 20px;
+    }
+    
+    .delete-modal-header h2 {
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+    
+    .delete-modal-form {
+      margin-top: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 1rem;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+    
+    .form-group input:focus {
+      outline: none;
+      border-color: #dc3545;
+    }
+    
+    .form-group small {
+      display: block;
+      margin-top: 5px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    .delete-modal-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 30px;
+    }
+    
+    .btn-cancel {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid var(--border-color);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+    
+    .btn-cancel:hover {
+      background: var(--bg-tertiary);
+    }
+    
+    .btn-delete-confirm {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      background: #dc3545;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    
+    .btn-delete-confirm:hover:not(:disabled) {
+      background: #c82333;
+    }
+    
+    .btn-delete-confirm:disabled {
+      background: #6c757d;
+      cursor: not-allowed;
+    }
+    
+    .error-message {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      border-left: 4px solid #dc3545;
+      display: none;
+    }
+    
+    .error-message.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-wrapper">
+        <div class="logo">
+          <a href="index.html">
+            <i class="fas fa-graduation-cap"></i>
+            Course<span>City</span>
+          </a>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <nav id="nav-menu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="All_Courses/Courses.html">All Courses</a></li>
+            <li><a href="Explore/explore.html">Explore</a></li>
+            <li><a href="Blog/blog.html">Blog</a></li>
+            <li><a href="Contact/Contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-right">
+          <div class="cart-container">
+            <button class="icon-btn" id="cart-btn">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="badge" id="cart-count">0</span>
+            </button>
+          </div>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-sun" id="sun-icon"></i>
+            <i class="fas fa-moon" id="moon-icon" style="display: none;"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Data Deletion Instructions Content -->
+  <div class="policy-page">
+    <div class="policy-container">
+      <div class="policy-header">
+        <h1><i class="fas fa-user-times"></i> Data Deletion Instructions</h1>
+        <p>How to delete your CourseCity account and personal data</p>
+      </div>
+
+      <div class="warning-box">
+        <p><strong>⚠️ Important:</strong> Deleting your account is permanent and cannot be undone. All your course progress, certificates, and account data will be permanently deleted.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2><i class="fas fa-list"></i> What Will Be Deleted</h2>
+        <p>When you delete your CourseCity account, the following data will be permanently removed:</p>
+        <ul>
+          <li>Account information (username, email, password)</li>
+          <li>Profile data and personal information</li>
+          <li>Course enrollments and progress</li>
+          <li>Certificates and achievements</li>
+          <li>Purchase history</li>
+          <li>Cart and wishlist items</li>
+          <li>Communication and notifications</li>
+          <li>Login history and activity data</li>
+        </ul>
+      </div>
+
+      <!-- Delete Account Section (for logged-in users) -->
+      <div class="delete-account-section" id="delete-account-section" style="display: none;">
+        <h2><i class="fas fa-trash-alt"></i> Delete Your Account Now</h2>
+        <p>If you're logged in, you can delete your account immediately using the button below.</p>
+        <button class="delete-account-btn" id="delete-account-btn">
+          <i class="fas fa-exclamation-triangle"></i> Delete My Account
+        </button>
+      </div>
+
+      <!-- Instructions for non-logged-in users -->
+      <div class="policy-section" id="instructions-section">
+        <h2><i class="fas fa-envelope"></i> How to Delete Your Account</h2>
+        
+        <h3>Method 1: Via Email (Recommended)</h3>
+        <p>Send an email to: <strong>privacy@coursecity.gh</strong></p>
+        <p>Subject: <strong>Account Deletion Request</strong></p>
+        <p>Include the following information:</p>
+        <ol>
+          <li>Your full name</li>
+          <li>Email address associated with the account</li>
+          <li>Username (if different from email)</li>
+          <li>A statement confirming you want to delete your account</li>
+        </ol>
+
+        <h3>Method 2: Via Website</h3>
+        <p>If you're logged in:</p>
+        <ol>
+          <li>Go to your <a href="profile.html">Profile page</a></li>
+          <li>Navigate to Account Settings</li>
+          <li>Click "Delete Account"</li>
+          <li>Follow the confirmation steps</li>
+        </ol>
+
+        <h3>Method 3: Via Support</h3>
+        <p>Contact our support team:</p>
+        <ul>
+          <li>Email: support@coursecity.gh</li>
+          <li>Phone: +233 XX XXX XXXX</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2><i class="fas fa-clock"></i> Deletion Timeline</h2>
+        <ul>
+          <li><strong>Immediate:</strong> Account deactivated, login disabled</li>
+          <li><strong>Within 24 hours:</strong> Profile hidden, removed from search</li>
+          <li><strong>Within 7-10 days:</strong> Most personal data deleted</li>
+          <li><strong>Within 30 days:</strong> Complete deletion from active databases</li>
+          <li><strong>90 days:</strong> Removal from backups and archives</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2><i class="fas fa-link"></i> OAuth Account Access</h2>
+        
+        <h3>Google Account Users</h3>
+        <p>If you signed up with Google:</p>
+        <ol>
+          <li>Go to your Google Account settings</li>
+          <li>Security → Third-party apps with account access</li>
+          <li>Find "CourseCity" in the list</li>
+          <li>Click "Remove access"</li>
+        </ol>
+        <p><strong>Note:</strong> You still need to delete your CourseCity account separately</p>
+
+        <h3>Facebook Account Users</h3>
+        <p>If you signed up with Facebook:</p>
+        <ol>
+          <li>Go to Facebook Settings</li>
+          <li>Apps and Websites</li>
+          <li>Find "CourseCity" in the list</li>
+          <li>Click "Remove"</li>
+        </ol>
+        <p><strong>Note:</strong> You still need to delete your CourseCity account separately</p>
+      </div>
+
+      <div class="info-box">
+        <p><strong>📞 Need Help?</strong></p>
+        <p>Email: <a href="mailto:privacy@coursecity.gh">privacy@coursecity.gh</a></p>
+        <p>We typically respond within 24-48 hours.</p>
+      </div>
+
+      <p style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-secondary);">
+        <small>
+          Last updated: January 2025<br>
+          <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a>
+        </small>
+      </p>
+    </div>
+  </div>
+
+  <!-- Delete Account Modal -->
+  <div class="delete-modal" id="delete-modal">
+    <div class="delete-modal-content">
+      <div class="delete-modal-header">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h2>Delete Your Account</h2>
+        <p>This action cannot be undone. All your data will be permanently deleted.</p>
+      </div>
+      
+      <div class="error-message" id="delete-error"></div>
+      
+      <form class="delete-modal-form" id="delete-form">
+        <div class="form-group" id="password-group">
+          <label for="delete-password">Password <span style="color: #dc3545;">*</span></label>
+          <input type="password" id="delete-password" placeholder="Enter your password" required>
+          <small>Required for security verification</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="delete-confirmation">Type "DELETE" to confirm <span style="color: #dc3545;">*</span></label>
+          <input type="text" id="delete-confirmation" placeholder="Type DELETE" required>
+          <small>This confirms you understand this action is permanent</small>
+        </div>
+        
+        <div class="delete-modal-actions">
+          <button type="button" class="btn-cancel" id="cancel-delete-btn">Cancel</button>
+          <button type="submit" class="btn-delete-confirm" id="confirm-delete-btn">
+            <i class="fas fa-trash"></i> Delete Account
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="margin-top: 60px;">
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <div class="footer-logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Course<span class="logo-accent">City</span></span>
+          </div>
+          <p>Ghana's leading online learning platform.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="About/About.html">About Us</a></li>
+            <li><a href="Contact/Contact.html">Contact</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 CourseCity Ghana. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../scripts/api.js"></script>
+  <script src="../scripts/script.js"></script>
+  <script>
+    // Check if user is logged in
+    let currentUser = null;
+    
+    async function checkAuth() {
+      try {
+        const response = await API.getCurrentUser();
+        if (response.success && response.user) {
+          currentUser = response.user;
+          document.getElementById('delete-account-section').style.display = 'block';
+          document.getElementById('instructions-section').style.display = 'none';
+          
+          // Hide password field for OAuth users
+          if (response.user.auth_provider !== 'local') {
+            document.getElementById('password-group').style.display = 'none';
+            document.getElementById('delete-password').removeAttribute('required');
+          }
+        }
+      } catch (error) {
+        console.log('User not logged in');
+      }
+    }
+    
+    // Modal controls
+    const deleteModal = document.getElementById('delete-modal');
+    const deleteBtn = document.getElementById('delete-account-btn');
+    const cancelBtn = document.getElementById('cancel-delete-btn');
+    const deleteForm = document.getElementById('delete-form');
+    const errorDiv = document.getElementById('delete-error');
+    const confirmBtn = document.getElementById('confirm-delete-btn');
+    
+    deleteBtn?.addEventListener('click', () => {
+      deleteModal.classList.add('active');
+    });
+    
+    cancelBtn?.addEventListener('click', () => {
+      deleteModal.classList.remove('active');
+      deleteForm.reset();
+      errorDiv.classList.remove('show');
+    });
+    
+    // Close modal when clicking outside
+    deleteModal.addEventListener('click', (e) => {
+      if (e.target === deleteModal) {
+        deleteModal.classList.remove('active');
+        deleteForm.reset();
+        errorDiv.classList.remove('show');
+      }
+    });
+    
+    // Handle form submission
+    deleteForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorDiv.classList.remove('show');
+      confirmBtn.disabled = true;
+      confirmBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Deleting...';
+      
+      const password = document.getElementById('delete-password').value;
+      const confirmation = document.getElementById('delete-confirmation').value;
+      
+      try {
+        const response = await API.deleteAccount(password, confirmation);
+        
+        if (response.success) {
+          // Show success message
+          alert('Your account has been deleted successfully. You will now be redirected to the homepage.');
+          
+          // Clear local storage
+          localStorage.clear();
+          
+          // Redirect to homepage
+          window.location.href = 'index.html';
+        }
+      } catch (error) {
+        errorDiv.textContent = error.message || 'Failed to delete account. Please try again.';
+        errorDiv.classList.add('show');
+        confirmBtn.disabled = false;
+        confirmBtn.innerHTML = '<i class="fas fa-trash"></i> Delete Account';
+      }
+    });
+    
+    // Initialize on page load
+    checkAuth();
+  </script>
+</body>
+</html>

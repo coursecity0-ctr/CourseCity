@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CourseCity Profile - Your account settings and information">
+  <title>My Profile - CourseCity</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon_io/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="../assets/favicon_io/site.webmanifest">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/profile-page.css">
+</head>
+<body>
+  <!-- Top Banner -->
+  <div class="top-banner">
+    <div class="container">
+      <div class="banner-content">
+        <div class="banner-left">
+          <span>🎉 Special Offer for All African Learners! Get up to 50% off on all courses - Limited time only!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-wrapper">
+        <div class="logo">
+          <a href="index.html">
+            <i class="fas fa-graduation-cap"></i>
+            Course<span>City</span>
+          </a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav id="nav-menu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="All_Courses/Courses.html">All Courses</a></li>
+            <li><a href="Explore/explore.html">Explore</a></li>
+            <li><a href="Blog/blog.html">Blog</a></li>
+            <li><a href="Contact/Contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Right Actions -->
+        <div class="header-right" role="toolbar" aria-label="Header actions">
+          <!-- Wishlist -->
+          <a href="wishlist.html" class="icon-btn" id="wishlist-btn" aria-label="View Wishlist" title="View Wishlist" style="display: none;">
+            <i class="far fa-heart"></i>
+            <span class="badge" id="wishlist-count">0</span>
+          </a>
+
+          <!-- Notifications (Always visible) -->
+          <div class="notification-container">
+            <button class="icon-btn" id="notification-bell-btn" aria-haspopup="dialog" aria-expanded="false" aria-label="Notifications">
+              <i class="far fa-bell" id="notification-bell-icon"></i>
+              <span class="badge" id="notification-count" style="display: none;">0</span>
+            </button>
+
+            <div id="notification-dropdown" class="notification-dropdown" role="dialog" aria-label="Notifications">
+              <div class="notification-dropdown-header">
+                <h3>Notifications</h3>
+                <div class="notification-header-actions">
+                  <button class="btn-icon-small" id="mark-all-read-btn" title="Mark all as read">
+                    <i class="fas fa-check-double"></i>
+                  </button>
+                  <button class="btn-icon-small" id="clear-all-notif-btn" title="Clear all">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="notification-dropdown-body" id="notification-dropdown-list">
+                <!-- Notifications will be rendered here -->
+              </div>
+              <div class="notification-dropdown-footer">
+                <a href="notifications.html" class="btn-view-all-notifications">
+                  View All Notifications
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart -->
+          <div class="cart-container" aria-live="polite">
+            <button class="icon-btn" id="cart-btn" aria-haspopup="dialog" aria-expanded="false" title="Open cart">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+              <span class="badge" id="cart-count" aria-hidden="true">0</span>
+            </button>
+
+            <div id="cart-dropdown" role="dialog" aria-label="Cart" aria-modal="false">
+              <h3>Shopping Cart</h3>
+              <ul id="cart-items-preview" aria-live="polite"></ul>
+              <div id="cart-total-preview">Total: GH₵0.00</div>
+              <div class="cart-dropdown-actions">
+                <a href="cart.html" class="btn-view-cart">View Full Cart</a>
+                <button id="quick-checkout-btn" class="btn-quick-checkout">Quick Checkout</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Profile (Hidden by default, shown when logged in) -->
+          <div class="user-profile" id="user-profile" style="display: none;">
+            <button class="user-avatar-btn" id="user-avatar-btn" aria-label="User menu">
+              <div class="user-avatar" id="user-avatar">U</div>
+            </button>
+
+            <div class="user-dropdown" id="user-dropdown">
+              <a href="profile.html" class="user-dropdown-item">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="my-courses.html" class="user-dropdown-item">
+                <i class="fas fa-book"></i>
+                <span>My Courses</span>
+              </a>
+              <div class="user-dropdown-divider"></div>
+              <a href="#" class="user-dropdown-item" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Dark/Light Mode Toggle -->
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-sun" id="sun-icon"></i>
+            <i class="fas fa-moon" id="moon-icon" style="display: none;"></i>
+          </button>
+
+          <!-- Auth Buttons (Shown when not logged in) -->
+          <a href="../auth/login.html" class="btn-login-link">
+            Login
+          </a>
+          <a href="../auth/signup.html" class="btn-login">
+            <i class="fas fa-user"></i>
+            Sign Up
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <section class="breadcrumb-section">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <span class="current">My Profile</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Profile Page -->
+  <section class="profile-page-section">
+    <div class="container">
+      <div class="wishlist-header">
+        <div class="wishlist-title">
+          <h1><i class="fas fa-user"></i> My Profile</h1>
+          <p class="wishlist-item-count">Manage your account settings and information</p>
+        </div>
+      </div>
+
+      <!-- Profile Content Wrapper -->
+      <div class="profile-content-wrapper">
+        
+        <!-- View Mode -->
+        <div id="profile-view-mode">
+          <!-- Profile Header Section -->
+          <div class="profile-header-section">
+            <!-- Large Profile Avatar -->
+            <div class="profile-header-avatar-wrapper">
+              <div class="user-avatar profile-avatar-huge" id="profile-avatar">
+                U
+              </div>
+            </div>
+            
+            <!-- User Name -->
+            <h2 class="profile-header-name" id="profile-name">User Name</h2>
+            
+            <!-- User Title/Role with Country -->
+            <div class="profile-header-title-wrapper">
+              <p class="profile-header-title" id="profile-title">Student</p>
+              <span class="profile-header-title-separator">•</span>
+              <div class="profile-header-country-inline" id="profile-country-wrapper">
+                <span class="profile-header-flag" id="profile-flag"></span>
+                <span id="profile-country">Ghana</span>
+              </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="profile-header-actions">
+              <button id="edit-profile-btn" class="btn-edit-profile">
+                <i class="fas fa-pen"></i>
+                <span>Edit profile info</span>
+              </button>
+              <button id="share-profile-btn" class="btn-share-profile" title="Share Profile">
+                <i class="fas fa-share-alt"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Account Information Card -->
+          <div class="profile-card">
+            <div class="profile-card-header">
+              <i class="fas fa-info-circle"></i>
+              <h3>Account Information</h3>
+            </div>
+            
+            <div class="profile-info-card">
+              <p class="profile-info-label">
+                <i class="fas fa-envelope"></i>
+                Email Address
+              </p>
+              <p class="profile-info-value" id="profile-email-display">Loading...</p>
+            </div>
+
+            <div class="profile-info-card">
+              <p class="profile-info-label">
+                <i class="fas fa-calendar"></i>
+                Member Since
+              </p>
+              <p class="profile-info-value" id="member-since-date">Loading...</p>
+            </div>
+          </div>
+
+          <!-- Quick Actions Card -->
+          <div class="profile-card">
+            <div class="profile-card-header">
+              <i class="fas fa-bolt"></i>
+              <h3>Quick Actions</h3>
+            </div>
+            <div class="profile-actions-card">
+              <a href="my-courses.html" class="btn-primary">
+                <i class="fas fa-book"></i>
+                My Courses
+              </a>
+              <a href="wishlist.html" class="btn-secondary">
+                <i class="fas fa-heart"></i>
+                My Wishlist
+              </a>
+            </div>
+          </div>
+
+          <!-- Danger Zone Card -->
+          <div class="profile-danger-card">
+            <h3>
+              <i class="fas fa-exclamation-triangle"></i>
+              Danger Zone
+            </h3>
+            <p>
+              Once you delete your account, there is no going back. Please be certain.
+            </p>
+            <a href="data-deletion-instructions.html">
+              Learn more about account deletion →
+            </a>
+            <button id="delete-account-profile-btn" class="btn-primary" style="background: #dc3545; border: none;">
+              <i class="fas fa-trash-alt"></i> Delete My Account
+            </button>
+          </div>
+        </div>
+
+        <!-- Edit Mode -->
+        <div id="profile-edit-mode" style="display: none;">
+          <!-- Edit Header Card -->
+          <div class="profile-card">
+            <div class="profile-edit-header">
+              <i class="fas fa-edit"></i>
+              <h3>Edit Profile</h3>
+            </div>
+
+            <!-- Profile Picture Section -->
+            <div class="profile-avatar-section">
+              <h4 style="margin-bottom: var(--spacing-md); color: var(--color-text);">Profile Picture</h4>
+              
+              <div class="profile-avatar-preview-wrapper">
+                <div class="user-avatar profile-avatar-preview" id="avatar-preview">
+                  U
+                </div>
+              </div>
+              
+              <div style="display: flex; flex-direction: column; gap: var(--spacing-sm); align-items: center;">
+                <label for="avatar-upload-input" class="btn-secondary" style="cursor: pointer; display: inline-flex; align-items: center; gap: var(--spacing-sm);">
+                  <i class="fas fa-upload"></i>
+                  Choose Image
+                  <input type="file" id="avatar-upload-input" accept="image/jpeg,image/jpg,image/png,image/webp,image/gif" style="display: none;">
+                </label>
+                
+                <div class="profile-avatar-actions">
+                  <button id="upload-avatar-btn" class="btn-primary">
+                    <i class="fas fa-upload"></i>
+                    Upload
+                  </button>
+                  <button id="remove-avatar-btn" class="btn-secondary">
+                    <i class="fas fa-trash"></i>
+                    Remove
+                  </button>
+                </div>
+                
+                <p class="profile-avatar-upload-note">
+                  Max size: 2MB. Supported formats: JPG, PNG, WebP, GIF
+                </p>
+              </div>
+            </div>
+
+            <!-- Profile Form -->
+            <div class="profile-form-card">
+              <div class="profile-form-field">
+                <label for="profile-fullname-input" class="profile-form-label">
+                  <i class="fas fa-user"></i>
+                  Full Name
+                </label>
+                <input type="text" id="profile-fullname-input" class="form-input" placeholder="Enter your full name" required>
+              </div>
+
+              <div class="profile-form-field">
+                <label for="profile-email-input" class="profile-form-label">
+                  <i class="fas fa-envelope"></i>
+                  Email Address
+                </label>
+                <input type="email" id="profile-email-input" class="form-input" placeholder="Enter your email" required>
+                <p class="profile-form-help" id="email-help-text">
+                  Email can only be changed for local accounts
+                </p>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="profile-actions-card">
+              <button id="save-profile-btn" class="btn-primary">
+                <i class="fas fa-save"></i>
+                Save Changes
+              </button>
+              <button id="cancel-edit-btn" class="btn-secondary">
+                <i class="fas fa-times"></i>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- CourseCity Brand -->
+        <div class="footer-column footer-brand">
+          <div class="footer-logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Course<span class="logo-accent">City</span></span>
+          </div>
+          <p>Ghana's leading online learning platform. Find great courses on everything from data analytics to web development, Excel to graphic design.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/coursecitygh" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@coursecitygh" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/233241234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Popular Categories -->
+        <div class="footer-column">
+          <h3>Popular Categories</h3>
+          <ul class="footer-links">
+            <li><a href="All_Courses/Courses.html">Data Analytics</a></li>
+            <li><a href="All_Courses/Courses.html">Full-Stack Development</a></li>
+            <li><a href="All_Courses/Courses.html">Cybersecurity</a></li>
+            <li><a href="All_Courses/Courses.html">Graphic Design</a></li>
+            <li><a href="All_Courses/Courses.html">Video Editing</a></li>
+            <li><a href="All_Courses/Courses.html">Excel & Power BI</a></li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="About/About.html">About Us</a></li>
+            <li><a href="Contact/Contact.html">Contact Us</a></li>
+            <li><a href="All_Courses/Courses.html">All Courses</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="footer-column footer-contact">
+          <h3>Contact Us</h3>
+          <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+            <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+            <p><i class="fas fa-envelope"></i> support@coursecity.gh</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 CourseCity Ghana. All rights reserved.</p>
+        <div class="payment-methods">
+          <span>We Accept:</span>
+          <span class="payment-badge">MTN</span>
+          <span class="payment-badge">Vodafone</span>
+          <span class="payment-badge">AirtelTigo</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Delete Account Modal -->
+  <div class="delete-account-modal" id="delete-account-modal" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); align-items: center; justify-content: center;">
+    <div style="background: var(--bg-primary); padding: 40px; border-radius: 12px; max-width: 500px; width: 90%; box-shadow: 0 4px 20px rgba(0,0,0,0.3); position: relative;">
+      <button id="close-delete-modal" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-secondary);" aria-label="Close">&times;</button>
+      
+      <div style="text-align: center; margin-bottom: 30px;">
+        <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: #dc3545; margin-bottom: 20px;"></i>
+        <h2 style="color: var(--text-primary); margin-bottom: 10px;">Delete Your Account</h2>
+        <p style="color: var(--text-secondary);">This action cannot be undone. All your data will be permanently deleted.</p>
+      </div>
+      
+      <div id="delete-account-error" style="background: #f8d7da; color: #721c24; padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid #dc3545; display: none;"></div>
+      
+      <form id="delete-account-form">
+        <div id="delete-password-group" style="margin-bottom: 20px;">
+          <label for="delete-account-password" style="display: block; margin-bottom: 8px; color: var(--text-primary); font-weight: 600;">
+            Password <span style="color: #dc3545;">*</span>
+          </label>
+          <input 
+            type="password" 
+            id="delete-account-password" 
+            placeholder="Enter your password" 
+            required
+            style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 6px; font-size: 1rem; background: var(--bg-secondary); color: var(--text-primary);"
+          >
+          <small style="display: block; margin-top: 5px; color: var(--text-secondary); font-size: 0.9rem;">Required for security verification</small>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+          <label for="delete-account-confirmation" style="display: block; margin-bottom: 8px; color: var(--text-primary); font-weight: 600;">
+            Type "DELETE" to confirm <span style="color: #dc3545;">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="delete-account-confirmation" 
+            placeholder="Type DELETE" 
+            required
+            style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 6px; font-size: 1rem; background: var(--bg-secondary); color: var(--text-primary);"
+          >
+          <small style="display: block; margin-top: 5px; color: var(--text-secondary); font-size: 0.9rem;">This confirms you understand this action is permanent</small>
+        </div>
+        
+        <div style="display: flex; gap: 10px; margin-top: 30px;">
+          <button 
+            type="button" 
+            id="cancel-delete-account-btn" 
+            style="flex: 1; padding: 12px; border: 2px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary); border-radius: 6px; cursor: pointer; font-size: 1rem; transition: all 0.3s;"
+          >
+            Cancel
+          </button>
+          <button 
+            type="submit" 
+            id="confirm-delete-account-btn"
+            style="flex: 1; padding: 12px; border: none; background: #dc3545; color: white; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: background 0.3s;"
+          >
+            <i class="fas fa-trash"></i> Delete Account
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="../scripts/api.js"></script>
+  <script src="../scripts/migrate-data.js"></script>
+  <script src="../scripts/notifications-data.js"></script>
+  <script src="../scripts/notifications.js"></script>
+  <script src="../scripts/script.js"></script>
+  <script src="../scripts/profile.js"></script>
+</body>
+</html>
+

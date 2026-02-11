@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CourseCity Admin - Messages">
+  <title>Messages - CourseCity Admin</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../../assets/favicon_io/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../assets/favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/favicon_io/site.webmanifest">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../styles/admin/admin.css">
+</head>
+<body class="admin-page">
+  <div class="admin-layout">
+    <!-- Sidebar Overlay (for mobile) -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <a href="../../pages/index.html" class="sidebar-logo-text">CourseCity</a>
+        <button class="sidebar-menu-toggle" id="sidebar-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" data-tooltip="Dashboard">
+          <i class="fas fa-th-large"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="courses.html" data-tooltip="Courses">
+          <i class="fas fa-book"></i>
+          <span>Courses</span>
+        </a>
+        <a href="users.html" data-tooltip="Users">
+          <i class="fas fa-users"></i>
+          <span>Users</span>
+        </a>
+        <a href="orders.html" data-tooltip="Orders">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Orders</span>
+        </a>
+        <a href="analytics.html" data-tooltip="Analytics">
+          <i class="fas fa-chart-bar"></i>
+          <span>Analytics</span>
+        </a>
+        <a href="settings.html" data-tooltip="Settings">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
+        <a href="profile.html" data-tooltip="Profile">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-user">
+        <div class="sidebar-logout-divider"></div>
+        <a href="#" id="admin-logout-btn" class="sidebar-nav sidebar-logout-item" data-tooltip="Logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Top Header -->
+    <header class="admin-top-header">
+      <h1 class="header-title">Messages</h1>
+      
+      <div class="header-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="admin-header-search" placeholder="What do you want to find?">
+      </div>
+
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <button class="header-icon-btn theme-toggle-btn" id="theme-toggle-btn" title="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        
+        <!-- Notifications Dropdown -->
+        <div class="header-dropdown-container">
+          <button class="header-icon-btn" id="admin-notifications-btn">
+            <i class="fas fa-bell"></i>
+            <span class="header-icon-badge" id="admin-notifications-badge">0</span>
+          </button>
+          <div class="header-dropdown" id="admin-notifications-dropdown">
+            <div class="header-dropdown-header">
+              <h3>Notifications</h3>
+              <button class="header-dropdown-action" id="mark-all-notifications-read" title="Mark all as read">
+                <i class="fas fa-check-double"></i>
+              </button>
+            </div>
+            <div class="header-dropdown-body" id="admin-notifications-list">
+              <div class="dropdown-empty">No new notifications</div>
+            </div>
+            <div class="header-dropdown-footer">
+              <a href="#" class="dropdown-view-all">View All Notifications</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Messages Dropdown -->
+        <div class="header-dropdown-container">
+          <button class="header-icon-btn" id="admin-messages-btn">
+            <i class="fas fa-comment"></i>
+            <span class="header-icon-badge" id="admin-messages-badge">0</span>
+          </button>
+          <div class="header-dropdown" id="admin-messages-dropdown">
+            <div class="header-dropdown-header">
+              <h3>Messages</h3>
+              <button class="header-dropdown-action" id="mark-all-messages-read" title="Mark all as read">
+                <i class="fas fa-check-double"></i>
+              </button>
+            </div>
+            <div class="header-dropdown-body" id="admin-messages-list">
+              <div class="dropdown-empty">No new messages</div>
+            </div>
+            <div class="header-dropdown-footer">
+              <a href="messages.html" class="dropdown-view-all">View All Messages</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- User Dropdown -->
+        <div class="header-dropdown-container">
+          <div class="header-user-dropdown" id="admin-user-dropdown">
+            <div class="header-user-avatar" id="header-user-avatar">AU</div>
+            <div class="header-user-info">
+              <span class="header-user-name" id="header-user-name">Admin User</span>
+              <span class="header-user-role" id="header-user-role">Super Admin</span>
+            </div>
+            <i class="fas fa-chevron-down header-user-arrow"></i>
+          </div>
+          <div class="header-dropdown user-menu" id="admin-user-menu">
+            <div class="header-dropdown-body">
+              <a href="dashboard.html" class="dropdown-menu-item">
+                <i class="fas fa-th-large"></i>
+                <span>Dashboard</span>
+              </a>
+              <a href="profile.html" class="dropdown-menu-item" id="admin-profile-link">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+              </a>
+              <div class="dropdown-menu-divider"></div>
+              <a href="#" class="dropdown-menu-item" id="admin-header-logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <div class="admin-page-title">Messages</div>
+
+      <!-- Messages Filters -->
+      <div class="filters-section">
+        <div class="filters-grid">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label>Search Messages</label>
+            <input type="text" id="messages-search" placeholder="Search by sender, subject, or content...">
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label>Filter by Status</label>
+            <select id="messages-status-filter">
+              <option value="all">All Messages</option>
+              <option value="unread">Unread</option>
+              <option value="read">Read</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label>Sort By</label>
+            <select id="messages-sort">
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+              <option value="sender">By Sender</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Messages List -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <h2>All Messages</h2>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span id="messages-count">Loading...</span>
+            <button class="btn btn-secondary" id="mark-all-read-btn">
+              <i class="fas fa-check-double"></i>
+              Mark All as Read
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div id="messages-container">
+            <div class="messages-list" id="messages-list">
+              <div class="text-center" style="padding: 2rem;">
+                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--admin-text-secondary);"></i>
+                <p style="margin-top: 1rem; color: var(--admin-text-secondary);">Loading messages...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Logout Confirmation Modal -->
+  <div id="logout-modal" class="logout-modal-overlay">
+    <div class="logout-modal">
+      <div class="logout-modal-icon">
+        <i class="fas fa-sign-out-alt"></i>
+      </div>
+      <h2 class="logout-modal-title">Confirm Logout</h2>
+      <p class="logout-modal-message">Are you sure you want to logout from the admin panel?</p>
+      <p class="logout-modal-warning">You will need to login again to access the admin dashboard.</p>
+      <div class="logout-modal-actions">
+        <button id="logout-cancel-btn" class="logout-btn logout-btn-cancel">
+          <i class="fas fa-times"></i>
+          Cancel
+        </button>
+        <button id="logout-confirm-btn" class="logout-btn logout-btn-confirm">
+          <i class="fas fa-sign-out-alt"></i>
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../../scripts/api.js"></script>
+  <script src="../../scripts/script.js"></script>
+  <script src="../../scripts/admin/admin-theme.js"></script>
+  <script src="../../scripts/admin/admin-auth.js"></script>
+  <script src="../../scripts/admin/admin-header.js"></script>
+  <script src="../../scripts/admin/admin-logout.js"></script>
+  <script src="../../scripts/admin/admin-sidebar.js"></script>
+  <script src="../../scripts/admin/admin-messages.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

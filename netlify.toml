@@ -1,0 +1,28 @@
+# Netlify Configuration for CourseCity
+
+[build]
+  # Publish the src directory (contains all HTML/CSS/JS)
+  publish = "src"
+  
+  # No build command needed (static files)
+  command = ""
+
+# Redirect rules for SPA-like behavior
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment variables (set these in Netlify dashboard)
+# Go to: Site settings → Environment variables
+# Add: API_BASE_URL = https://your-backend-url.up.railway.app/api
+
+# Headers for security and CORS
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+

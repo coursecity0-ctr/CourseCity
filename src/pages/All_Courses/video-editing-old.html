@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CourseCity — Product Page</title>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/Assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/Assets/favicon_io/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/Assets/favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/Assets/favicon_io/site.webmanifest">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    :root{
+      --bg: #f6f5f9;
+      --card: #ffffff;
+      --text: #222;
+      --muted: #6b7280;
+      --accent: #ff7a00;
+      --accent-2: #5a1850;
+      --radius: 12px;
+      --shadow: 0 8px 24px rgba(18,25,30,0.06);
+      --max: 1100px;
+    }
+
+    /* Base reset */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      transition: background .25s ease, color .25s ease;
+    }
+    .wrap{max-width:var(--max);margin:28px auto;padding:0 20px;}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:1200;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:12px 5%; background:var(--card);
+      border-bottom:1px solid rgba(0,0,0,0.06);
+      transition: background .25s, border-color .25s;
+    }
+    .logo a{font-weight:700;font-size:1.25rem;color:var(--text);text-decoration:none}
+    .logo a span{color:orange}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{color:var(--text);text-decoration:none;font-weight:500}
+    nav a:hover, nav a.active{color:var(--accent-2)}
+
+    nav ul li a:hover {
+  color: orange;
+}
+
+
+    .header-right{display:flex;align-items:center;gap:12px}
+
+    /* hamburger (mobile) */
+    .hamburger{display:none;cursor:pointer;font-size:1.2rem;color:var(--text);background:none;border:0;padding:8px;border-radius:8px}
+    .hamburger:focus{outline:2px solid rgba(0,0,0,0.06)}
+
+    /* Cart */
+    #cart-btn{
+      display:inline-flex;gap:8px;align-items:center;background:var(--accent);
+      color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600;
+    }
+    #cart-btn:focus{outline:2px solid rgba(0,0,0,0.06)}
+    .cart-container{position:relative}
+    #cart-dropdown{
+      position:absolute; right:0; top:56px; width:320px; max-height:420px; overflow:auto;
+      background:var(--card); border-radius:12px; box-shadow:var(--shadow); padding:14px; display:none;
+    }
+    #cart-dropdown.active{display:block}
+    #cart-items{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+    .cart-item{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(0,0,0,0.04)}
+    .cart-item .title{font-size:0.95rem}
+    .cart-controls{display:flex;gap:6px;align-items:center}
+    .cart-controls button{background:#28a745;border:0;padding:6px 8px;border-radius:6px;cursor:pointer}
+    .remove-btn{background:#ff4d4d;color:#fff;border-radius:6px;padding:6px 8px;border:0;cursor:pointer}
+
+    #cart-total{font-weight:700;text-align:right;margin-top:8px}
+    #purchase-btn{width:100%;margin-top:8px;padding:10px;border-radius:8px;border:0;background:var(--accent);color:#fff;cursor:pointer}
+
+    /* Theme toggle */
+    .theme-toggle{font-size:1.2rem;cursor:pointer;color:var(--text);background:none;border:0;padding:8px;border-radius:8px}
+    .theme-toggle:focus{outline:2px solid rgba(0,0,0,0.06)}
+
+    /* Main grid */
+    main{padding:28px 0}
+    .product-grid{display:grid;grid-template-columns:1fr 500px;gap:36px;align-items:start}
+    .product-image img{width:100%;height:auto;border-radius:12px;display:block;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
+    .side-card{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+    .small{color:var(--muted);font-size:0.95rem}
+    .price{font-weight:700;font-size:1.3rem;color:var(--accent)}
+    .buy-row{display:flex;gap:10px;margin-top:8px}
+    .btn{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:10px;border-radius:10px;cursor:pointer}
+    .add-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;border:0;background:var(--accent);color:#fff;cursor:pointer;font-weight:700}
+    .details-card{margin-top:12px;padding:14px;border-radius:12px;background:var(--card);box-shadow:var(--shadow)}
+
+    /* Course description */
+    .course-description{max-width:980px;margin:28px auto;padding:22px;background:var(--card);border-radius:12px;box-shadow:var(--shadow)}
+    .course-description h2{font-size:1.5rem;margin-bottom:12px;text-align:center}
+    .features-list{list-style:none;padding:0;margin:12px 0;display:grid;gap:8px}
+    .features-list li{background:rgba(0,0,0,0.02);padding:10px;border-radius:8px}
+
+    /* Footer */
+    footer{margin-top:28px;padding:20px 5%;background:#111;color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    footer a{color:var(--accent);text-decoration:none}
+
+    /* Dark mode (consistent 'dark' class on body) */
+    body.dark{
+      --bg:#0f1114; --card:#141518; --text:#efefef; --muted:#9aa4af; --accent:#ff7a00;
+      background:var(--bg); color:var(--text);
+    }
+    body.dark header{background:var(--card);border-color:rgba(255,255,255,0.03)}
+    body.dark nav a{color:var(--text)}
+    body.dark nav ul{background:var(--card)}
+    body.dark #cart-dropdown{background:var(--card);border:1px solid rgba(255,255,255,0.03)}
+    body.dark .details-card, body.dark .side-card, body.dark .course-description{background:#111;box-shadow:0 8px 24px rgba(0,0,0,0.6)}
+    
+    body.dark footer{background:#080808}
+
+    /* Responsive */
+    @media (max-width: 992px){ .product-grid{grid-template-columns:1fr 340px} }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        background:#ffffff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+      }
+
+      nav ul.show {
+        max-height: 300px;
+      }
+
+      .hamburger {
+        display: block;
+      }
+      .product-grid{grid-template-columns:1fr}
+      .course-description{margin:18px 0}
+    }
+
+
+    /* Utility */
+    .sr-only{position:absolute;left:-9999px}
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header role="banner" aria-label="CourseCity header">
+      <div class="logo"><a href="../index.html">Course<span>City</span></a></div>
+
+      <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <nav id="nav-menu" aria-label="Primary navigation">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="Courses.html">Courses</a></li>
+          <li><a href="../Contact/Contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right" role="toolbar" aria-label="Header actions">
+        <div class="cart-container" aria-live="polite">
+          <button id="cart-btn" aria-haspopup="dialog" aria-expanded="false" title="Open cart">
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+            <span id="cart-count" aria-hidden="true">0</span>
+            <span class="sr-only">Cart items</span>
+          </button>
+
+          <div id="cart-dropdown" role="dialog" aria-label="Cart" aria-modal="false">
+            <h3 style="margin:0 0 8px 0">Your Cart</h3>
+            <ul id="cart-items" aria-live="polite"></ul>
+            <div id="cart-total">Total: GH₵0.00</div>
+
+            <label for="customer-email" class="sr-only">Customer email</label>
+            <input id="customer-email" type="email" placeholder="Enter your email" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);margin-top:8px">
+
+            <button id="purchase-btn" style="margin-top:10px;padding:10px;border-radius:8px;border:0;background:var(--accent);color:#fff;cursor:pointer">Purchase Now</button>
+          </div>
+        </div>
+
+        <button class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
+          <i class="fas fa-sun" id="sun-icon" aria-hidden="true"></i>
+          <i class="fas fa-moon" id="moon-icon" aria-hidden="true" style="display:none"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="wrap">
+    <!-- MAIN -->
+    <main>
+      <section class="product-grid" aria-label="Product">
+        <!-- Left: Product image -->
+        <div class="product-image" aria-hidden="false">
+          <img src="/Assets/image/Video Editing Resources And Courses.png" alt="python" />
+        </div>
+
+        <!-- Right: Purchase card -->
+        <aside class="side-card" aria-labelledby="product-title">
+          <h1 id="product-title" style="font-size:1.25rem;margin:0">Video Editing Mastery: Designed for Students and Creative Professionals</h1>
+          <div class="small">Hands-On Video Editing — Designed for Students and Aspiring Professionals</div>
+
+          <div style="margin-top:12px">
+            <div class="price" id="display-price">GH₵20.00</div>
+            <div class="small">incl. charges (where applicable)</div>
+          </div>
+
+          <div class="details-card" style="margin-top:12px">
+            <h3 style="margin:0 0 8px 0">Course details</h3>
+            <div class="feature"><i class="fa-solid fa-check"></i><div style="margin-left:8px"><strong>Includes</strong><div class="muted">Video tutorials, PDF guides, lifetime updates</div></div></div>
+            <div class="feature"><i class="fa-solid fa-user-gear"></i><div style="margin-left:8px"><strong>Perfect for</strong><div class="muted">Students & professionals transitioning into video editing and content creation roles</div></div></div>
+
+            <div class="buy-row" style="margin-top:14px">
+              <button class="add-btn" id="add-to-cart" aria-label="Add course to cart">
+                <i class="fa-solid fa-cart-plus" aria-hidden="true"></i> Add to cart
+              </button>
+
+              <button class="btn" id="buy-now" aria-label="Buy now" title="Buy now" style="display:flex;align-items:center;gap:8px">
+            </div>
+          </div>
+        </aside>
+      </section>
+
+   <!-- Course Description -->
+<section class="course-description" aria-labelledby="course-heading">
+
+  <h2 style="font-size: 1.8rem; font-weight: 700; text-align: center; margin-bottom: 1.5rem;">
+    🎬 Stop Struggling with Video Editing — Create Pro-Level Content in Minutes! 🚀
+  </h2>
+
+  <p style="text-align: center; font-size: 1rem; color: #555; margin-bottom: 2rem;">
+    Tired of wasting hours on confusing software or ending up with average-looking videos?  
+    You don’t need expensive courses or years of trial and error anymore —  
+    <strong>your ultimate solution is here!</strong>  
+    <br><br>
+    🎥 Unlock the <strong>All-in-One Video Editing Mastery Package</strong> — packed with <em>industry-leading software, hands-on video training</em>,  
+    and <em>over one million professional editing resources</em> to take you from beginner to expert effortlessly!
+  </p>
+
+  <h3 style="font-size: 1.3rem; font-weight: 700; margin-top: 2rem;">🌟 Why Choose This Package?</h3>
+  <ul style="margin-top: 1rem; list-style: none; padding-left: 0;">
+    <li>✅ <strong>Premium Tools Included:</strong> Adobe Premiere Pro, After Effects, Davinci Resolve, Filmora, CapCut & more — all fully activated.</li><br>
+    <li>✅ <strong>Step-by-Step Learning:</strong> Follow beginner-to-advanced tutorials that simplify even complex edits.</li><br>
+    <li>✅ <strong>Creative Freedom:</strong> Access cinematic effects, smooth transitions, and pro templates for every niche.</li><br>
+    <li>✅ <strong>Monetize Your Skills:</strong> Learn how to earn from YouTube, freelancing, or brand collaborations.</li><br>
+    <li>✅ <strong>Unlimited Access:</strong> Download all lessons, presets, and future updates — forever!</li>
+  </ul>
+
+  <h3 style="font-size: 1.3rem; font-weight: 700; margin-top: 2rem;">📚 What You’ll Master</h3>
+  <ul style="margin-top: 1rem; list-style: none; padding-left: 0;">
+    <li><strong>Module 1: Video Editing Foundations</strong><br>
+      🎞 Understand timelines, keyframes, and trimming tools.<br>
+      🧩 Learn workflow optimization for faster, smoother edits.
+    </li><br>
+
+    <li><strong>Module 2: Motion Graphics & Visual Effects</strong><br>
+      💡 Create eye-catching intros, transitions, and animations.<br>
+      ⚡ Master visual storytelling with dynamic compositions.
+    </li><br>
+
+    <li><strong>Module 3: Sound & Color Mastery</strong><br>
+      🎧 Edit sound effects, enhance clarity, and balance audio levels.<br>
+      🎨 Perform color correction and cinematic color grading.
+    </li><br>
+
+    <li><strong>Module 4: Advanced Editing Techniques</strong><br>
+      🔍 Learn green screen editing, masking, and tracking.<br>
+      🖥 Build professional ads, YouTube videos, and film sequences.
+    </li><br>
+
+    <li><strong>Module 5: Monetization & Freelancing</strong><br>
+      💰 Learn how to price, market, and sell your editing services.<br>
+      🌍 Build a global client base with proven growth strategies.
+    </li>
+  </ul>
+
+  <h3 style="font-size: 1.3rem; font-weight: 700; margin-top: 2rem;">💡 What’s Inside the Package</h3>
+  <ul style="margin-top: 1rem; list-style: none; padding-left: 0;">
+    <li>🎥 <strong>Video Editing Software:</strong> Full access to Adobe, Filmora, Davinci Resolve & more.</li><br>
+    <li>🎞 <strong>Over 1 Million+ Resources:</strong> Templates, LUTs, transitions, overlays, and sound packs.</li><br>
+    <li>🧠 <strong>Expert Video Training:</strong> Clear, easy-to-follow lessons for every level.</li><br>
+    <li>🎁 <strong>Bonus Presets:</strong> Free motion graphics & cinematic effect packs.</li>
+  </ul>
+
+  <h3 style="font-size: 1.3rem; font-weight: 700; margin-top: 2rem;">🎯 Who’s This For?</h3>
+  <ul style="margin-top: 1rem; list-style: none; padding-left: 0;">
+    <li>🎬 <strong>Content Creators & YouTubers:</strong> Boost video quality & viewer engagement.</li><br>
+    <li>💼 <strong>Freelancers:</strong> Deliver professional edits clients will love.</li><br>
+    <li>🎓 <strong>Students:</strong> Learn real-world editing skills that make you job-ready.</li><br>
+    <li>📱 <strong>Social Media Managers:</strong> Create thumb-stopping visuals and reels.</li><br>
+    <li>🚀 <strong>Entrepreneurs & Marketers:</strong> Turn ordinary clips into attention-grabbing ads.</li>
+  </ul>
+
+  <h3 style="font-size: 1.3rem; font-weight: 700; margin-top: 2rem;">🔑 Key Outcomes</h3>
+  <ul style="margin-top: 1rem; list-style: none; padding-left: 0;">
+    <li>🚀 Create professional-quality videos quickly and easily.</li><br>
+    <li>💡 Master cinematic color grading, motion design, and editing flow.</li><br>
+    <li>🎥 Build a portfolio that attracts clients and boosts your income.</li><br>
+    <li>📈 Grow your brand and online presence with polished, engaging content.</li>
+  </ul>
+
+  <h3 style="font-size: 1.3rem; font-weight: 700; margin-top: 2rem;">🎓 What You Need</h3>
+  <ul style="margin-top: 1rem; list-style: none; padding-left: 0;">
+    <li>💻 A computer (Windows/macOS) with basic internet connection.</li><br>
+    <li>📷 Any camera or smartphone footage to edit (optional).</li><br>
+    <li>🔥 Passion for storytelling and creativity — no prior experience needed!</li>
+  </ul>
+
+  <p style="margin-top: 2rem; text-align: center; font-weight: 600; font-size: 1.1rem;">
+    🎬 Ready to create stunning videos that impress and inspire?<br>
+    <strong>Join now and master Video Editing — the fastest, easiest way to go from beginner to pro!</strong>
+  </p>
+
+</section>
+
+
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+    <footer role="contentinfo">
+      <div>© 2025 CourseCity</div>
+       <div class="socials">
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    </div>
+    </footer>
+
+  <!-- Paystack SDK (kept as requested) -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+
+  <!-- SCRIPT: Cleaned & functional JS -->
+  <script>
+    (function () {
+      'use strict';
+
+      // Elements
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.querySelector('nav ul');
+
+      const themeToggle = document.getElementById('theme-toggle');
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
+
+      const cartBtn = document.getElementById('cart-btn');
+      const cartDropdown = document.getElementById('cart-dropdown');
+      const cartItemsList = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      const cartTotal = document.getElementById('cart-total');
+      const purchaseBtn = document.getElementById('purchase-btn');
+      const customerEmailInput = document.getElementById('customer-email');
+
+      const addToCartBtn = document.getElementById('add-to-cart');
+      const buyNowBtn = document.getElementById('buy-now');
+
+      const productTitleEl = document.getElementById('product-title');
+      const productPriceEl = document.getElementById('display-price');
+
+      // State
+      let cart = JSON.parse(localStorage.getItem('coursecity_cart') || '[]');
+
+      // Helpers
+      function saveCart(){ localStorage.setItem('coursecity_cart', JSON.stringify(cart)); }
+      function formatGHS(v){ return 'GH₵' + Number(v).toFixed(2); }
+      function totalQuantity(){ return cart.reduce((s,i)=>s+i.quantity,0); }
+
+      // Update cart UI
+      function updateCartUI(){
+        cartItemsList.innerHTML = '';
+        if (cart.length === 0){
+          const empty = document.createElement('div'); empty.className='muted'; empty.textContent='Your cart is empty.';
+          cartItemsList.appendChild(empty);
+          cartCount.textContent = '0';
+          cartTotal.textContent = 'Total: GH₵0.00';
+          saveCart();
+          return;
+        }
+
+        let total = 0;
+        cart.forEach((item, index) => {
+          total += item.price * item.quantity;
+          const li = document.createElement('li');
+          li.className = 'cart-item';
+          li.innerHTML = `
+            <div>
+              <div class="title">${item.title}</div>
+              <div class="muted" style="font-size:0.85rem">${formatGHS(item.price)} × ${item.quantity}</div>
+            </div>
+            <div class="cart-controls" data-index="${index}">
+              <button class="decrease" aria-label="Decrease quantity">−</button>
+              <span style="min-width:20px;text-align:center;display:inline-block">${item.quantity}</span>
+              <button class="increase" aria-label="Increase quantity">+</button>
+              <button class="remove-btn" aria-label="Remove item">&times;</button>
+            </div>
+          `;
+          cartItemsList.appendChild(li);
+        });
+
+        cartCount.textContent = String(totalQuantity());
+        cartTotal.textContent = 'Total: ' + formatGHS(total);
+        saveCart();
+      }
+
+      // Cart operations
+      function addProductToCart(title, price){
+        const existing = cart.find(i=>i.title===title);
+        if (existing) existing.quantity++;
+        else cart.push({ title, price, quantity: 1 });
+        updateCartUI();
+      }
+
+      function changeQuantity(index, delta){
+        if (!cart[index]) return;
+        cart[index].quantity += delta;
+        if (cart[index].quantity <= 0) cart.splice(index,1);
+        updateCartUI();
+      }
+
+      function removeItem(index){ if (!cart[index]) return; cart.splice(index,1); updateCartUI(); }
+
+      // Delegation for cart controls
+      cartItemsList.addEventListener('click', e => {
+        const target = e.target;
+        const controls = target.closest('.cart-controls');
+        if (!controls) return;
+        const idx = Number(controls.dataset.index);
+        if (target.classList.contains('decrease')) changeQuantity(idx, -1);
+        else if (target.classList.contains('increase')) changeQuantity(idx, 1);
+        else if (target.classList.contains('remove-btn')) removeItem(idx);
+      });
+
+      // Purchase via Paystack
+      purchaseBtn.addEventListener('click', () => {
+        if (cart.length === 0){ alert('Your cart is empty!'); return; }
+        const email = customerEmailInput.value.trim();
+        if (!email){ alert('Please enter your email to continue.'); customerEmailInput.focus(); return; }
+        const totalAmount = cart.reduce((s,i)=>s+i.price*i.quantity,0);
+
+        const handler = PaystackPop.setup({
+          key: 'pk_live_abb27c49eace22e2087ba2098455303a21118039', // public key
+          email: email,
+          amount: Math.round(totalAmount * 100),
+          currency: 'GHS',
+          callback: function(response){
+            alert('Payment successful! Reference: ' + response.reference);
+            cart = []; updateCartUI(); cartDropdown.classList.remove('active'); localStorage.removeItem('coursecity_cart');
+          },
+          onClose: function(){ alert('Transaction was not completed.'); }
+        });
+        handler.openIframe();
+      });
+
+      // Add to cart and buy now handlers
+      addToCartBtn.addEventListener('click', () => {
+        const title = productTitleEl.innerText.trim();
+        const price = parseFloat(productPriceEl.innerText.replace(/[^\d.]/g,'')) || 0;
+        addProductToCart(title, price);
+        cartDropdown.classList.add('active');
+        cartBtn.setAttribute('aria-expanded','true');
+      });
+
+      buyNowBtn.addEventListener('click', () => {
+        const title = productTitleEl.innerText.trim();
+        const price = parseFloat(productPriceEl.innerText.replace(/[^\d.]/g,'')) || 0;
+        addProductToCart(title, price);
+        cartDropdown.classList.add('active');
+        cartBtn.setAttribute('aria-expanded','true');
+        customerEmailInput.scrollIntoView({ behavior:'smooth', block:'center' });
+      });
+
+      // Hamburger nav behavior
+      hamburger.addEventListener('click', e => {
+        e.stopPropagation();
+        const isOpen = navMenu.classList.toggle('show');
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      document.querySelectorAll('nav ul li a').forEach(link => link.addEventListener('click', ()=> navMenu.classList.remove('show')));
+
+      // Cart open/close behavior
+      cartBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        const open = cartDropdown.classList.toggle('active');
+        cartBtn.setAttribute('aria-expanded', String(open));
+      });
+
+      cartDropdown.addEventListener('click', e => e.stopPropagation());
+
+      // Close menu & cart when clicking outside
+      document.addEventListener('click', e => {
+        if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) navMenu.classList.remove('show');
+        if (!cartDropdown.contains(e.target) && !cartBtn.contains(e.target)) {
+          cartDropdown.classList.remove('active');
+          cartBtn.setAttribute('aria-expanded','false');
+        }
+      });
+
+      // Theme toggle & persistence (uses 'dark' class on <body>)
+      function setTheme(mode){
+        if (mode === 'dark'){
+          document.body.classList.add('dark');
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'inline-block';
+          themeToggle.setAttribute('aria-pressed','true');
+          localStorage.setItem('coursecity_theme','dark');
+        } else {
+          document.body.classList.remove('dark');
+          sunIcon.style.display = 'inline-block';
+          moonIcon.style.display = 'none';
+          themeToggle.setAttribute('aria-pressed','false');
+          localStorage.setItem('coursecity_theme','light');
+        }
+      }
+
+      setTheme(localStorage.getItem('coursecity_theme') || 'light');
+
+      themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark');
+        setTheme(isDark ? 'dark' : 'light');
+      });
+
+      // Small responsive resize tweak
+      window.addEventListener('resize', ()=> { if (window.innerWidth > 780) navMenu.classList.remove('show'); });
+
+      // Initialize UI
+      updateCartUI();
+    })();
+  </script>
+</body>
+</html>
+
+
+

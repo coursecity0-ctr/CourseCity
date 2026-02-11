@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CORS Test</title>
+</head>
+<body>
+  <h1>CORS Test</h1>
+  <button onclick="testAPI()">Test API Connection</button>
+  <div id="result"></div>
+
+  <script>
+    async function testAPI() {
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = 'Testing...';
+      
+      try {
+        const origin = window.location.origin;
+        const apiHost = origin.includes('127.0.0.1') ? '127.0.0.1' : 'localhost';
+        
+        console.log('Testing API at:', `http://${apiHost}:5000/api/test`);
+        console.log('From origin:', origin);
+        
+        const response = await fetch(`http://${apiHost}:5000/api/test`, {
+          method: 'GET',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        
+        const data = await response.json();
+        resultDiv.innerHTML = `
+          <h2>✅ Success!</h2>
+          <p>Message: ${data.message}</p>
+          <p>Origin: ${origin}</p>
+          <p>API Host: ${apiHost}</p>
+          <p>Status: ${response.status}</p>
+        `;
+      } catch (error) {
+        resultDiv.innerHTML = `
+          <h2>❌ Error</h2>
+          <p>${error.message}</p>
+          <p>Origin: ${window.location.origin}</p>
+          <p>Make sure:</p>
+          <ul>
+            <li>Backend server is running on port 5000</li>
+            <li>Backend server was restarted after code changes</li>
+            <li>No other instances are running</li>
+          </ul>
+        `;
+        console.error('Error:', error);
+      }
+    }
+  </script>
+</body>
+</html>
+
+

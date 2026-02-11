@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign up for CourseCity - Start learning today">
+  <title>Sign Up - CourseCity</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon_io/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="../assets/favicon_io/site.webmanifest">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <div class="auth-page-wrapper">
+    <!-- Left Side - Hero -->
+    <div class="auth-hero">
+      <div class="auth-hero-content">
+        <a href="../pages/index.html" class="auth-logo">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Course<span class="logo-highlight">City</span></span>
+        </a>
+        <div class="auth-hero-text">
+          <h1>Start Your Learning Journey</h1>
+          <p>Join thousands of students learning from expert instructors and building their future.</p>
+        </div>
+        <div class="auth-hero-image">
+          <img src="../assets/image/Logo.png" alt="Learning" loading="eager">
+        </div>
+        <div class="auth-hero-features">
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Lifetime Access</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Expert Instructors</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Certificate of Completion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side - Signup Form -->
+    <div class="auth-form-side">
+      <div class="auth-form-container">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle auth-theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-sun" id="sun-icon"></i>
+          <i class="fas fa-moon" id="moon-icon" style="display: none;"></i>
+        </button>
+
+        <div class="auth-form-header">
+          <h2>Create Your Account</h2>
+          <p>Sign up to start learning today</p>
+        </div>
+
+        <!-- Social Signup Buttons -->
+        <div class="social-auth-buttons">
+          <button class="social-btn google-btn" id="google-signup">
+            <i class="fab fa-google"></i>
+            <span>Sign up with Google</span>
+          </button>
+          <button class="social-btn facebook-btn" id="facebook-signup">
+            <i class="fab fa-facebook-f"></i>
+            <span>Sign up with Facebook</span>
+          </button>
+        </div>
+
+        <div class="auth-divider">
+          <span>OR</span>
+        </div>
+
+        <!-- Signup Form -->
+        <form class="auth-form" id="page-signup-form">
+          <div class="form-group">
+            <label for="page-signup-name">
+              <i class="fas fa-user"></i>
+              Full Name
+            </label>
+            <input 
+              type="text" 
+              id="page-signup-name" 
+              required 
+              placeholder="John Doe"
+              autocomplete="name"
+            >
+            <span class="form-error" id="name-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="page-signup-email">
+              <i class="fas fa-envelope"></i>
+              Email Address
+            </label>
+            <input 
+              type="email" 
+              id="page-signup-email" 
+              required 
+              placeholder="your@email.com"
+              autocomplete="email"
+            >
+            <span class="form-error" id="signup-email-error"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="page-signup-password">
+              <i class="fas fa-lock"></i>
+              Password
+            </label>
+            <div class="password-input-wrapper">
+              <input 
+                type="password" 
+                id="page-signup-password" 
+                required 
+                placeholder="Create a strong password"
+                autocomplete="new-password"
+              >
+              <button type="button" class="toggle-password" id="toggle-signup-password">
+                <i class="far fa-eye"></i>
+              </button>
+            </div>
+            <div class="password-strength-indicator">
+              <div class="password-strength-bar" id="page-password-strength-bar"></div>
+            </div>
+            <div class="password-strength-text" id="page-password-strength-text"></div>
+            <span class="form-error" id="signup-password-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="page-signup-confirm-password">
+              <i class="fas fa-lock"></i>
+              Confirm Password
+            </label>
+            <div class="password-input-wrapper">
+              <input 
+                type="password" 
+                id="page-signup-confirm-password" 
+                required 
+                placeholder="Confirm your password"
+                autocomplete="new-password"
+              >
+              <button type="button" class="toggle-password" id="toggle-confirm-password">
+                <i class="far fa-eye"></i>
+              </button>
+            </div>
+            <span class="form-error" id="confirm-password-error"></span>
+          </div>
+
+          <div class="form-group-checkbox">
+            <label class="checkbox-label">
+              <input type="checkbox" id="page-terms-checkbox" required>
+              <span>I agree to the <a href="../pages/terms-of-service.html" target="_blank">Terms of Service</a> and <a href="../pages/privacy-policy.html" target="_blank">Privacy Policy</a></span>
+            </label>
+            <span class="form-error" id="terms-error"></span>
+          </div>
+
+          <button type="submit" class="auth-submit-btn" id="signup-submit-btn">
+            <span class="btn-text">Create Account</span>
+            <span class="btn-loader" style="display: none;">
+              <i class="fas fa-spinner fa-spin"></i>
+            </span>
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <p>Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+
+        <div class="auth-links">
+          <a href="../pages/index.html"><i class="fas fa-home"></i> Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="../scripts/api.js"></script>
+  <script src="../scripts/script.js"></script>
+  <script src="../scripts/auth.js"></script>
+</body>
+</html>
+

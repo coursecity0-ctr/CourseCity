@@ -1,0 +1,357 @@
+/* Settings Page Styles */
+
+/* Settings Tabs */
+.settings-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  border-bottom: 2px solid var(--admin-border);
+  padding-bottom: 0.5rem;
+}
+
+.settings-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  color: var(--admin-text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.settings-tab:hover {
+  background: var(--admin-bg-tertiary);
+  color: var(--admin-text-primary);
+}
+
+.settings-tab.active {
+  color: var(--admin-accent);
+  background: var(--admin-bg-secondary);
+}
+
+.settings-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--admin-accent);
+}
+
+.settings-tab i {
+  font-size: 1rem;
+}
+
+/* Settings Sections */
+.settings-section {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.settings-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Profile Avatar */
+.profile-avatar-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.profile-avatar-preview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--admin-bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--admin-text-secondary);
+  border: 3px solid var(--admin-border);
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.profile-avatar-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.profile-avatar-preview i {
+  display: block;
+}
+
+.profile-avatar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--admin-border);
+}
+
+.form-help {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--admin-text-tertiary);
+}
+
+/* Theme Options */
+.theme-options {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.theme-option {
+  flex: 1;
+  cursor: pointer;
+}
+
+.theme-option input[type="radio"] {
+  display: none;
+}
+
+.theme-option-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border: 2px solid var(--admin-border);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: var(--admin-bg-secondary);
+}
+
+.theme-option-preview i {
+  font-size: 2rem;
+  color: var(--admin-text-secondary);
+}
+
+.theme-option-preview span {
+  font-weight: 500;
+  color: var(--admin-text-primary);
+}
+
+.theme-option input[type="radio"]:checked + .theme-option-preview {
+  border-color: var(--admin-accent);
+  background: rgba(255, 122, 0, 0.1);
+}
+
+.theme-option input[type="radio"]:checked + .theme-option-preview i {
+  color: var(--admin-accent);
+}
+
+.theme-option:hover .theme-option-preview {
+  border-color: var(--admin-accent);
+  transform: translateY(-2px);
+}
+
+/* Toggle Switches */
+.switch-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  background: var(--admin-bg-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.switch-label:hover {
+  border-color: var(--admin-accent);
+  background: var(--admin-bg-tertiary);
+}
+
+.switch-label span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.switch-label strong {
+  font-weight: 600;
+  color: var(--admin-text-primary);
+  font-size: 0.95rem;
+}
+
+.switch-label small {
+  font-size: 0.85rem;
+  color: var(--admin-text-secondary);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--admin-border);
+  transition: 0.3s;
+  border-radius: 26px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--admin-accent);
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px var(--admin-accent);
+}
+
+/* Settings Divider */
+.settings-divider {
+  height: 1px;
+  background: var(--admin-border);
+  margin: 2rem 0;
+}
+
+/* System Info Grid */
+.system-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.system-info-item {
+  padding: 1.5rem;
+  background: var(--admin-bg-tertiary);
+  border-radius: 8px;
+  border: 1px solid var(--admin-border);
+}
+
+.system-info-label {
+  font-size: 0.85rem;
+  color: var(--admin-text-secondary);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.system-info-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--admin-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.system-info-value.status-success {
+  color: #28a745;
+}
+
+.system-info-value.status-success i {
+  font-size: 1rem;
+}
+
+.system-info-value.status-error {
+  color: #dc3545;
+}
+
+.system-info-value.status-error i {
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .settings-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .settings-tab {
+    white-space: nowrap;
+    padding: 0.75rem 1rem;
+  }
+
+  .theme-options {
+    flex-direction: column;
+  }
+
+  .profile-avatar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+
+  .system-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
