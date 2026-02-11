@@ -8,22 +8,32 @@
     {
       "src": "backend/api/recommend.py",
       "use": "@vercel/python"
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/recommend",
-      "destination": "backend/api/recommend.py"
     },
     {
-      "source": "/api/(.*)",
-      "destination": "backend/server.js"
+      "src": "index.html",
+      "use": "@vercel/static"
     },
     {
-      "source": "/uploads/(.*)",
-      "destination": "backend/uploads/$1"
+      "src": "src/**/*",
+      "use": "@vercel/static"
     }
   ],
-  "cleanUrls": true,
-  "trailingSlash": false
+  "routes": [
+    {
+      "src": "/api/recommend",
+      "dest": "backend/api/recommend.py"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/server.js"
+    },
+    {
+      "src": "/uploads/(.*)",
+      "dest": "backend/uploads/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
 }
