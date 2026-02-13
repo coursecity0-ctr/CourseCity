@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore CourseCity - Discover all the resources and information to help you make the most of your learning journey">
+  <meta name="description"
+    content="Explore CourseCity - Discover all the resources and information to help you make the most of your learning journey">
   <title>Explore - CourseCity</title>
   <link rel="stylesheet" href="../../styles/style.css">
   <link rel="stylesheet" href="../../styles/Explore/explore.css">
+  <link rel="stylesheet" href="../../styles/mobile-app.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
   <!-- Top Banner -->
@@ -61,14 +65,16 @@
         <!-- Header Right Actions -->
         <div class="header-right" role="toolbar" aria-label="Header actions">
           <!-- Wishlist -->
-          <a href="../wishlist.html" class="icon-btn" id="wishlist-btn" aria-label="View Wishlist" title="View Wishlist" style="display: none;">
+          <a href="../wishlist.html" class="icon-btn" id="wishlist-btn" aria-label="View Wishlist" title="View Wishlist"
+            style="display: none;">
             <i class="far fa-heart"></i>
             <span class="badge" id="wishlist-count">0</span>
           </a>
 
           <!-- Notifications (Always visible) -->
           <div class="notification-container">
-            <button class="icon-btn" id="notification-bell-btn" aria-haspopup="dialog" aria-expanded="false" aria-label="Notifications">
+            <button class="icon-btn" id="notification-bell-btn" aria-haspopup="dialog" aria-expanded="false"
+              aria-label="Notifications">
               <i class="far fa-bell" id="notification-bell-icon"></i>
               <span class="badge" id="notification-count" style="display: none;">0</span>
             </button>
@@ -159,7 +165,7 @@
 
   <!-- Main Content -->
   <main class="explore-page">
-    
+
     <!-- Hero Section -->
     <section class="explore-hero">
       <div class="container">
@@ -194,7 +200,7 @@
     <section class="feature-cards">
       <div class="container">
         <div class="cards-grid">
-          
+
           <!-- About Us Card -->
           <a href="../About/About.html" class="feature-card-link">
             <div class="feature-card">
@@ -243,10 +249,11 @@
     <section class="why-choose">
       <div class="container">
         <h2>Why Choose CourseCity?</h2>
-        <p class="section-subtitle">We are committed to providing quality education that is accessible, affordable, and relevant to the African context.</p>
-        
+        <p class="section-subtitle">We are committed to providing quality education that is accessible, affordable, and
+          relevant to the African context.</p>
+
         <div class="stats-grid">
-          
+
           <!-- Stat 1 -->
           <div class="stat-card">
             <div class="stat-number">1,235+</div>
@@ -281,11 +288,15 @@
             <i class="fas fa-graduation-cap"></i>
             <span>Course<span class="logo-accent">City</span></span>
           </div>
-          <p>Ghana's leading online learning platform. Find great courses on everything from data analytics to web development, Excel to graphic design.</p>
+          <p>Ghana's leading online learning platform. Find great courses on everything from data analytics to web
+            development, Excel to graphic design.</p>
           <div class="footer-socials">
-            <a href="https://www.facebook.com/profile.php?id=61581958352468" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="http://www.tiktok.com/@course_city" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/233541604275" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61581958352468" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="http://www.tiktok.com/@course_city" target="_blank" rel="noopener noreferrer"
+              aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/233541604275" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i
+                class="fab fa-whatsapp"></i></a>
           </div>
         </div>
 
@@ -356,6 +367,49 @@
   </footer>
 
   <!-- Scripts -->
+  <!-- Mobile Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="../../index.html" class="bottom-nav-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="../All_Courses/Courses.html" class="bottom-nav-item">
+      <i class="fas fa-book"></i>
+      <span>Courses</span>
+    </a>
+    <a href="explore.html" class="bottom-nav-item active">
+      <i class="fas fa-search"></i>
+      <span>Explore</span>
+    </a>
+    <a href="../my-courses.html" class="bottom-nav-item">
+      <i class="fas fa-play-circle"></i>
+      <span>My Learning</span>
+    </a>
+    <a href="../profile.html" class="bottom-nav-item">
+      <i class="fas fa-user-circle"></i>
+      <span>Profile</span>
+    </a>
+  </nav>
+
+  <!-- Floating Side Actions -->
+  <div class="floating-side-actions">
+    <a href="../wishlist.html" class="fsa-btn" title="Wishlist">
+      <i class="far fa-heart"></i>
+      <span class="fsa-badge" id="fsa-wishlist-count">0</span>
+    </a>
+    <button class="fsa-btn" id="fsa-notifications-btn" title="Notifications">
+      <i class="far fa-bell"></i>
+      <span class="fsa-badge" id="fsa-notification-count">0</span>
+    </button>
+    <button class="fsa-btn" id="fsa-theme-btn" title="Toggle Theme">
+      <i class="fas fa-moon"></i>
+    </button>
+    <a href="../admin/messages.html" class="fsa-btn" title="Messages">
+      <i class="far fa-comment"></i>
+      <span class="fsa-badge" id="fsa-messages-count">0</span>
+    </a>
+  </div>
+
   <script src="https://js.paystack.co/v1/inline.js"></script>
   <script src="../../scripts/security-utils.js"></script>
   <script src="../../scripts/api.js"></script>
@@ -365,5 +419,5 @@
   <script src="../../scripts/notifications.js"></script>
   <script src="../../scripts/script.js"></script>
 </body>
-</html>
 
+</html>

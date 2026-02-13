@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,13 +16,16 @@
   <link rel="manifest" href="../assets/favicon_io/site.webmanifest">
 
   <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../styles/style.css">
   <link rel="stylesheet" href="../styles/profile-page.css">
+  <link rel="stylesheet" href="../styles/mobile-app.css">
 </head>
+
 <body>
   <!-- Top Banner -->
   <div class="top-banner">
@@ -64,14 +68,16 @@
         <!-- Header Right Actions -->
         <div class="header-right" role="toolbar" aria-label="Header actions">
           <!-- Wishlist -->
-          <a href="wishlist.html" class="icon-btn" id="wishlist-btn" aria-label="View Wishlist" title="View Wishlist" style="display: none;">
+          <a href="wishlist.html" class="icon-btn" id="wishlist-btn" aria-label="View Wishlist" title="View Wishlist"
+            style="display: none;">
             <i class="far fa-heart"></i>
             <span class="badge" id="wishlist-count">0</span>
           </a>
 
           <!-- Notifications (Always visible) -->
           <div class="notification-container">
-            <button class="icon-btn" id="notification-bell-btn" aria-haspopup="dialog" aria-expanded="false" aria-label="Notifications">
+            <button class="icon-btn" id="notification-bell-btn" aria-haspopup="dialog" aria-expanded="false"
+              aria-label="Notifications">
               <i class="far fa-bell" id="notification-bell-icon"></i>
               <span class="badge" id="notification-count" style="display: none;">0</span>
             </button>
@@ -183,7 +189,7 @@
 
       <!-- Profile Content Wrapper -->
       <div class="profile-content-wrapper">
-        
+
         <!-- View Mode -->
         <div id="profile-view-mode">
           <!-- Profile Header Section -->
@@ -194,10 +200,10 @@
                 U
               </div>
             </div>
-            
+
             <!-- User Name -->
             <h2 class="profile-header-name" id="profile-name">User Name</h2>
-            
+
             <!-- User Title/Role with Country -->
             <div class="profile-header-title-wrapper">
               <p class="profile-header-title" id="profile-title">Student</p>
@@ -207,7 +213,7 @@
                 <span id="profile-country">Ghana</span>
               </div>
             </div>
-            
+
             <!-- Action Buttons -->
             <div class="profile-header-actions">
               <button id="edit-profile-btn" class="btn-edit-profile">
@@ -226,7 +232,7 @@
               <i class="fas fa-info-circle"></i>
               <h3>Account Information</h3>
             </div>
-            
+
             <div class="profile-info-card">
               <p class="profile-info-label">
                 <i class="fas fa-envelope"></i>
@@ -292,20 +298,22 @@
             <!-- Profile Picture Section -->
             <div class="profile-avatar-section">
               <h4 style="margin-bottom: var(--spacing-md); color: var(--color-text);">Profile Picture</h4>
-              
+
               <div class="profile-avatar-preview-wrapper">
                 <div class="user-avatar profile-avatar-preview" id="avatar-preview">
                   U
                 </div>
               </div>
-              
+
               <div style="display: flex; flex-direction: column; gap: var(--spacing-sm); align-items: center;">
-                <label for="avatar-upload-input" class="btn-secondary" style="cursor: pointer; display: inline-flex; align-items: center; gap: var(--spacing-sm);">
+                <label for="avatar-upload-input" class="btn-secondary"
+                  style="cursor: pointer; display: inline-flex; align-items: center; gap: var(--spacing-sm);">
                   <i class="fas fa-upload"></i>
                   Choose Image
-                  <input type="file" id="avatar-upload-input" accept="image/jpeg,image/jpg,image/png,image/webp,image/gif" style="display: none;">
+                  <input type="file" id="avatar-upload-input"
+                    accept="image/jpeg,image/jpg,image/png,image/webp,image/gif" style="display: none;">
                 </label>
-                
+
                 <div class="profile-avatar-actions">
                   <button id="upload-avatar-btn" class="btn-primary">
                     <i class="fas fa-upload"></i>
@@ -316,7 +324,7 @@
                     Remove
                   </button>
                 </div>
-                
+
                 <p class="profile-avatar-upload-note">
                   Max size: 2MB. Supported formats: JPG, PNG, WebP, GIF
                 </p>
@@ -330,7 +338,8 @@
                   <i class="fas fa-user"></i>
                   Full Name
                 </label>
-                <input type="text" id="profile-fullname-input" class="form-input" placeholder="Enter your full name" required>
+                <input type="text" id="profile-fullname-input" class="form-input" placeholder="Enter your full name"
+                  required>
               </div>
 
               <div class="profile-form-field">
@@ -372,11 +381,15 @@
             <i class="fas fa-graduation-cap"></i>
             <span>Course<span class="logo-accent">City</span></span>
           </div>
-          <p>Ghana's leading online learning platform. Find great courses on everything from data analytics to web development, Excel to graphic design.</p>
+          <p>Ghana's leading online learning platform. Find great courses on everything from data analytics to web
+            development, Excel to graphic design.</p>
           <div class="footer-socials">
-            <a href="https://www.facebook.com/coursecitygh" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.tiktok.com/@coursecitygh" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/233241234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/coursecitygh" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@coursecitygh" target="_blank" rel="noopener noreferrer"
+              aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/233241234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i
+                class="fab fa-whatsapp"></i></a>
           </div>
         </div>
 
@@ -430,60 +443,55 @@
   </footer>
 
   <!-- Delete Account Modal -->
-  <div class="delete-account-modal" id="delete-account-modal" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); align-items: center; justify-content: center;">
-    <div style="background: var(--bg-primary); padding: 40px; border-radius: 12px; max-width: 500px; width: 90%; box-shadow: 0 4px 20px rgba(0,0,0,0.3); position: relative;">
-      <button id="close-delete-modal" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-secondary);" aria-label="Close">&times;</button>
-      
+  <div class="delete-account-modal" id="delete-account-modal"
+    style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); align-items: center; justify-content: center;">
+    <div
+      style="background: var(--bg-primary); padding: 40px; border-radius: 12px; max-width: 500px; width: 90%; box-shadow: 0 4px 20px rgba(0,0,0,0.3); position: relative;">
+      <button id="close-delete-modal"
+        style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-secondary);"
+        aria-label="Close">&times;</button>
+
       <div style="text-align: center; margin-bottom: 30px;">
         <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: #dc3545; margin-bottom: 20px;"></i>
         <h2 style="color: var(--text-primary); margin-bottom: 10px;">Delete Your Account</h2>
-        <p style="color: var(--text-secondary);">This action cannot be undone. All your data will be permanently deleted.</p>
+        <p style="color: var(--text-secondary);">This action cannot be undone. All your data will be permanently
+          deleted.</p>
       </div>
-      
-      <div id="delete-account-error" style="background: #f8d7da; color: #721c24; padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid #dc3545; display: none;"></div>
-      
+
+      <div id="delete-account-error"
+        style="background: #f8d7da; color: #721c24; padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid #dc3545; display: none;">
+      </div>
+
       <form id="delete-account-form">
         <div id="delete-password-group" style="margin-bottom: 20px;">
-          <label for="delete-account-password" style="display: block; margin-bottom: 8px; color: var(--text-primary); font-weight: 600;">
+          <label for="delete-account-password"
+            style="display: block; margin-bottom: 8px; color: var(--text-primary); font-weight: 600;">
             Password <span style="color: #dc3545;">*</span>
           </label>
-          <input 
-            type="password" 
-            id="delete-account-password" 
-            placeholder="Enter your password" 
-            required
-            style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 6px; font-size: 1rem; background: var(--bg-secondary); color: var(--text-primary);"
-          >
-          <small style="display: block; margin-top: 5px; color: var(--text-secondary); font-size: 0.9rem;">Required for security verification</small>
+          <input type="password" id="delete-account-password" placeholder="Enter your password" required
+            style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 6px; font-size: 1rem; background: var(--bg-secondary); color: var(--text-primary);">
+          <small style="display: block; margin-top: 5px; color: var(--text-secondary); font-size: 0.9rem;">Required for
+            security verification</small>
         </div>
-        
+
         <div style="margin-bottom: 20px;">
-          <label for="delete-account-confirmation" style="display: block; margin-bottom: 8px; color: var(--text-primary); font-weight: 600;">
+          <label for="delete-account-confirmation"
+            style="display: block; margin-bottom: 8px; color: var(--text-primary); font-weight: 600;">
             Type "DELETE" to confirm <span style="color: #dc3545;">*</span>
           </label>
-          <input 
-            type="text" 
-            id="delete-account-confirmation" 
-            placeholder="Type DELETE" 
-            required
-            style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 6px; font-size: 1rem; background: var(--bg-secondary); color: var(--text-primary);"
-          >
-          <small style="display: block; margin-top: 5px; color: var(--text-secondary); font-size: 0.9rem;">This confirms you understand this action is permanent</small>
+          <input type="text" id="delete-account-confirmation" placeholder="Type DELETE" required
+            style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 6px; font-size: 1rem; background: var(--bg-secondary); color: var(--text-primary);">
+          <small style="display: block; margin-top: 5px; color: var(--text-secondary); font-size: 0.9rem;">This confirms
+            you understand this action is permanent</small>
         </div>
-        
+
         <div style="display: flex; gap: 10px; margin-top: 30px;">
-          <button 
-            type="button" 
-            id="cancel-delete-account-btn" 
-            style="flex: 1; padding: 12px; border: 2px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary); border-radius: 6px; cursor: pointer; font-size: 1rem; transition: all 0.3s;"
-          >
+          <button type="button" id="cancel-delete-account-btn"
+            style="flex: 1; padding: 12px; border: 2px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary); border-radius: 6px; cursor: pointer; font-size: 1rem; transition: all 0.3s;">
             Cancel
           </button>
-          <button 
-            type="submit" 
-            id="confirm-delete-account-btn"
-            style="flex: 1; padding: 12px; border: none; background: #dc3545; color: white; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: background 0.3s;"
-          >
+          <button type="submit" id="confirm-delete-account-btn"
+            style="flex: 1; padding: 12px; border: none; background: #dc3545; color: white; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: background 0.3s;">
             <i class="fas fa-trash"></i> Delete Account
           </button>
         </div>
@@ -500,6 +508,49 @@
   </button>
 
   <!-- Scripts -->
+  <!-- Mobile Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="../index.html" class="bottom-nav-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="All_Courses/Courses.html" class="bottom-nav-item">
+      <i class="fas fa-book"></i>
+      <span>Courses</span>
+    </a>
+    <a href="Explore/explore.html" class="bottom-nav-item">
+      <i class="fas fa-search"></i>
+      <span>Explore</span>
+    </a>
+    <a href="my-courses.html" class="bottom-nav-item">
+      <i class="fas fa-play-circle"></i>
+      <span>My Learning</span>
+    </a>
+    <a href="profile.html" class="bottom-nav-item active">
+      <i class="fas fa-user-circle"></i>
+      <span>Profile</span>
+    </a>
+  </nav>
+
+  <!-- Floating Side Actions -->
+  <div class="floating-side-actions">
+    <a href="wishlist.html" class="fsa-btn" title="Wishlist">
+      <i class="far fa-heart"></i>
+      <span class="fsa-badge" id="fsa-wishlist-count">0</span>
+    </a>
+    <button class="fsa-btn" id="fsa-notifications-btn" title="Notifications">
+      <i class="far fa-bell"></i>
+      <span class="fsa-badge" id="fsa-notification-count">0</span>
+    </button>
+    <button class="fsa-btn" id="fsa-theme-btn" title="Toggle Theme">
+      <i class="fas fa-moon"></i>
+    </button>
+    <a href="admin/messages.html" class="fsa-btn" title="Messages">
+      <i class="far fa-comment"></i>
+      <span class="fsa-badge" id="fsa-messages-count">0</span>
+    </a>
+  </div>
+
   <script src="https://js.paystack.co/v1/inline.js"></script>
   <script src="../scripts/api.js"></script>
   <script src="../scripts/migrate-data.js"></script>
@@ -508,5 +559,5 @@
   <script src="../scripts/script.js"></script>
   <script src="../scripts/profile.js"></script>
 </body>
-</html>
 
+</html>

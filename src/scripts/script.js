@@ -47,8 +47,35 @@ const AppState = {
     if (typeof updateThemeUI === 'function') {
       updateThemeUI();
     }
+    // Update Floating Side Actions (FSA) badges
+    updateFSABadges();
   }
 };
+
+/**
+ * Update Floating Side Actions (FSA) Badges
+ * Syncs the counts of Wishlist and Notifications to the new floating icons
+ */
+function updateFSABadges() {
+    const fsaWishlist = document.getElementById('fsa-wishlist-count');
+    const fsaNotif = document.getElementById('fsa-notification-count');
+    const fsaMessages = document.getElementById('fsa-messages-count');
+    
+    // Using existing counts from AppState or DOM elements
+    const wishlistCount = AppState.wishlist ? AppState.wishlist.length : 0;
+    const notifBadge = document.getElementById('notification-count');
+    const notifCount = notifBadge ? parseInt(notifBadge.textContent) || 0 : 0;
+    
+    if (fsaWishlist) {
+        fsaWishlist.textContent = wishlistCount;
+        fsaWishlist.style.display = wishlistCount > 0 ? 'flex' : 'none';
+    }
+    if (fsaNotif) {
+        fsaNotif.textContent = notifCount;
+        fsaNotif.style.display = notifCount > 0 ? 'flex' : 'none';
+    }
+}
+
 
 // ====================================
 // UTILITY FUNCTIONS
@@ -2723,7 +2750,36 @@ document.addEventListener('DOMContentLoaded', () => {
   AppState.init();
   Recommendations.init();
   WasmBridge.init();
-  // ... existing initializations ...
+  
+  // Set active state for Bottom Navigation
+  const currentPath = window.location.pathname;
+  const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+  bottomNavItems.forEach(item => {
+      const href = item.getAttribute('href');
+      if (href && (currentPath.endsWith(href) || (currentPath === '/' && href === 'index.html'))) {
+          bottomNavItems.forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+      }
+  });
+
+  // FSA Theme Toggle Link
+  const fsaThemeBtn = document.getElementById('fsa-theme-btn');
+  const mainThemeBtn = document.getElementById('theme-toggle');
+  if (fsaThemeBtn && mainThemeBtn) {
+      fsaThemeBtn.addEventListener('click', () => {
+          mainThemeBtn.click();
+          // Update FSA icon based on theme
+          const isDark = document.body.classList.contains('night-mode');
+          fsaThemeBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      });
+  }
+
+  // FSA Notifications Toggle
+  const fsaNotifBtn = document.getElementById('fsa-notifications-btn');
+  const mainNotifBtn = document.getElementById('notification-bell-btn');
+  if (fsaNotifBtn && mainNotifBtn) {
+      fsaNotifBtn.addEventListener('click', () => mainNotifBtn.click());
+  }
 });
 
 // Export for use in other modules
