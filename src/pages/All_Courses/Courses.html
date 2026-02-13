@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta name="description" content="CourseCity - Test Page">
   <title>All Courses - CourseCity</title>
 
@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../styles/style.css">
   <link rel="stylesheet" href="../../styles/All_Courses/courses.css">
-  <link rel="stylesheet" href="../../styles/mobile-app.css">
 </head>
 
 <body class="courses-page">
@@ -57,7 +57,7 @@
         <nav id="nav-menu">
           <ul>
             <li><a href="../index.html">Home</a></li>
-            <li><a href="Courses.html" class="nav-link active">All Courses</a></li>
+            <li><a class="active" href="Courses.html">All Courses</a></li>
             <li><a href="../Explore/explore.html">Explore</a></li>
             <li><a href="../Blog/blog.html">Blog</a></li>
             <li><a href="../Contact/Contact.html">Contact</a></li>
@@ -165,7 +165,7 @@
           <a href="../../auth/login.html" class="btn-login-link">
             Login
           </a>
-          <a href="../../auth/signup.html" class="btn-signup">
+          <a href="../../auth/signup.html" class="btn-login" title="Sign Up">
             <i class="fas fa-user"></i>
             Sign Up
           </a>
@@ -219,425 +219,130 @@
   <!-- Courses Section -->
   <section class="course-list">
     <div class="container">
-      <div class="course-grid" id="all-courses-grid">
-        <!-- Course Card 1 -->
-        <div class="course-card" data-category="data-science" data-title="Data And Business Analysis Masterclass"
+      <div class="courses-grid" id="all-courses-grid">
+        <!-- New Course Card structure -->
+        <div class="course-card-new" data-category="data-science"
+          data-title="Master Data and Business Analytics: Transform Raw Data into Business Insights"
           data-image="../../assets/image/Data and Business Analytics.png" data-price="50.00" data-old-price="350.00"
-          data-description="<p>Master <strong>Data and Business Analysis</strong> with real-world projects. Learn Excel, SQL, Power BI, Python, and advanced analytics techniques to make data-driven decisions.</p><p>📊 Transform data into actionable insights!</p>"
+          data-description="Unlock the power of data analytics to drive business decisions. Learn data visualization, statistical analysis, business intelligence, and reporting techniques to become a sought-after analytics professional."
           data-link="data-and-business-analytics.html">
-          <div class="course-image-wrapper">
-            <span class="discount-badge">20% OFF</span>
-            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-            <button class="expand-btn"><i class="fas fa-expand"></i></button>
-            <img src="../../assets/image/Data and Business Analytics.png" alt="Data Science">
+          <div class="course-image">
+            <img src="../../assets/image/Data and Business Analytics.png" alt="Data and Business Analytics Course"
+              loading="lazy">
+            <button class="card-wishlist-btn"
+              data-course="Master Data and Business Analytics: Transform Raw Data into Business Insights"
+              aria-label="Add to wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+            <button class="card-preview-btn expand-btn" aria-label="Preview course">
+              <i class="fas fa-eye"></i>
+            </button>
           </div>
-          <div class="course-content">
-            <div class="instructor-info">
-              <div class="instructor-avatar">CC</div>
-              <span class="instructor-name">CourseCity</span>
+          <div class="course-body">
+            <div class="course-header">
+              <div class="instructor">
+                <div class="instructor-avatar">CC</div>
+                <span class="instructor-name">CourseCity</span>
+              </div>
+              <div class="course-price">
+                <span class="price-new">GH₵50.00</span>
+                <span class="price-old">GH₵350.00</span>
+              </div>
             </div>
-            <h3 class="course-title">Data and Business Analytics Masterclass</h3>
+            <h3 class="course-title">Master Data and Business Analytics: Transform Raw Data into Business Insights</h3>
+            <p class="course-description">Unlock the power of data analytics to drive business decisions. Learn data
+              visualization, statistical analysis, business intelligence, and reporting techniques.</p>
+            <div class="course-level">
+              <span class="badge-beginner">Beginner</span>
+            </div>
             <div class="course-meta">
-              <span><i class="far fa-clock"></i> 14 hrs 30 mins</span>
-              <span><i class="fas fa-play-circle"></i> 12 Lectures</span>
-              <span><i class="far fa-user"></i> 23 Students</span>
-            </div>
-            <div class="course-footer">
-              <div class="course-pricing">
-                <span class="difficulty">Beginner</span>
-                <div class="price-wrapper">
-                  <span class="old-price">GH₵350.00</span>
-                  <span class="current-price">GH₵50.00</span>
-                </div>
+              <div class="meta-item">
+                <i class="fas fa-star"></i>
+                <span>4.8</span>
+                <span class="meta-light">(4.8k)</span>
               </div>
-              <div class="course-rating">
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <span class="rating-value">4.9</span>
-                </div>
-                <span class="review-count">(17)</span>
+              <div class="meta-item">
+                <i class="fas fa-file-alt"></i>
+                <span>24 Lectures</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-users"></i>
+                <span>32 Students</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <span>6h 30m</span>
               </div>
             </div>
-            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+            <button class="btn-add-cart add-to-cart-btn"
+              data-course="Master Data and Business Analytics: Transform Raw Data into Business Insights"
+              data-price="50.00">
+              <i class="fas fa-shopping-cart"></i>
+              Add to Cart
+            </button>
           </div>
         </div>
 
-        <!-- Course Card 2 -->
-        <div class="course-card" data-category="data-science"
-          data-title="Excel Masterclass for Students & Professionals" data-image="../../assets/image/Excel.png"
-          data-price="20.00" data-old-price="100.00"
-          data-description="<p>Master <strong>Microsoft Excel</strong> from basics to advanced. Learn formulas, pivot tables, data analysis, VLOOKUP, macros, and automation.</p><p>📈 Become an Excel expert and boost your career!</p>"
-          data-link="excel.html">
-          <div class="course-image-wrapper">
-            <span class="discount-badge">20% OFF</span>
-            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-            <button class="expand-btn"><i class="fas fa-expand"></i></button>
-            <img src="../../assets/image/Excel.png" alt="Excel">
+        <div class="course-card-new" data-category="web-development"
+          data-title="Modern Web Development: From Frontend to Backend"
+          data-image="../../assets/image/Web development.png" data-price="75.00" data-old-price="450.00"
+          data-description="Master the art of building modern, responsive websites and applications. Cover HTML5, CSS3, JavaScript (ES6+), and popular frameworks."
+          data-link="web-development-masterclass.html">
+          <div class="course-image">
+            <img src="../../assets/image/Web development.png" alt="Web Development Course" loading="lazy">
+            <button class="card-wishlist-btn" data-course="Modern Web Development: From Frontend to Backend"
+              aria-label="Add to wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+            <button class="card-preview-btn expand-btn" aria-label="Preview course">
+              <i class="fas fa-eye"></i>
+            </button>
           </div>
-          <div class="course-content">
-            <div class="instructor-info">
-              <div class="instructor-avatar">CC</div>
-              <span class="instructor-name">CourseCity</span>
+          <div class="course-body">
+            <div class="course-header">
+              <div class="instructor">
+                <div class="instructor-avatar">CC</div>
+                <span class="instructor-name">CourseCity</span>
+              </div>
+              <div class="course-price">
+                <span class="price-new">GH₵75.00</span>
+                <span class="price-old">GH₵450.00</span>
+              </div>
             </div>
-            <h3 class="course-title">Excel Masterclass for Students & Professionals</h3>
+            <h3 class="course-title">Modern Web Development: From Frontend to Backend</h3>
+            <p class="course-description">Master the art of building modern, responsive websites and applications. Cover
+              HTML5, CSS3, JavaScript (ES6+), and popular frameworks.</p>
+            <div class="course-level">
+              <span class="badge-beginner">Intermediate</span>
+            </div>
             <div class="course-meta">
-              <span><i class="far fa-clock"></i> 08 hrs 15 mins</span>
-              <span><i class="fas fa-play-circle"></i> 12 Lectures</span>
-              <span><i class="far fa-user"></i> 25 Students</span>
-            </div>
-            <div class="course-footer">
-              <div class="course-pricing">
-                <span class="difficulty">Beginner</span>
-                <div class="price-wrapper">
-                  <span class="old-price">GH₵100.00</span>
-                  <span class="current-price">GH₵20.00</span>
-                </div>
+              <div class="meta-item">
+                <i class="fas fa-star"></i>
+                <span>4.9</span>
+                <span class="meta-light">(2.1k)</span>
               </div>
-              <div class="course-rating">
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <span class="rating-value">4.9</span>
-                </div>
-                <span class="review-count">(21)</span>
+              <div class="meta-item">
+                <i class="fas fa-file-alt"></i>
+                <span>42 Lectures</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-users"></i>
+                <span>120 Students</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <span>12h 45m</span>
               </div>
             </div>
-            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+            <button class="btn-add-cart add-to-cart-btn" data-course="Modern Web Development: From Frontend to Backend"
+              data-price="75.00">
+              <i class="fas fa-shopping-cart"></i>
+              Add to Cart
+            </button>
           </div>
         </div>
 
-        <!-- Course Card 3 -->
-        <div class="course-card" data-category="development" data-title="Python Programming & Analytics Masterclass"
-          data-image="../../assets/image/Python.png" data-price="20.00" data-old-price="100.00"
-          data-description="<p>Learn <strong>Python programming</strong> from scratch and master data analytics. Build real-world projects, work with libraries like Pandas, NumPy, and Matplotlib.</p><p>🐍 Start your journey into programming and data science!</p>"
-          data-link="python.html">
-          <div class="course-image-wrapper">
-            <span class="discount-badge">20% OFF</span>
-            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-            <button class="expand-btn"><i class="fas fa-expand"></i></button>
-            <img src="../../assets/image/Python.png" alt="Python">
-          </div>
-          <div class="course-content">
-            <div class="instructor-info">
-              <div class="instructor-avatar">CC</div>
-              <span class="instructor-name">CourseCity</span>
-            </div>
-            <h3 class="course-title">Python Programming & Analytics Masterclass</h3>
-            <div class="course-meta">
-              <span><i class="far fa-clock"></i> 18 hrs 20 mins</span>
-              <span><i class="fas fa-play-circle"></i> 12 Lectures</span>
-              <span><i class="far fa-user"></i> 21 Students</span>
-            </div>
-            <div class="course-footer">
-              <div class="course-pricing">
-                <span class="difficulty">Intermediate</span>
-                <div class="price-wrapper">
-                  <span class="old-price">GH₵100.00</span>
-                  <span class="current-price">GH₵20.00</span>
-                </div>
-              </div>
-              <div class="course-rating">
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <span class="rating-value">4.9</span>
-                </div>
-                <span class="review-count">(47)</span>
-              </div>
-            </div>
-            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-          </div>
-        </div>
-
-        <!-- Course Card 4 -->
-        <div class="course-card" data-category="data-science" data-title="Power BI Business Intelligence Masterclass"
-          data-image="../../assets/image/Power Bi.png" data-price="20.00" data-old-price="100.00"
-          data-description="<p>Master <strong>Power BI</strong> and create stunning data visualizations. Learn DAX, data modeling, dashboards, and business intelligence best practices.</p><p>📊 Transform raw data into beautiful, actionable insights!</p>"
-          data-link="power bi.html">
-          <div class="course-image-wrapper">
-            <span class="discount-badge">20% OFF</span>
-            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-            <button class="expand-btn"><i class="fas fa-expand"></i></button>
-            <img src="../../assets/image/Power Bi.png" alt="Power BI">
-          </div>
-          <div class="course-content">
-            <div class="instructor-info">
-              <div class="instructor-avatar">CC</div>
-              <span class="instructor-name">CourseCity</span>
-            </div>
-            <h3 class="course-title">Power BI Business Intelligence Masterclass</h3>
-            <div class="course-meta">
-              <span><i class="far fa-clock"></i> 09 hrs 45 mins</span>
-              <span><i class="fas fa-play-circle"></i> 12 Lectures</span>
-              <span><i class="far fa-user"></i> 25 Students</span>
-            </div>
-            <div class="course-footer">
-              <div class="course-pricing">
-                <span class="difficulty">Beginner</span>
-                <div class="price-wrapper">
-                  <span class="old-price">GH₵100.00</span>
-                  <span class="current-price">GH₵20.00</span>
-                </div>
-              </div>
-              <div class="course-rating">
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                  <span class="rating-value">4.7</span>
-                </div>
-                <span class="review-count">(15)</span>
-              </div>
-            </div>
-            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-          </div>
-        </div>
-
-        <!-- Course Card 5 -->
-        <div class="course-card" data-category="data-science" data-title="SQL Masterclass for Aspiring Data Analysts"
-          data-image="../../assets/image/SQL.png" data-price="20.00" data-old-price="100.00"
-          data-description="<p>Master <strong>SQL</strong> and become a data analyst. Learn database design, complex queries, joins, subqueries, and data manipulation.</p><p>📊 Query databases like a pro!</p>"
-          data-link="sql.html">
-          <div class="course-image-wrapper">
-            <span class="discount-badge">20% OFF</span>
-            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-            <button class="expand-btn"><i class="fas fa-expand"></i></button>
-            <img src="../../assets/image/SQL.png" alt="SQL">
-          </div>
-          <div class="course-content">
-            <div class="instructor-info">
-              <div class="instructor-avatar">CC</div>
-              <span class="instructor-name">CourseCity</span>
-            </div>
-            <h3 class="course-title">SQL Masterclass for Aspiring Data Analysts</h3>
-            <div class="course-meta">
-              <span><i class="far fa-clock"></i> 10 hrs 30 mins</span>
-              <span><i class="fas fa-play-circle"></i> 12 Lectures</span>
-              <span><i class="far fa-user"></i> 35 Students</span>
-            </div>
-            <div class="course-footer">
-              <div class="course-pricing">
-                <span class="difficulty">Beginner</span>
-                <div class="price-wrapper">
-                  <span class="old-price">GH₵100.00</span>
-                  <span class="current-price">GH₵20.00</span>
-                </div>
-              </div>
-              <div class="course-rating">
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <span class="rating-value">4.9</span>
-                </div>
-                <span class="review-count">(26)</span>
-              </div>
-            </div>
-            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-          </div>
-        </div>
-
-        <!-- Course Card 6 -->
-        <div class="course-card" data-category="development"
-          data-title="Full Stack Development Mastery: From Beginner to Professional Web Developer"
-          data-image="../../assets/image/FullStack.png" data-price="50.00" data-old-price="250.00"
-          data-description="<p>Master <strong>full-stack web development</strong> with frontend and backend technologies. Build complete web applications with modern frameworks and best practices.</p><p>💻 Become a professional full-stack developer!</p>"
-          data-link="full stack.html">
-          <div class="course-image-wrapper">
-            <span class="discount-badge">20% OFF</span>
-            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-            <button class="expand-btn"><i class="fas fa-expand"></i></button>
-            <img src="../../assets/image/FullStack.png" alt="Full-Stack Web Development">
-          </div>
-          <div class="course-content">
-            <div class="instructor-info">
-              <div class="instructor-avatar">CC</div>
-              <span class="instructor-name">CourseCity</span>
-            </div>
-            <h3 class="course-title">Full-Stack Web Development Mastery</h3>
-            <div class="course-meta">
-              <span><i class="far fa-clock"></i> 19 hrs 30 mins</span>
-              <span><i class="fas fa-play-circle"></i> 12 Lectures</span>
-              <span><i class="far fa-user"></i> 26 Students</span>
-            </div>
-            <div class="course-footer">
-              <div class="course-pricing">
-                <span class="difficulty">Advanced</span>
-                <div class="price-wrapper">
-                  <span class="old-price">GH₵100.00</span>
-                  <span class="current-price">GH₵20.00</span>
-                </div>
-              </div>
-              <div class="course-rating">
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                  <span class="rating-value">4.8</span>
-                </div>
-                <span class="review-count">(47)</span>
-              </div>
-            </div>
-            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-          </div>
-        </div>
-
-        <!-- Course Card 7 -->
-        <div class="course-card" data-category="business" data-title="Master the Art of Cybersecurity & Digital Defense"
-          data-image="../../assets/image/CyberSecurity.png" data-price="50.00" data-old-price="250.00"
-          data-description="<p>Master <strong>Cybersecurity</strong> and protect digital assets. Learn ethical hacking, network security, encryption, and defense strategies.</p><p>🔒 Secure your digital future!</p>"
-          data-link="cybersecurity.html">
-          <div class="course-image-wrapper">
-            <span class="discount-badge">20% OFF</span>
-            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-            <button class="expand-btn"><i class="fas fa-expand"></i></button>
-            <img src="../../assets/image/CyberSecurity.png" alt="Cybersecurity & Digital Defense">
-          </div>
-          <div class="course-content">
-            <div class="instructor-info">
-              <div class="instructor-avatar">CC</div>
-              <span class="instructor-name">CourseCity</span>
-            </div>
-            <h3 class="course-title">Cybersecurity & Digital Defense</h3>
-            <div class="course-meta">
-              <span><i class="far fa-clock"></i> 10 hrs 20 mins</span>
-              <span><i class="fas fa-play-circle"></i> 12 Lectures</span>
-              <span><i class="far fa-user"></i> 39 Students</span>
-            </div>
-            <div class="course-footer">
-              <div class="course-pricing">
-                <span class="difficulty">Intermediate</span>
-                <div class="price-wrapper">
-                  <span class="old-price">GH₵100.00</span>
-                  <span class="current-price">GH₵20.00</span>
-                </div>
-              </div>
-              <div class="course-rating">
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <span class="rating-value">4.9</span>
-                </div>
-                <span class="review-count">(15)</span>
-              </div>
-            </div>
-            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-          </div>
-        </div>
-
-        <!-- Course Card 8 -->
-        <div class="course-card" data-category="marketing"
-          data-title="Video Editing Mastery: Designed for Students and Creative Professionals"
-          data-image="../../assets/image/Video Editing Resources And Courses.png" data-price="50.00"
-          data-old-price="250.00"
-          data-description="<p>Master <strong>Video Editing</strong> with professional tools and techniques. Learn cutting, transitions, effects, color grading, and create stunning videos.</p><p>🎬 Create professional videos that captivate audiences!</p>"
-          data-link="video editing.html">
-          <div class="course-image-wrapper">
-            <span class="discount-badge">20% OFF</span>
-            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-            <button class="expand-btn"><i class="fas fa-expand"></i></button>
-            <img src="../../assets/image/Video Editing Resources And Courses.png" alt="Video Editing">
-          </div>
-          <div class="course-content">
-            <div class="instructor-info">
-              <div class="instructor-avatar">CC</div>
-              <span class="instructor-name">CourseCity</span>
-            </div>
-            <h3 class="course-title">Video Editing Mastery</h3>
-            <div class="course-meta">
-              <span><i class="far fa-clock"></i> 11 hrs 30 mins</span>
-              <span><i class="fas fa-play-circle"></i> 12 Lectures</span>
-              <span><i class="far fa-user"></i> 35 Students</span>
-            </div>
-            <div class="course-footer">
-              <div class="course-pricing">
-                <span class="difficulty">Beginner</span>
-                <div class="price-wrapper">
-                  <span class="old-price">GH₵100.00</span>
-                  <span class="current-price">GH₵20.00</span>
-                </div>
-              </div>
-              <div class="course-rating">
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <span class="rating-value">4.9</span>
-                </div>
-                <span class="review-count">(21)</span>
-              </div>
-            </div>
-            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-          </div>
-        </div>
-
-        <!-- Course Card 9 -->
-        <div class="course-card" data-category="ui-ux-design"
-          data-title="Complete Graphic Design Masterclass: From Beginner to Expert Designer"
-          data-image="../../assets/image/Graphic Design.png" data-price="50.00" data-old-price="250.00"
-          data-description="<p>Master <strong>Graphic Design</strong> and create stunning visuals. Learn typography, color theory, layout design, and Adobe Creative Suite.</p><p>🎨 Design beautiful graphics that stand out!</p>"
-          data-link="graphic design.html">
-          <div class="course-image-wrapper">
-            <span class="discount-badge">20% OFF</span>
-            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-            <button class="expand-btn"><i class="fas fa-expand"></i></button>
-            <img src="../../assets/image/Graphic Design.png" alt="Graphic Design">
-          </div>
-          <div class="course-content">
-            <div class="instructor-info">
-              <div class="instructor-avatar">CC</div>
-              <span class="instructor-name">CourseCity</span>
-            </div>
-            <h3 class="course-title">8-In-1 Advanced Graphic Design Bundle</h3>
-            <div class="course-meta">
-              <span><i class="far fa-clock"></i> 09 hrs 15 mins</span>
-              <span><i class="fas fa-play-circle"></i> 12 Lectures</span>
-              <span><i class="far fa-user"></i> 21 Students</span>
-            </div>
-            <div class="course-footer">
-              <div class="course-pricing">
-                <span class="difficulty">Intermediate</span>
-                <div class="price-wrapper">
-                  <span class="old-price">GH₵100.00</span>
-                  <span class="current-price">GH₵20.00</span>
-                </div>
-              </div>
-              <div class="course-rating">
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <span class="rating-value">4.9</span>
-                </div>
-                <span class="review-count">(24)</span>
-              </div>
-            </div>
-            <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-          </div>
-        </div>
+        <!-- Add more cards as needed, but LoadMore will fetch others -->
       </div>
 
       <!-- Load More Button -->
@@ -660,13 +365,11 @@
           <p>Ghana's leading online learning platform. Find great courses on everything from data analytics to web
             development, Excel to graphic design.</p>
           <div class="footer-socials">
-            <a href="https://www.facebook.com/coursecitygh" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.facebook.com/profile.php?id=61581958352468" target="_blank" rel="noopener noreferrer"
               aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.linkedin.com/company/coursecitygh" target="_blank" rel="noopener noreferrer"
-              aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.tiktok.com/@coursecitygh" target="_blank" rel="noopener noreferrer"
+            <a href="http://www.tiktok.com/@course_city" target="_blank" rel="noopener noreferrer"
               aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/233241234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i
+            <a href="https://wa.me/233541604275" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i
                 class="fab fa-whatsapp"></i></a>
           </div>
         </div>
@@ -702,7 +405,7 @@
           <h3>Contact Us</h3>
           <div class="contact-info">
             <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
-            <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+            <p><i class="fas fa-phone"></i> +233 (0)54 160 4275</p>
             <p><i class="fas fa-envelope"></i> support@coursecity.gh</p>
           </div>
           <div class="app-download">
@@ -737,84 +440,115 @@
     </div>
   </footer>
 
-  <!-- Toast Container -->
-  <div class="toast-container" id="toast-container"></div>
+  <!-- Authentication Modal -->
+  <div class="auth-modal" id="auth-modal">
+    <div class="auth-modal-content">
+      <button class="auth-modal-close" id="auth-modal-close" aria-label="Close">&times;</button>
 
-  <!-- Popup Modal -->
-  <div id="course-modal" class="modal">
-    <div class="modal-content">
-      <button class="modal-close-btn" aria-label="Close modal">
-        <i class="fas fa-times"></i>
-      </button>
-
-      <div class="modal-body">
-        <div class="modal-left">
-          <div class="modal-image-wrapper">
-            <span class="modal-discount-badge" id="modal-discount"></span>
-            <button class="modal-wishlist-btn" aria-label="Add to wishlist">
-              <i class="far fa-heart"></i>
-            </button>
-            <img id="modal-image" src="" alt="Course Image">
-          </div>
-        </div>
-
-        <div class="modal-right">
-          <span class="modal-category" id="modal-category"></span>
-
-          <h2 id="modal-title" class="modal-title"></h2>
-
-          <div class="modal-instructor">
-            <div class="modal-instructor-avatar">CC</div>
-            <span class="modal-instructor-name">CourseCity</span>
-          </div>
-
-          <div class="modal-rating">
-            <div class="modal-stars" id="modal-stars"></div>
-            <span class="modal-review-count" id="modal-reviews"></span>
-          </div>
-
-          <div class="modal-description" id="modal-description"></div>
-
-          <div class="modal-meta-grid">
-            <div class="modal-meta-item">
-              <i class="far fa-clock"></i>
-              <span id="modal-duration"></span>
-            </div>
-            <div class="modal-meta-item">
-              <i class="fas fa-play-circle"></i>
-              <span id="modal-lectures"></span>
-            </div>
-            <div class="modal-meta-item">
-              <i class="far fa-user"></i>
-              <span id="modal-students"></span>
-            </div>
-            <div class="modal-meta-item">
-              <i class="fas fa-signal"></i>
-              <span id="modal-difficulty"></span>
-            </div>
-          </div>
-
-          <a id="modal-details-link" href="#" class="modal-details-link">
-            View Full Course Details
-            <i class="fas fa-arrow-right"></i>
-          </a>
-
-          <div class="modal-footer">
-            <div class="modal-pricing">
-              <div class="modal-price-wrapper">
-                <span class="modal-old-price" id="modal-old-price"></span>
-                <span class="modal-current-price" id="modal-price"></span>
-              </div>
-            </div>
-            <button id="modal-add-to-cart" class="modal-add-btn">
-              <i class="fas fa-shopping-cart"></i>
-              Add to Cart
-            </button>
-          </div>
-        </div>
+      <div class="auth-modal-header">
+        <h2>Welcome Back</h2>
+        <p>Login or create an account to continue</p>
       </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Login</button>
+        <button class="auth-tab" data-tab="signup">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form class="auth-form active" id="login-form">
+        <div class="form-group">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" required placeholder="your@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" required placeholder="Enter your password">
+        </div>
+
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" id="remember-me">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="forgot-password">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="auth-submit">Login</button>
+      </form>
+
+      <!-- Signup Form -->
+      <form class="auth-form" id="signup-form">
+        <div class="form-group">
+          <label for="signup-name">Full Name</label>
+          <input type="text" id="signup-name" required placeholder="John Doe">
+        </div>
+
+        <div class="form-group">
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" required placeholder="your@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" required placeholder="Create a strong password">
+          <div class="password-strength">
+            <div class="password-strength-bar" id="password-strength-bar"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="signup-confirm-password">Confirm Password</label>
+          <input type="password" id="signup-confirm-password" required placeholder="Confirm your password">
+        </div>
+
+        <div class="form-group-checkbox">
+          <label class="checkbox-label">
+            <input type="checkbox" id="terms-checkbox" required>
+            <span>I agree to the <a href="../terms-of-service.html" target="_blank">Terms of Service</a> and <a
+                href="../privacy-policy.html" target="_blank">Privacy Policy</a></span>
+          </label>
+        </div>
+
+        <button type="submit" class="auth-submit">Create Account</button>
+      </form>
     </div>
   </div>
+
+  <!-- Floating LinkedIn Rental Advertisement -->
+  <div class="floating-ad-banner" id="linkedin-rental-ad" aria-label="LinkedIn account rental offer">
+    <button class="floating-ad-close" id="linkedin-rental-ad-close" aria-label="Close advertisement">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="floating-ad-content">
+      <div class="floating-ad-header">
+        <div class="floating-ad-logo">
+          <span class="floating-ad-linkedin-square">in</span>
+          <span class="floating-ad-title-text">LinkedIn Account Rental</span>
+        </div>
+        <p class="floating-ad-subtitle">Earn passive income by safely renting your verified LinkedIn account (1+ year
+          old).</p>
+      </div>
+      <ul class="floating-ad-list">
+        <li>Easy setup and onboarding</li>
+        <li>Account security guaranteed &mdash; you keep email and password control</li>
+        <li>No need to worry about your name or identity being used</li>
+      </ul>
+      <div class="floating-ad-payments">
+        <span class="floating-ad-pill">100+ connections</span>
+        <span class="floating-ad-pill">From $20 &ndash; $65 / month</span>
+      </div>
+      <a class="floating-ad-cta" href="https://wa.me/233552366442" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+        Chat on WhatsApp
+      </a>
+      <p class="floating-ad-footer-text">Limited spots available for verified profiles only.</p>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
 
   <!-- Back to Top Button -->
   <button class="back-to-top" id="back-to-top" aria-label="Back to top">
@@ -822,49 +556,6 @@
   </button>
 
   <!-- Scripts -->
-  <!-- Mobile Bottom Navigation -->
-  <nav class="bottom-nav">
-    <a href="../../index.html" class="bottom-nav-item">
-      <i class="fas fa-home"></i>
-      <span>Home</span>
-    </a>
-    <a href="Courses.html" class="bottom-nav-item active">
-      <i class="fas fa-book"></i>
-      <span>Courses</span>
-    </a>
-    <a href="../Explore/explore.html" class="bottom-nav-item">
-      <i class="fas fa-search"></i>
-      <span>Explore</span>
-    </a>
-    <a href="../my-courses.html" class="bottom-nav-item">
-      <i class="fas fa-play-circle"></i>
-      <span>My Learning</span>
-    </a>
-    <a href="../profile.html" class="bottom-nav-item">
-      <i class="fas fa-user-circle"></i>
-      <span>Profile</span>
-    </a>
-  </nav>
-
-  <!-- Floating Side Actions -->
-  <div class="floating-side-actions">
-    <a href="../wishlist.html" class="fsa-btn" title="Wishlist">
-      <i class="far fa-heart"></i>
-      <span class="fsa-badge" id="fsa-wishlist-count">0</span>
-    </a>
-    <button class="fsa-btn" id="fsa-notifications-btn" title="Notifications">
-      <i class="far fa-bell"></i>
-      <span class="fsa-badge" id="fsa-notification-count">0</span>
-    </button>
-    <button class="fsa-btn" id="fsa-theme-btn" title="Toggle Theme">
-      <i class="fas fa-moon"></i>
-    </button>
-    <a href="../admin/messages.html" class="fsa-btn" title="Messages">
-      <i class="far fa-comment"></i>
-      <span class="fsa-badge" id="fsa-messages-count">0</span>
-    </a>
-  </div>
-
   <script src="https://js.paystack.co/v1/inline.js"></script>
   <script src="../../scripts/security-utils.js"></script>
   <script src="../../scripts/api.js"></script>
@@ -874,48 +565,6 @@
   <script src="../../scripts/notifications.js"></script>
   <script src="../../scripts/script.js"></script>
   <script src="../../scripts/courses-page.js"></script>
-  <script>
-    // Ensure logout button is functional on test page
-    // This runs after all scripts have loaded
-    (function ensureLogoutFunctionality() {
-      // Function to initialize logout button
-      function initLogout() {
-        const logoutBtn = document.getElementById('logout-btn');
-        if (logoutBtn && typeof Auth !== 'undefined' && Auth.logout) {
-          // Remove any existing listeners by cloning
-          const newLogoutBtn = logoutBtn.cloneNode(true);
-          if (logoutBtn.parentNode) {
-            logoutBtn.parentNode.replaceChild(newLogoutBtn, logoutBtn);
-          }
-
-          // Add logout functionality
-          newLogoutBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (Auth && Auth.logout) {
-              Auth.logout();
-            }
-          });
-          console.log('Logout button initialized on test page');
-        } else if (logoutBtn) {
-          // Retry if Auth is not ready yet
-          setTimeout(initLogout, 100);
-        }
-      }
-
-      // Check if DOM is already loaded
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-          setTimeout(initLogout, 500);
-        });
-      } else {
-        // DOM already loaded, run immediately
-        setTimeout(initLogout, 500);
-      }
-    })();
-  </script>
-
-  <!-- Paystack SDK for Quick Checkout -->
-  <script src="https://js.paystack.co/v1/inline.js"></script>
 </body>
 
 </html>

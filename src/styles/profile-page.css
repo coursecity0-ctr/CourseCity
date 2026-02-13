@@ -33,7 +33,7 @@ body.night-mode .profile-header-section {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
+  background-image:
     radial-gradient(circle at 20% 30%, rgba(255, 102, 54, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 80% 70%, rgba(255, 125, 77, 0.08) 0%, transparent 50%);
   pointer-events: none;
@@ -77,7 +77,8 @@ body.night-mode .profile-avatar-huge {
 .profile-header-name {
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text); /* Uses main text color - NOT light/muted */
+  color: var(--color-text);
+  /* Uses main text color - NOT light/muted */
   margin-bottom: var(--spacing-xs);
   position: relative;
   z-index: 1;
@@ -85,7 +86,8 @@ body.night-mode .profile-avatar-huge {
 
 /* Ensure username is always readable in both light and dark mode */
 body.night-mode .profile-header-name {
-  color: var(--color-text) !important; /* Override any inline styles - stays readable in dark mode */
+  color: var(--color-text) !important;
+  /* Override any inline styles - stays readable in dark mode */
 }
 
 .profile-header-title-wrapper {
@@ -220,7 +222,8 @@ body.night-mode .profile-header-name {
 }
 
 body.night-mode .profile-info-value {
-  color: var(--color-text-light); /* Stays readable */
+  color: var(--color-text-light);
+  /* Stays readable */
 }
 
 /* Danger Zone Card */
@@ -388,62 +391,4 @@ body.night-mode .profile-danger-card a:hover {
   margin-top: var(--spacing-xs);
 }
 
-/* Responsive Design */
-@media (min-width: 768px) {
-  .profile-content-wrapper {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-  }
-}
-
-@media (min-width: 1024px) {
-  .profile-content-wrapper {
-    grid-template-columns: 1fr;
-    max-width: 900px;
-  }
-}
-
-@media (max-width: 768px) {
-  .profile-page-section {
-    padding: var(--spacing-xl) 0;
-  }
-
-  .profile-header-section {
-    padding: var(--spacing-xl) var(--spacing-lg);
-  }
-
-  .profile-avatar-huge {
-    width: 150px;
-    height: 150px;
-    font-size: 3.5rem;
-  }
-
-  .profile-header-name {
-    font-size: var(--font-size-2xl);
-  }
-
-  .profile-header-actions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .btn-edit-profile {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .profile-card {
-    padding: var(--spacing-lg);
-  }
-
-  .profile-actions-card {
-    flex-direction: column;
-  }
-
-  .profile-actions-card .btn-primary,
-  .profile-actions-card .btn-secondary {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
+/* Responsive Design - REMOVED */
