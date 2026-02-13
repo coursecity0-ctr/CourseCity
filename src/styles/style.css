@@ -1194,6 +1194,12 @@ body.night-mode .floating-badge .badge-info strong {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .hero-section {
+    padding: var(--spacing-2xl) 0;
+  }
+}
+
 .hero-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1246,11 +1252,18 @@ body.night-mode .floating-badge .badge-info strong {
 }
 
 .hero-section h1 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
   font-weight: var(--font-weight-extrabold);
-  margin-bottom: var(--spacing-lg);
-  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.1;
   color: var(--color-text);
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 2.25rem;
+    letter-spacing: -0.02em;
+  }
 }
 
 .hero-section p {
@@ -1431,32 +1444,32 @@ body.night-mode .floating-badge .badge-info strong {
 
 @media (max-width: 768px) {
   .hero-image {
-    margin-top: var(--spacing-2xl);
+    margin-top: var(--spacing-xl);
     flex-direction: column;
-    gap: var(--spacing-lg);
   }
 
   .hero-image img {
-    max-width: 400px;
+    max-width: 100%;
     border-radius: var(--radius-xl);
   }
 
   .floating-badge {
-    position: relative;
-    top: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-    right: auto !important;
-    margin: 0 auto;
-    width: fit-content;
-    box-shadow: var(--shadow-md);
-    animation: none !important;
+    padding: var(--spacing-sm) var(--spacing-md);
+    box-shadow: var(--shadow-lg);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(4px);
   }
 
-  /* Stacking badges neatly below image on mobile */
-  .badge-students,
+  .badge-students {
+    top: 10px !important;
+    right: 10px !important;
+    animation: float 3.5s ease-in-out infinite !important;
+  }
+
   .badge-courses {
-    display: inline-flex;
+    bottom: 10px !important;
+    left: 10px !important;
+    animation: float 3s ease-in-out infinite !important;
   }
 }
 
@@ -1533,12 +1546,27 @@ body.night-mode .floating-badge .badge-info strong {
 
 @media (max-width: 768px) {
   .stats-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-sm);
   }
 
   .stat-item h3 {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-2xl);
+  }
+
+  .stat-item p {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    gap: var(--spacing-xs);
+  }
+
+  .stat-item h3 {
+    font-size: var(--font-size-xl);
   }
 }
 
@@ -1561,6 +1589,12 @@ body.night-mode .floating-badge .badge-info strong {
 .all-courses-section {
   background: var(--bg-tertiary);
   padding: var(--spacing-4xl) 0;
+}
+
+@media (max-width: 768px) {
+  .all-courses-section {
+    padding: var(--spacing-2xl) 0;
+  }
 }
 
 .section-title {
@@ -1741,7 +1775,50 @@ body.night-mode .floating-badge .badge-info strong {
 @media (max-width: 480px) {
   .course-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
   }
+
+  .course-card-new {
+    max-width: 100%;
+  }
+}
+
+/* Animations Hub */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content,
+.hero-image,
+.stat-item,
+.course-card-new,
+.section-title,
+.section-subtitle {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.stat-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.stat-item:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.hero-image {
+  animation-delay: 0.2s;
+}
+
+.hero-content {
+  animation-delay: 0.1s;
 }
 
 .course-card-new {
