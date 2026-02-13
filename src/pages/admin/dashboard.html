@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta name="description" content="CourseCity Admin Dashboard - Manage your platform">
   <title>Admin Dashboard - CourseCity</title>
 
@@ -15,18 +17,20 @@
   <link rel="manifest" href="../../assets/favicon_io/site.webmanifest">
 
   <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../../styles/admin/admin.css">
   <!-- <link rel="stylesheet" href="../../styles/style.css"> -->
 </head>
+
 <body class="admin-page">
   <div class="admin-layout">
     <!-- Sidebar Overlay (for mobile) -->
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
-    
+
     <!-- Sidebar -->
     <aside class="admin-sidebar" id="admin-sidebar">
       <div class="sidebar-logo">
@@ -38,7 +42,7 @@
           <i class="fas fa-bars"></i>
         </button>
       </div>
-      
+
       <nav class="sidebar-nav">
         <a href="dashboard.html" class="active" data-tooltip="Dashboard">
           <i class="fas fa-th-large"></i>
@@ -82,7 +86,7 @@
     <!-- Top Header -->
     <header class="admin-top-header">
       <h1 class="header-title">Dashboard</h1>
-      
+
       <div class="header-search">
         <i class="fas fa-search"></i>
         <input type="text" id="admin-header-search" placeholder="What do you want to find?">
@@ -93,7 +97,7 @@
         <button class="header-icon-btn theme-toggle-btn" id="theme-toggle-btn" title="Toggle theme">
           <i class="fas fa-moon"></i>
         </button>
-        
+
         <!-- Notifications Dropdown -->
         <div class="header-dropdown-container">
           <button class="header-icon-btn" id="admin-notifications-btn">
@@ -375,4 +379,5 @@
   <script src="../../scripts/admin/admin-dashboard.js"></script>
   <script src="../../scripts/admin/admin-sidebar.js"></script>
 </body>
+
 </html>

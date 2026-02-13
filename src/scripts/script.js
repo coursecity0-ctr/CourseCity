@@ -1842,18 +1842,9 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', (e) => {
     e.stopPropagation();
 
-    const useSideNav = window.matchMedia('(max-width: 768px)').matches;
-
-    if (useSideNav) {
-      nav.classList.toggle('side-open');
-      const isOpen = nav.classList.contains('side-open');
-      hamburger.setAttribute('aria-expanded', isOpen);
-      document.body.classList.toggle('nav-overlay-active', isOpen);
-    } else {
-      navList.classList.toggle('show');
-      const isOpen = navList.classList.contains('show');
-      hamburger.setAttribute('aria-expanded', isOpen);
-    }
+    navList.classList.toggle('show');
+    const isOpen = navList.classList.contains('show');
+    hamburger.setAttribute('aria-expanded', isOpen);
   });
 
   // Close menu when clicking a link (including mobile auth links)
@@ -1866,13 +1857,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Close menu when clicking outside
   document.addEventListener('click', (e) => {
     if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
-      closeMenu();
-    }
-  });
-
-  // Reset side nav state when resizing to desktop
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
       closeMenu();
     }
   });

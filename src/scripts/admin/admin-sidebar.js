@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebarToggle = document.getElementById('sidebar-toggle');
   const sidebar = document.getElementById('admin-sidebar');
   const sidebarOverlay = document.getElementById('sidebar-overlay');
-  
+
   // Load collapsed state from localStorage
   const savedState = localStorage.getItem('admin-sidebar-collapsed');
   if (savedState === 'true' && window.innerWidth >= 1025) {
@@ -16,33 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleIcon.className = 'fas fa-chevron-right';
     }
   }
-  
+
   if (sidebarToggle && sidebar) {
-    // Toggle collapse/expand on all screen sizes
     sidebarToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      
-      if (window.innerWidth <= 1024) {
-        // Mobile/Tablet: Toggle between collapsed (80px) and expanded (280px)
+
+      if (window.innerWidth < 992) {
+        // Mobile/Tablet overlay toggle
         sidebar.classList.toggle('open');
-        if (sidebar.classList.contains('open')) {
-          // Show overlay when expanded
-          if (sidebarOverlay) {
-            sidebarOverlay.classList.add('active');
-          }
-        } else {
-          // Hide overlay when collapsed
-          if (sidebarOverlay) {
-            sidebarOverlay.classList.remove('active');
-          }
+        const isOpen = sidebar.classList.contains('open');
+        if (sidebarOverlay) {
+          sidebarOverlay.classList.toggle('active', isOpen);
         }
+        document.body.style.overflow = isOpen ? 'hidden' : '';
       } else {
-        // Desktop: Toggle collapsed/expanded
+        // Desktop collapse toggle
         sidebar.classList.toggle('collapsed');
         const isCollapsed = sidebar.classList.contains('collapsed');
         localStorage.setItem('admin-sidebar-collapsed', isCollapsed);
-        
-        // Update toggle icon
+
         const toggleIcon = sidebarToggle.querySelector('i');
         if (toggleIcon) {
           toggleIcon.className = isCollapsed ? 'fas fa-chevron-right' : 'fas fa-bars';
@@ -51,69 +43,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Close expanded sidebar when clicking outside on mobile/tablet (only if expanded)
+  // Close expanded sidebar when clicking outside on mobile/tablet
   document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 1024) {
+    if (window.innerWidth < 992) {
       if (sidebar && sidebar.classList.contains('open')) {
-        // Only close if clicking outside the sidebar and toggle button
-        if (!sidebar.contains(e.target) && 
-            !sidebarToggle.contains(e.target)) {
+        if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
           sidebar.classList.remove('open');
           if (sidebarOverlay) {
             sidebarOverlay.classList.remove('active');
           }
+          document.body.style.overflow = '';
         }
       }
     }
   });
-  
-  // Handle overlay click to close expanded sidebar on mobile/tablet
+
+  // Handle overlay click to close expanded sidebar
   if (sidebarOverlay) {
     sidebarOverlay.addEventListener('click', () => {
-      if (window.innerWidth <= 1024 && sidebar.classList.contains('open')) {
+      if (window.innerWidth < 992 && sidebar.classList.contains('open')) {
         sidebar.classList.remove('open');
         sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
       }
     });
   }
 
-  // Handle window resize
-  let resizeTimeout;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      if (window.innerWidth > 1024) {
-        // Desktop: Remove mobile 'open' state, keep collapsed state
-        sidebar.classList.remove('open');
-        if (sidebarOverlay) {
-          sidebarOverlay.classList.remove('active');
-        }
-        document.body.style.overflow = '';
-        
-        // Restore collapsed state from localStorage if applicable
-        const savedState = localStorage.getItem('admin-sidebar-collapsed');
-        if (savedState === 'true') {
-          sidebar.classList.add('collapsed');
-          const toggleIcon = sidebarToggle?.querySelector('i');
-          if (toggleIcon) {
-            toggleIcon.className = 'fas fa-chevron-right';
-          }
-        }
-      } else {
-        // Mobile/Tablet: Default to collapsed (80px) state, not hidden
-        sidebar.classList.remove('collapsed');
-        sidebar.classList.remove('open'); // Start collapsed (80px width)
-        if (sidebarOverlay) {
-          sidebarOverlay.classList.remove('active');
-        }
-        document.body.style.overflow = '';
-      }
-    }, 250);
-  });
+  // Handle window resize - REMOVED
 
-  // Handle Escape key to collapse sidebar on mobile/tablet
+  // Handle Escape key to collapse sidebar
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && window.innerWidth <= 1024) {
+    if (e.key === 'Escape') {
       if (sidebar && sidebar.classList.contains('open')) {
         sidebar.classList.remove('open');
       }

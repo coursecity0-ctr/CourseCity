@@ -10,7 +10,7 @@ async function checkAdminAccess() {
     // First check admin-specific session storage
     let user = null;
     const adminUser = sessionStorage.getItem('admin_user');
-    
+
     if (adminUser) {
       try {
         user = JSON.parse(adminUser);
@@ -128,14 +128,14 @@ async function checkAdminAccess() {
 function redirectToLogin() {
   const currentPath = window.location.pathname;
   let loginPath = 'login.html';
-  
+
   // Determine correct path based on current location
   if (currentPath.includes('/pages/admin/')) {
     loginPath = 'login.html';
   } else if (currentPath.includes('/admin/')) {
     loginPath = 'login.html';
   }
-  
+
   // Store return URL for redirect after login
   const returnUrl = encodeURIComponent(window.location.href);
   window.location.href = `${loginPath}?return=${returnUrl}`;
@@ -147,7 +147,7 @@ function showAccessDenied(message) {
   const mainContent = document.querySelector('.admin-main') || document.querySelector('main') || document.body;
   if (mainContent) {
     mainContent.innerHTML = `
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; padding: 2rem; text-align: center;">
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 640px; padding: 2rem; text-align: center;">
         <div style="font-size: 4rem; color: #dc3545; margin-bottom: 1rem;">
           <i class="fas fa-shield-alt"></i>
         </div>
